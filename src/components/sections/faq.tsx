@@ -1,0 +1,58 @@
+import { ChevronDown } from "lucide-react";
+import { contentId } from "@/content/id";
+import { Reveal } from "@/components/ui/reveal";
+
+export function FaqSection() {
+  const { label, title, items } = contentId.faq;
+
+  return (
+    <section className="py-20 md:py-32 border-b border-gray-200 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Kolom Kiri: Judul */}
+          <div className="lg:col-span-4 lg:sticky lg:top-28">
+            <Reveal>
+              <span className="text-[11px] uppercase tracking-[0.2em] text-[#191919]/50 font-medium">
+                {label}
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-serif font-normal leading-tight tracking-tight text-[#191919]">
+                {title}
+              </h2>
+            </Reveal>
+          </div>
+
+          {/* Kolom Kanan: Akordeon Aksesibel (<details> & <summary>) */}
+          <div className="lg:col-span-8">
+            <Reveal delay={100}>
+              <div className="border-t border-gray-200 divide-y divide-gray-200">
+                {items.map((item, idx) => (
+                  <details
+                    key={idx}
+                    className="group py-5 sm:py-6 focus-within:outline-none"
+                  >
+                    <summary className="flex items-start justify-between gap-4 cursor-pointer list-none select-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#191919] rounded-xs">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-xs font-mono text-[#191919]/40 shrink-0">
+                          0{idx + 1}
+                        </span>
+                        <h3 className="text-base sm:text-lg font-medium text-[#191919] group-hover:text-black transition-colors leading-snug">
+                          {item.question}
+                        </h3>
+                      </div>
+                      <span className="p-1 text-gray-400 group-hover:text-[#191919] transition-colors shrink-0">
+                        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
+                      </span>
+                    </summary>
+                    <div className="mt-3 pl-7 pr-4 sm:pr-8 text-sm sm:text-base text-[#191919]/70 leading-relaxed">
+                      {item.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
