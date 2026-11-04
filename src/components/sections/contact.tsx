@@ -1,10 +1,11 @@
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 import { ContactForm } from "@/components/contact-form";
 
-export function ContactSection() {
-  const { cta, direct } = contentId.contact;
+export async function ContactSection() {
+  const tCta = await getTranslations("contact.cta");
+  const tDirect = await getTranslations("contact.direct");
 
   return (
     <section
@@ -16,13 +17,13 @@ export function ContactSection() {
         <Reveal>
           <div className="max-w-3xl mb-12 sm:mb-16">
             <span className="text-[11px] uppercase tracking-[0.2em] text-ink/50 font-medium">
-              KONTAK KAMI
+              {tCta("label")}
             </span>
             <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-serif font-normal leading-tight tracking-tight text-ink">
-              {cta.title}
+              {tCta("title")}
             </h2>
             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-ink/70 leading-relaxed">
-              {cta.subtitle}
+              {tCta("subtitle")}
             </p>
           </div>
         </Reveal>
@@ -42,10 +43,10 @@ export function ContactSection() {
               <div className="bg-bg border border-line p-6 sm:p-8 space-y-8">
                 <div>
                   <span className="text-[11px] uppercase tracking-[0.2em] text-ink/50 font-medium block">
-                    {direct.title}
+                    {tDirect("title")}
                   </span>
                   <h3 className="mt-2 text-xl font-serif font-normal text-ink">
-                    Kanal Komunikasi
+                    {tDirect("channelTitle")}
                   </h3>
                 </div>
 
@@ -58,13 +59,13 @@ export function ContactSection() {
                     />
                     <div>
                       <span className="text-[11px] uppercase tracking-wider font-mono text-ink/50 block">
-                        Alamat Surel
+                        {tDirect("emailLabel")}
                       </span>
                       <a
-                        href={`mailto:${direct.email}`}
+                        href={`mailto:${tDirect("email")}`}
                         className="text-sm font-mono text-ink hover:underline focus-visible:outline-2 focus-visible:outline-ink rounded-xs mt-0.5 inline-block"
                       >
-                        {direct.email}
+                        {tDirect("email")}
                       </a>
                     </div>
                   </div>
@@ -77,13 +78,13 @@ export function ContactSection() {
                     />
                     <div>
                       <span className="text-[11px] uppercase tracking-wider font-mono text-ink/50 block">
-                        Nomor Telepon
+                        {tDirect("phoneLabel")}
                       </span>
                       <a
-                        href={`tel:${direct.phone.replace(/\s+/g, "")}`}
+                        href={`tel:${tDirect("phone").replace(/\s+/g, "")}`}
                         className="text-sm font-mono text-ink hover:underline focus-visible:outline-2 focus-visible:outline-ink rounded-xs mt-0.5 inline-block"
                       >
-                        {direct.phone}
+                        {tDirect("phone")}
                       </a>
                     </div>
                   </div>
@@ -96,10 +97,10 @@ export function ContactSection() {
                     />
                     <div>
                       <span className="text-[11px] uppercase tracking-wider font-mono text-ink/50 block">
-                        Lokasi Kantor
+                        {tDirect("locationLabel")}
                       </span>
                       <p className="text-sm text-ink/80 mt-0.5 leading-relaxed">
-                        {direct.location}
+                        {tDirect("location")}
                       </p>
                     </div>
                   </div>
@@ -113,14 +114,14 @@ export function ContactSection() {
                     <div className="space-y-1">
                       <div>
                         <span className="text-[11px] uppercase tracking-wider font-mono text-ink/50 block">
-                          Jam Kerja
+                          {tDirect("hoursLabel")}
                         </span>
                         <p className="text-sm text-ink/80 mt-0.5">
-                          {direct.hours}
+                          {tDirect("hours")}
                         </p>
                       </div>
                       <p className="text-xs text-ink/60 leading-relaxed pt-1">
-                        {direct.responseCommitment}
+                        {tDirect("responseCommitment")}
                       </p>
                     </div>
                   </div>

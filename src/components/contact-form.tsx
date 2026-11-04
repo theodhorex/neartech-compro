@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { contentId } from "@/content/id";
+import { useTranslations } from "next-intl";
 import { submitContact } from "@/lib/contact";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 
 export function ContactForm() {
-  const { form } = contentId.contact;
+  const t = useTranslations("contact.form");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,19 +22,19 @@ export function ContactForm() {
     const newErrors: Record<string, string> = {};
 
     if (!name.trim()) {
-      newErrors.name = "Nama wajib diisi.";
+      newErrors.name = t("nameRequired");
     }
 
     if (!email.trim()) {
-      newErrors.email = "Alamat surel wajib diisi.";
+      newErrors.email = t("emailRequired");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      newErrors.email = "Format alamat surel tidak valid.";
+      newErrors.email = t("emailInvalid");
     }
 
     if (!message.trim()) {
-      newErrors.message = "Pesan kebutuhan wajib diisi.";
+      newErrors.message = t("messageRequired");
     } else if (message.trim().length < 5) {
-      newErrors.message = "Mohon jelaskan kebutuhan minimal dalam beberapa kata.";
+      newErrors.message = t("messageMin");
     }
 
     setErrors(newErrors);
@@ -61,7 +61,7 @@ export function ContactForm() {
 
       if (res.success) {
         setStatus("success");
-        setStatusMessage(form.successMessage);
+        setStatusMessage(t("successMessage"));
         // Reset form
         setName("");
         setEmail("");
@@ -70,11 +70,11 @@ export function ContactForm() {
         setErrors({});
       } else {
         setStatus("error");
-        setStatusMessage(res.message || form.errorMessage);
+        setStatusMessage(res.message || t("errorMessage"));
       }
     } catch {
       setStatus("error");
-      setStatusMessage("Terjadi kendala saat mengirim. Silakan coba kembali.");
+      setStatusMessage(t("sendError"));
     }
   };
 
@@ -92,7 +92,7 @@ export function ContactForm() {
         <div className="flex items-center gap-3 text-emerald-800">
           <CheckCircle2 className="w-6 h-6 text-emerald-700 shrink-0" aria-hidden="true" />
           <h3 className="font-serif text-xl sm:text-2xl text-ink">
-            Pesan Terkirim
+            {t("successTitle")}
           </h3>
         </div>
         <p className="text-sm sm:text-base text-ink/70 leading-relaxed">
@@ -103,7 +103,7 @@ export function ContactForm() {
           onClick={handleReset}
           className="mt-4 text-xs font-mono uppercase tracking-wider text-ink/60 hover:text-ink underline focus-visible:outline-2 focus-visible:outline-ink"
         >
-          Kirim pesan lain
+          {t("resetButton")}
         </button>
       </div>
     );
@@ -134,7 +134,7 @@ export function ContactForm() {
             htmlFor="contact-name"
             className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
           >
-            {form.nameLabel} <span className="text-rose-600" aria-hidden="true">*</span>
+            {t("nameLabel")} <span className="text-rose-600" aria-hidden="true">*</span>
           </label>
           <input
             id="contact-name"
@@ -144,7 +144,7 @@ export function ContactForm() {
             disabled={status === "submitting"}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder={form.namePlaceholder}
+            placeholder={t("namePlaceholder")}
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
             className={`w-full px-3.5 py-2.5 text-sm bg-bg border ${
@@ -163,7 +163,7 @@ export function ContactForm() {
             htmlFor="contact-email"
             className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
           >
-            {form.emailLabel} <span className="text-rose-600" aria-hidden="true">*</span>
+            {t("emailLabel")} <span className="text-rose-600" aria-hidden="true">*</span>
           </label>
           <input
             id="contact-email"
@@ -173,7 +173,7 @@ export function ContactForm() {
             disabled={status === "submitting"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={form.emailPlaceholder}
+            placeholder={t("emailPlaceholder")}
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
             className={`w-full px-3.5 py-2.5 text-sm bg-bg border ${
@@ -194,8 +194,8 @@ export function ContactForm() {
           htmlFor="contact-company"
           className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
         >
-          {form.companyLabel}{" "}
-          <span className="text-ink/40 font-normal lowercase">{form.companyOptional}</span>
+          {t("companyLabel")}{" "}
+          <span className="text-ink/40 font-normal lowercase">{t("companyOptional")}</span>
         </label>
         <input
           id="contact-company"
@@ -204,7 +204,7 @@ export function ContactForm() {
           disabled={status === "submitting"}
           value={company}
           onChange={(e) => setCompany(e.target.value)}
-          placeholder={form.companyPlaceholder}
+          placeholder={t("companyPlaceholder")}
           className="w-full px-3.5 py-2.5 text-sm bg-bg border border-line rounded-sm text-ink placeholder:text-ink/40 focus-visible:outline-2 focus-visible:outline-ink transition-colors"
         />
       </div>
@@ -215,7 +215,7 @@ export function ContactForm() {
           htmlFor="contact-message"
           className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
         >
-          {form.messageLabel} <span className="text-rose-600" aria-hidden="true">*</span>
+          {t("messageLabel")} <span className="text-rose-600" aria-hidden="true">*</span>
         </label>
         <textarea
           id="contact-message"
@@ -225,7 +225,7 @@ export function ContactForm() {
           disabled={status === "submitting"}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder={form.messagePlaceholder}
+          placeholder={t("messagePlaceholder")}
           aria-invalid={errors.message ? "true" : "false"}
           aria-describedby={errors.message ? "message-error" : undefined}
           className={`w-full px-3.5 py-2.5 text-sm bg-bg border ${
@@ -247,7 +247,7 @@ export function ContactForm() {
           disabled={status === "submitting"}
           className="w-full sm:w-auto"
         >
-          {status === "submitting" ? form.submittingButton : form.submitButton}
+          {status === "submitting" ? t("submittingButton") : t("submitButton")}
         </Button>
       </div>
     </form>
