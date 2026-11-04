@@ -7,20 +7,20 @@ export function TechStackSection() {
   return (
     <section
       aria-label="Fondasi Teknologi"
-      className="py-16 sm:py-20 border-b border-gray-200 bg-[#F4F3F3]"
+      className="py-16 sm:py-20 border-b border-line bg-bg-soft"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Kolom Kiri: Label & Penjelasan Singkat */}
           <div className="lg:col-span-5">
             <Reveal>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-[#191919]/50 font-medium">
+              <span className="text-[11px] uppercase tracking-[0.2em] text-ink/50 font-medium">
                 {label}
               </span>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-serif font-normal text-[#191919] tracking-tight">
+              <h2 className="mt-2 text-2xl sm:text-3xl font-serif font-normal text-ink tracking-tight">
                 {title}
               </h2>
-              <p className="mt-3 text-xs sm:text-sm text-[#191919]/70 leading-relaxed">
+              <p className="mt-3 text-xs sm:text-sm text-ink/70 leading-relaxed">
                 {description}
               </p>
             </Reveal>
@@ -38,11 +38,11 @@ export function TechStackSection() {
                   <span
                     key={tech}
                     role="listitem"
-                    className="inline-flex items-center px-3.5 py-2 bg-white border border-gray-200 text-xs sm:text-sm font-mono text-[#191919]/80 select-none hover:border-[#191919] hover:text-[#191919] transition-colors"
+                    className="inline-flex items-center px-3.5 py-2 bg-bg border border-line text-xs sm:text-sm font-mono text-ink/80 select-none hover:border-ink hover:text-ink transition-colors"
                   >
                     <span
                       aria-hidden="true"
-                      className="w-1.5 h-1.5 rounded-full bg-[#191919]/30 mr-2 shrink-0"
+                      className="w-1.5 h-1.5 rounded-full bg-ink/30 mr-2 shrink-0"
                     />
                     {tech}
                   </span>

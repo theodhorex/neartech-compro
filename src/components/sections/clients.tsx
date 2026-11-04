@@ -17,10 +17,10 @@ export function ClientsSection() {
   return (
     <section
       aria-label="Klien dan Mitra"
-      className="bg-white border-b border-gray-200 py-10 sm:py-12 overflow-hidden"
+      className="bg-bg border-b border-line py-10 sm:py-12 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
-        <p className="text-[11px] uppercase tracking-[0.2em] font-mono text-[#191919]/50">
+        <p className="text-[11px] uppercase tracking-[0.2em] font-mono text-ink/50">
           {note}
         </p>
       </div>
@@ -30,7 +30,7 @@ export function ClientsSection() {
         <div
           tabIndex={0}
           aria-label="Daftar mitra kerja sama"
-          className="animate-marquee flex items-center gap-10 sm:gap-16 py-2 px-4 focus-visible:outline-2 focus-visible:outline-[#191919]"
+          className="animate-marquee flex items-center gap-10 sm:gap-16 py-2 px-4 focus-visible:outline-2 focus-visible:outline-ink"
         >
           {marqueeItems.map((name, idx) => {
             const styleIdx = idx % items.length;
@@ -38,12 +38,12 @@ export function ClientsSection() {
             return (
               <div
                 key={`${name}-${idx}`}
-                className={`text-[#191919]/60 hover:text-[#191919] transition-colors whitespace-nowrap select-none flex items-center gap-8 ${style}`}
+                className={`text-ink/60 hover:text-ink transition-colors whitespace-nowrap select-none flex items-center gap-8 ${style}`}
               >
                 <span>{name}</span>
                 <span
                   aria-hidden="true"
-                  className="w-1.5 h-1.5 rounded-full bg-gray-300 shrink-0"
+                  className="w-1.5 h-1.5 rounded-full bg-line shrink-0"
                 />
               </div>
             );
