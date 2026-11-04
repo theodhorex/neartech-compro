@@ -1,0 +1,417 @@
+{
+  "metadata": {
+    "title": "NearTech | 贴近您业务的科技伙伴",
+    "description": "赋能成长期企业的技术合作伙伴，涵盖业务战略、数字产品、工程开发及持续支持。"
+  },
+  "navbar": {
+    "ariaLabel": "主导航",
+    "services": "服务",
+    "approach": "方法",
+    "about": "关于",
+    "contact": "联系",
+    "cta": "联系我们",
+    "ctaAriaLabel": "联系我们"
+  },
+  "themeToggle": {
+    "changeTheme": "切换主题",
+    "currentDark": "切换主题（当前为暗色）",
+    "currentSystem": "切换主题（当前为跟随系统）",
+    "currentLight": "切换主题（当前为浅色）"
+  },
+  "languageSwitcher": {
+    "label": "选择语言"
+  },
+  "common": {
+    "logoAriaLabel": "NearTech 首页"
+  },
+  "hero": {
+    "titleLine1": "贴近您业务的",
+    "titleLine2": "核心技术力量。",
+    "description": "赋能成长期企业的技术合作伙伴，涵盖业务战略、数字产品、工程开发及持续支持。",
+    "cta": "联系我们",
+    "ctaAriaLabel": "联系我们洽谈项目"
+  },
+  "blueprint": {
+    "zoneStrategy": "01 战略 — 规划与基础",
+    "zoneProduct": "02 产品 — 界面与体验",
+    "zoneEngineering": "03 工程 — 架构与系统"
+  },
+  "infoPanel": {
+    "tag": "我们的业务",
+    "title": "赋能企业持续前行的核心技术",
+    "description": "我们设计、构建并维护数字产品。直接沟通、透明流程、衡量成效。",
+    "services": {
+      "strategy": "战略",
+      "product": "产品",
+      "engineering": "工程"
+    },
+    "serviceRowAriaLabel": "服务 {num}：{label}"
+  },
+  "stats": {
+    "ariaLabel": "成效指标",
+    "items": [
+      {
+        "value": 24,
+        "suffix": "+",
+        "label": "已交付项目"
+      },
+      {
+        "value": 9,
+        "suffix": "",
+        "label": "覆盖行业领域"
+      },
+      {
+        "value": 98,
+        "suffix": "%",
+        "label": "客户续约率"
+      },
+      {
+        "value": 4,
+        "suffix": " 天",
+        "label": "首版原型平均交付时间"
+      }
+    ]
+  },
+  "clients": {
+    "ariaLabel": "客户与合作伙伴",
+    "marqueeAriaLabel": "合作企业名录",
+    "note": "与我们携手同行的部分企业",
+    "items": [
+      "Nusantara Logistik",
+      "Karya Mandiri Finansial",
+      "Samudera Data Solusi",
+      "Bumi Pangan Lestari",
+      "Artha Graha Digital",
+      "Ruang Edukasi Indonesia"
+    ]
+  },
+  "services": {
+    "label": "服务范围",
+    "title": "从构想到稳定运行的数字产品",
+    "intro": "我们涵盖数字化建设的全链路，让您从始至终只需与一支专注高效的团队对接。",
+    "items": [
+      {
+        "num": "01",
+        "title": "战略咨询",
+        "description": "我们协助您明确应该构建什么，以及更为关键的——什么暂不该建。",
+        "points": [
+          "业务需求与流程梳理",
+          "优先级与范围界定",
+          "系统架构设计与技术选型",
+          "求真务实的路线图与工期估算"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "产品设计",
+        "description": "我们打造直观易用的交互体验，并将其打磨为高价值落地产品。",
+        "points": [
+          "用户研究与界面设计",
+          "先测后建的高保真可交互原型",
+          "Web 与移动端应用",
+          "统一规范的设计系统"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "工程研发",
+        "description": "我们构建并维护稳健、安全且能随业务规模扩展的高性能系统。",
+        "points": [
+          "系统开发与深度集成",
+          "自动化测试与持续集成交付",
+          "安全防护与实时监控",
+          "长效技术支持与运维优化"
+        ]
+      }
+    ]
+  },
+  "approach": {
+    "label": "工作方法",
+    "title": "清晰透明、步步可循的协作流程",
+    "intro": "拒绝空洞术语，没有意外偏差。每个阶段都有明确、可验证的成果供您审阅。",
+    "resultLabel": "阶段交付物",
+    "steps": [
+      {
+        "num": "01",
+        "title": "需求洞察",
+        "description": "在提出任何方案前，我们倾听您的核心诉求、业务目标与客观制约。",
+        "result": "问题陈述与目标蓝图。"
+      },
+      {
+        "num": "02",
+        "title": "方案设计",
+        "description": "我们规划技术架构、界面设计与实施计划，并呈送与您确认。",
+        "result": "设计蓝图与交互原型。"
+      },
+      {
+        "num": "03",
+        "title": "敏捷研发",
+        "description": "采用短周期迭代开发。您将定期看到切实的产品进展，而非仅有报告。",
+        "result": "分步交付可用版本。"
+      },
+      {
+        "num": "04",
+        "title": "持续护航",
+        "description": "产品上线后，我们依然全程陪伴：监控运行、修复隐患并推进系统演进。",
+        "result": "持续进化的数字产品。"
+      }
+    ],
+    "principles": [
+      {
+        "title": "直接沟通",
+        "description": "您直接与一线研发专家沟通，绝无冗余中间层。"
+      },
+      {
+        "title": "透明流程",
+        "description": "计划、进展和费用始终透明公开，清晰在目。"
+      },
+      {
+        "title": "衡量成效",
+        "description": "从第一天起，我们就与您明确量化成功指标。"
+      }
+    ]
+  },
+  "caseStudies": {
+    "label": "客户案例",
+    "title": "带来实效的真实数字化成果",
+    "intro": "精选三项深度合作案例，展示我们如何切实解决复杂的实际业务难题。",
+    "resultLabel": "实测效果",
+    "items": [
+      {
+        "num": "01",
+        "title": "车队物流系统现代化重构",
+        "industry": "供应链与物流分销",
+        "challenge": "车队追踪系统分散割裂，导致调度指令日常延误长达数小时。",
+        "result": "日常运输路线综合效率提升 38%",
+        "services": [
+          "战略咨询",
+          "工程研发"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "金融资产组合管理平台",
+        "industry": "金融科技服务",
+        "challenge": "原有分析界面繁琐且加载迟缓，用户难以直观理解资产全貌。",
+        "result": "活跃用户留存率提升 2.4 倍",
+        "services": [
+          "产品设计",
+          "工程研发"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "B2B 集中采购协同平台",
+        "industry": "智能制造与供应链采购",
+        "challenge": "供应商资质合规审核流程手工繁琐，单次采购周期耗时长达两周。",
+        "result": "资料审核处理周期缩短 70%",
+        "services": [
+          "战略咨询",
+          "产品设计"
+        ]
+      }
+    ]
+  },
+  "whyUs": {
+    "label": "为何选择 NEARTECH",
+    "title": "真诚相伴，近在咫尺",
+    "paragraph": "我们的名字即是我们的诺言：贴近您的业务，贴近您的用户，贴近真实的一线场景。我们宁愿精准解决正确的核心问题，也绝不堆砌无谓的复杂机制。",
+    "items": [
+      {
+        "title": "直击问题本质",
+        "description": "在编写每一行代码之前，先探究核心症结。"
+      },
+      {
+        "title": "简约而持久",
+        "description": "易于维护的长青架构，远胜昙花一现的浮夸设计。"
+      },
+      {
+        "title": "深度共创协同",
+        "description": "您直接参与关键决策，绝非被动等待结果交付。"
+      },
+      {
+        "title": "诚恳负责到底",
+        "description": "当某个想法不适宜当前阶段时，我们坦诚建言直说。"
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "合作评价",
+    "title": "合作伙伴对我们的真实评价",
+    "ariaLabel": "客户评价",
+    "carouselAriaLabel": "合作伙伴评价轮播",
+    "prevAriaLabel": "上一条评价",
+    "nextAriaLabel": "下一条评价",
+    "items": [
+      {
+        "quote": "NearTech 迅速抓住了我们的核心瓶颈，从未在无意义的琐碎功能上浪费时间。他们的沟通非常坦诚，打造的软件经得起长期检验。",
+        "author": "Hendro Wibowo",
+        "role": "运营总监，Nusantara Logistik"
+      },
+      {
+        "quote": "他们将抽象构想转化为可交互原型的敏捷速度，让我们团队从项目第一周就对最终交付充满信心。",
+        "author": "Alina Kusuma",
+        "role": "产品负责人，Karya Mandiri Finansial"
+      },
+      {
+        "quote": "他们交付的系统极其稳定，文档详尽清晰，后续交由我们内部团队维护非常轻松。极其专业且透明的合作伙伴。",
+        "author": "Bambang Sudiro",
+        "role": "工程副总裁，Samudera Data Solusi"
+      }
+    ]
+  },
+  "about": {
+    "label": "关于我们",
+    "title": "两位创始人，一个愿景：打造真正实用的科技",
+    "paragraphs": [
+      "NearTech 创立于一个纯粹的信念：优秀的科技应让人们的工作更加轻松高效。我们从一支精悍团队起步，倾注全副心力打磨每一个项目。",
+      "我们正稳健成长，并期待与有远见的企业从起步阶段深度合作。如果您正在寻找一支真正愿意理解您业务语境的团队，我们非常期待与您畅谈。"
+    ],
+    "valuesHeading": "核心价值观",
+    "values": [
+      {
+        "num": "01",
+        "title": "求真坦诚",
+        "description": "对技术边界坦率相告，制定务实工期，提供最合理的务实方案。"
+      },
+      {
+        "num": "02",
+        "title": "精益求精",
+        "description": "严把代码品质，构筑稳健架构，保障顺畅愉悦的用户体验。"
+      },
+      {
+        "num": "03",
+        "title": "携手共赢",
+        "description": "建立长远合作关系，将切实推动您的业务成功视为第一要务。"
+      }
+    ],
+    "teamHeading": "核心团队",
+    "team": [
+      {
+        "name": "Arya Pratama",
+        "role": "联合创始人，产品与战略",
+        "bio": "十余年产品战略与跨行业数字化转型领导经验。",
+        "initials": "AP"
+      },
+      {
+        "name": "Reza Mahendra",
+        "role": "联合创始人，技术工程",
+        "bio": "软件工程专家，深耕模块化架构、高可用系统与高性能计算。",
+        "initials": "RM"
+      },
+      {
+        "name": "Siti Rahmawati",
+        "role": "资深界面交互设计师",
+        "bio": "专注于清晰、规范且兼具美感的数字化设计系统与交互体验。",
+        "initials": "SR"
+      },
+      {
+        "name": "Dimas Nugroho",
+        "role": "资深软件工程师",
+        "bio": "专注开发高并发 Web 应用与经过严苛测试的高可靠数据系统。",
+        "initials": "DN"
+      }
+    ]
+  },
+  "techStack": {
+    "label": "技术基底",
+    "title": "我们信赖的技术栈",
+    "description": "经过市场检验的成熟技术工具，精选自高可靠性、繁荣生态与易维护性考量。",
+    "ariaLabel": "技术基底",
+    "listAriaLabel": "所采用的技术列表",
+    "items": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Figma"
+    ]
+  },
+  "faq": {
+    "label": "常见问题",
+    "title": "您可能关心的解答",
+    "items": [
+      {
+        "question": "NearTech 可以承接哪些类型的项目？",
+        "answer": "我们负责从前期战略规划到后期运维支持的数字全生命周期：Web 与移动应用、企业内部系统、系统集成与既有产品优化演进。"
+      },
+      {
+        "question": "在联系你们之前，我们需要准备好完整的方案规格吗？",
+        "answer": "完全不需要。很多优质项目都源于尚未明晰的痛点。我们的战略阶段正是为了帮您拨云见日、理清脉络。"
+      },
+      {
+        "question": "一个项目的周期通常多久，预算如何？",
+        "answer": "视具体范围而定。在初次沟通后，我们将提供书面评估与背后的明确假设，方便您全面清晰地对比决策。"
+      },
+      {
+        "question": "产品交付上线后，你们是否仍提供后续支持？",
+        "answer": "是的。我们提供长期的系统维护与持续迭代演进服务，该服务可根据需求自由选择。"
+      },
+      {
+        "question": "我们该如何开始合作？",
+        "answer": "通过下方表单发送留言即可。我们将在一个工作日内回复，并安排免费的初步咨询沟通。"
+      }
+    ]
+  },
+  "contact": {
+    "cta": {
+      "label": "联系我们",
+      "title": "有亟待解决的业务技术难题？"
+      ,"subtitle": "向我们简要介绍您的需求。我们将尽快回复并邀请您深入交流。",
+      "buttonText": "联系我们"
+    },
+    "form": {
+      "nameLabel": "您的姓名",
+      "namePlaceholder": "姓名",
+      "nameRequired": "请填写您的姓名。",
+      "emailLabel": "电子邮箱",
+      "emailPlaceholder": "name@company.com",
+      "emailRequired": "请填写电子邮箱。",
+      "emailInvalid": "电子邮箱格式不正确。",
+      "companyLabel": "企业名称",
+      "companyPlaceholder": "您的公司",
+      "companyOptional": "（选填）",
+      "messageLabel": "项目需求描述",
+      "messagePlaceholder": "请简述项目背景、核心挑战或期望达成的目标...",
+      "messageRequired": "请填写项目需求描述。",
+      "messageMin": "请至少用简要语句描述您的需求。",
+      "submitButton": "发送留言",
+      "submittingButton": "正在发送...",
+      "successTitle": "留言已成功送达",
+      "successMessage": "留言已成功送达。我们将尽快与您取得联系。",
+      "errorMessage": "请正确填写所有必填项。",
+      "sendError": "发送过程中出现异常，请稍后重试。",
+      "resetButton": "发送另一条留言"
+    },
+    "direct": {
+      "title": "直接联系",
+      "channelTitle": "沟通渠道",
+      "emailLabel": "电子邮箱",
+      "email": "halo@neartech.example",
+      "phoneLabel": "联系电话",
+      "phone": "+62 21 5555 0123",
+      "locationLabel": "办公地址",
+      "location": "Jl. Suryo No. 42, Senopati, Jakarta Selatan, Indonesia",
+      "hoursLabel": "工作时间",
+      "hours": "周一至周五，09:00 至 17:00 WIB",
+      "responseCommitment": "我们承诺在一个工作日内给予答复。"
+    }
+  },
+  "footer": {
+    "tagline": "贴近您业务的核心技术力量。",
+    "contactTitle": "联系方式",
+    "menuTitle": "快速导航",
+    "navAriaLabel": "页尾导航",
+    "nav": {
+      "services": "服务",
+      "approach": "方法",
+      "about": "关于",
+      "contact": "联系"
+    },
+    "copyright": "© 2026 NearTech. 保留所有权利。",
+    "backToTop": "返回顶部"
+  }
+}
