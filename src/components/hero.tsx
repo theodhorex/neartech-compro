@@ -1,3 +1,5 @@
+import { GlassCubeLoader } from "@/components/glass-cube-loader";
+
 const partners = [
   "Nusantara Group",
   "Kopi Kita",
@@ -9,12 +11,6 @@ const partners = [
   "Cakra Media",
 ];
 
-const faces = ["front", "back", "right", "left", "top", "bottom"] as const;
-
-function Faces() {
-  return faces.map((f) => <div key={f} className={`cube-face f-${f}`} />);
-}
-
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-svh w-full flex-col overflow-hidden bg-[#020204] text-white">
@@ -23,15 +19,8 @@ export function Hero() {
         <div className="beam beam-right" />
         <div className="beam beam-left" />
         <div className="absolute inset-0 bg-[radial-gradient(70%_70%_at_64%_34%,transparent_0%,rgba(2,2,4,0.3)_70%,#020204_100%)]" />
-        <div className="cube-scene absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 md:left-[68%] md:top-[36%]">
-          <div
-            className="cube [--size:clamp(120px,min(22vw,30vh),300px)]"
-          >
-            <Faces />
-            <div className="cube-core">
-              <Faces />
-            </div>
-          </div>
+        <div className="absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 md:left-[68%] md:top-[36%]">
+          <GlassCubeLoader />
         </div>
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#020204] via-[#020204]/70 to-transparent" />
       </div>
