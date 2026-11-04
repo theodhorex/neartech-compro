@@ -1,8 +1,17 @@
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
-export function WhyUsSection() {
-  const { label, title, paragraph, items } = contentId.whyUs;
+type WhyUsItem = {
+  title: string;
+  description: string;
+};
+
+export async function WhyUsSection() {
+  const t = await getTranslations("whyUs");
+  const label = t("label");
+  const title = t("title");
+  const paragraph = t("paragraph");
+  const items = t.raw("items") as WhyUsItem[];
 
   return (
     <section className="py-20 md:py-32 bg-bg border-b border-line">

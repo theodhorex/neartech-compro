@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
 function SchematicSvg({ index }: { index: number }) {
@@ -89,8 +89,22 @@ function SchematicSvg({ index }: { index: number }) {
   );
 }
 
-export function CaseStudiesSection() {
-  const { label, title, intro, items } = contentId.caseStudies;
+type CaseStudyItem = {
+  num: string;
+  title: string;
+  industry: string;
+  challenge: string;
+  result: string;
+  services: string[];
+};
+
+export async function CaseStudiesSection() {
+  const t = await getTranslations("caseStudies");
+  const label = t("label");
+  const title = t("title");
+  const intro = t("intro");
+  const resultLabel = t("resultLabel");
+  const items = t.raw("items") as CaseStudyItem[];
 
   return (
     <section
@@ -148,7 +162,7 @@ export function CaseStudiesSection() {
                   {/* Hasil Terukur */}
                   <div className="mt-5 pt-4 border-t border-line">
                     <span className="text-[10px] uppercase tracking-wider font-mono text-ink/50 block">
-                      Hasil Nyata
+                      {resultLabel}
                     </span>
                     <p className="mt-1 font-serif text-base font-medium text-ink">
                       {project.result}
