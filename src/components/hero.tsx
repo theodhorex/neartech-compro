@@ -23,9 +23,9 @@ export function Hero() {
         <div className="beam beam-right" />
         <div className="beam beam-left" />
         <div className="absolute inset-0 bg-[radial-gradient(70%_70%_at_64%_34%,transparent_0%,rgba(2,2,4,0.3)_70%,#020204_100%)]" />
-        <div className="cube-scene absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 md:left-[66%] md:top-[34%]">
+        <div className="cube-scene absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 md:left-[68%] md:top-[36%]">
           <div
-            className="cube [--size:clamp(140px,22vw,300px)]"
+            className="cube [--size:clamp(120px,min(22vw,30vh),300px)]"
           >
             <Faces />
             <div className="cube-core">
@@ -65,7 +65,7 @@ export function Hero() {
           </a>
           <a
             href="#kontak"
-            className="rounded-full bg-gradient-to-r from-sky-200 via-white to-amber-100 px-4 py-1.5 text-black transition hover:brightness-110"
+            className="rounded-full bg-white px-4 py-1.5 text-black transition hover:bg-white/80"
           >
             Mulai
           </a>
