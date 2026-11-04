@@ -1,4 +1,5 @@
 import { DimensionAnnotations, ElevationAnnotations, PaperGrid, SheetMetaAnnotations } from "./annotations";
+import { bpStyle } from "./anim";
 import { INK, VIEWBOX, LEFT_TOWER, CENTER_PAVILION, RIGHT_TOWER } from "./constants";
 
 export function StrategyZone({ variant }: { variant: "base" | "reveal" }) {
@@ -63,142 +64,197 @@ export function StrategyZone({ variant }: { variant: "base" | "reveal" }) {
     { y: RIGHT_TOWER.antennaTopY, label: "+71.00 MAST PINNACLE", code: "TOP" },
   ];
 
+  const renderPile = (
+    pile: { x: number; depth: number; width: number },
+    key: string
+  ) => (
+    <g key={key}>
+      {/* Pile cap pad */}
+      <rect
+        x={pile.x - pile.width / 2}
+        y={VIEWBOX.groundY + 12}
+        width={pile.width}
+        height={18}
+        stroke={INK}
+        strokeWidth="0.8"
+        fill="none"
+        vectorEffect="non-scaling-stroke"
+        className="ink-main"
+      />
+      {/* Drilled pier shaft */}
+      <line
+        x1={pile.x - 7}
+        y1={VIEWBOX.groundY + 30}
+        x2={pile.x - 7}
+        y2={pile.depth}
+        stroke={INK}
+        strokeWidth="0.6"
+        strokeDasharray="4 2"
+        vectorEffect="non-scaling-stroke"
+        className="ink-dash"
+      />
+      <line
+        x1={pile.x + 7}
+        y1={VIEWBOX.groundY + 30}
+        x2={pile.x + 7}
+        y2={pile.depth}
+        stroke={INK}
+        strokeWidth="0.6"
+        strokeDasharray="4 2"
+        vectorEffect="non-scaling-stroke"
+        className="ink-dash"
+      />
+      <line
+        x1={pile.x - 7}
+        y1={pile.depth}
+        x2={pile.x + 7}
+        y2={pile.depth}
+        stroke={INK}
+        strokeWidth="0.6"
+        vectorEffect="non-scaling-stroke"
+        className="ink-detail"
+      />
+      {/* Pile rebar center tick */}
+      <line
+        x1={pile.x}
+        y1={VIEWBOX.groundY + 12}
+        x2={pile.x}
+        y2={pile.depth - 4}
+        stroke={INK}
+        strokeWidth="0.6"
+        strokeDasharray="2 4"
+        vectorEffect="non-scaling-stroke"
+        className="ink-detail"
+      />
+    </g>
+  );
+
   return (
     <g data-zone="strategi">
       <g className="zone-art">
-        {/* Fine paper grid in reveal variant */}
-        {variant === "reveal" && <PaperGrid />}
-
-        {/* Foundation sub-grade outline & basement slab */}
-        <line
-          x1="40"
-          y1="810"
-          x2="1560"
-          y2="810"
-          stroke={INK}
-          strokeWidth="0.8"
-          strokeDasharray="6 3"
-          vectorEffect="non-scaling-stroke"
-          className="ink-dash"
-        />
-        <line
-          x1="40"
-          y1="835"
-          x2="1560"
-          y2="835"
-          stroke={INK}
-          strokeWidth="0.6"
-          strokeDasharray="3 3"
-          vectorEffect="non-scaling-stroke"
-          className="ink-detail"
-        />
-
-        {/* Foundation pile caps and piers */}
-        {pileCapLocations.map((pile, idx) => (
-          <g key={`pile-${idx}`}>
-            {/* Pile cap pad */}
-            <rect
-              x={pile.x - pile.width / 2}
-              y={VIEWBOX.groundY + 12}
-              width={pile.width}
-              height={18}
-              stroke={INK}
-              strokeWidth="0.8"
-              fill="none"
-              vectorEffect="non-scaling-stroke"
-              className="ink-main"
-            />
-            {/* Drilled pier shaft */}
-            <line
-              x1={pile.x - 7}
-              y1={VIEWBOX.groundY + 30}
-              x2={pile.x - 7}
-              y2={pile.depth}
-              stroke={INK}
-              strokeWidth="0.6"
-              strokeDasharray="4 2"
-              vectorEffect="non-scaling-stroke"
-              className="ink-dash"
-            />
-            <line
-              x1={pile.x + 7}
-              y1={VIEWBOX.groundY + 30}
-              x2={pile.x + 7}
-              y2={pile.depth}
-              stroke={INK}
-              strokeWidth="0.6"
-              strokeDasharray="4 2"
-              vectorEffect="non-scaling-stroke"
-              className="ink-dash"
-            />
-            <line
-              x1={pile.x - 7}
-              y1={pile.depth}
-              x2={pile.x + 7}
-              y2={pile.depth}
-              stroke={INK}
-              strokeWidth="0.6"
-              vectorEffect="non-scaling-stroke"
-              className="ink-detail"
-            />
-            {/* Pile rebar center tick */}
-            <line
-              x1={pile.x}
-              y1={VIEWBOX.groundY + 12}
-              x2={pile.x}
-              y2={pile.depth - 4}
-              stroke={INK}
-              strokeWidth="0.6"
-              strokeDasharray="2 4"
-              vectorEffect="non-scaling-stroke"
-              className="ink-detail"
-            />
+        {/* Fine paper grid in reveal variant (fades in with annotations) */}
+        {variant === "reveal" && (
+          <g className="bp-fade" style={bpStyle(3.8, 0.6)}>
+            <PaperGrid />
           </g>
-        ))}
+        )}
 
-        {/* Diagonal soil hatch lines */}
-        {hatchLines.map((h, i) => (
+        {/* Foundation sub-grade outline & basement slab (dashed, fade) */}
+        <g className="bp-fade" style={bpStyle(0.3, 0.6)}>
           <line
-            key={`hatch-${i}`}
-            x1={h.x1}
-            y1={h.y1}
-            x2={h.x2}
-            y2={h.y2}
+            x1="40"
+            y1="810"
+            x2="1560"
+            y2="810"
+            stroke={INK}
+            strokeWidth="0.8"
+            strokeDasharray="6 3"
+            vectorEffect="non-scaling-stroke"
+            className="ink-dash"
+          />
+          <line
+            x1="40"
+            y1="835"
+            x2="1560"
+            y2="835"
             stroke={INK}
             strokeWidth="0.6"
-            strokeOpacity="0.45"
+            strokeDasharray="3 3"
             vectorEffect="non-scaling-stroke"
             className="ink-detail"
           />
-        ))}
+        </g>
 
-        {/* Soil sub-grade boundary line */}
+        {/* Foundation pile caps and piers (grouped by mass into 3 waves) */}
+        <g className="bp-fade" style={bpStyle(0.35, 0.5)}>
+          {pileCapLocations.slice(0, 6).map((pile, idx) => renderPile(pile, `pile-left-${idx}`))}
+        </g>
+        <g className="bp-fade" style={bpStyle(0.50, 0.5)}>
+          {pileCapLocations.slice(6, 12).map((pile, idx) => renderPile(pile, `pile-center-${idx}`))}
+        </g>
+        <g className="bp-fade" style={bpStyle(0.65, 0.5)}>
+          {pileCapLocations.slice(12).map((pile, idx) => renderPile(pile, `pile-right-${idx}`))}
+        </g>
+
+        {/* Diagonal soil hatch lines in 3 quick waves */}
+        <g className="bp-fade" style={bpStyle(0.3, 0.5)}>
+          {hatchLines.filter((h) => h.x1 < 540).map((h, i) => (
+            <line
+              key={`hatch-l-${i}`}
+              x1={h.x1}
+              y1={h.y1}
+              x2={h.x2}
+              y2={h.y2}
+              stroke={INK}
+              strokeWidth="0.6"
+              strokeOpacity="0.45"
+              vectorEffect="non-scaling-stroke"
+              className="ink-detail"
+            />
+          ))}
+        </g>
+        <g className="bp-fade" style={bpStyle(0.45, 0.5)}>
+          {hatchLines.filter((h) => h.x1 >= 540 && h.x1 < 1080).map((h, i) => (
+            <line
+              key={`hatch-c-${i}`}
+              x1={h.x1}
+              y1={h.y1}
+              x2={h.x2}
+              y2={h.y2}
+              stroke={INK}
+              strokeWidth="0.6"
+              strokeOpacity="0.45"
+              vectorEffect="non-scaling-stroke"
+              className="ink-detail"
+            />
+          ))}
+        </g>
+        <g className="bp-fade" style={bpStyle(0.60, 0.5)}>
+          {hatchLines.filter((h) => h.x1 >= 1080).map((h, i) => (
+            <line
+              key={`hatch-r-${i}`}
+              x1={h.x1}
+              y1={h.y1}
+              x2={h.x2}
+              y2={h.y2}
+              stroke={INK}
+              strokeWidth="0.6"
+              strokeOpacity="0.45"
+              vectorEffect="non-scaling-stroke"
+              className="ink-detail"
+            />
+          ))}
+        </g>
+
+        {/* Soil sub-grade boundary line (drawn left to right) */}
         <line
           x1="0"
           y1={VIEWBOX.hatchBottomY}
           x2={VIEWBOX.width}
           y2={VIEWBOX.hatchBottomY}
+          pathLength={1}
+          className="bp-draw ink-detail"
+          style={bpStyle(0.2, 0.75)}
           stroke={INK}
-          strokeWidth="0.6"
-          vectorEffect="non-scaling-stroke"
-          className="ink-detail"
+          strokeWidth="0.8"
         />
 
-        {/* Main ground line (y=780, stroke 1.6) */}
+        {/* Main ground line (y=780, drawn left to right) */}
         <line
           x1="0"
           y1={VIEWBOX.groundY}
           x2={VIEWBOX.width}
           y2={VIEWBOX.groundY}
+          pathLength={1}
+          className="bp-draw ink-main"
+          style={bpStyle(0.0, 0.85)}
           stroke={INK}
           strokeWidth="1.6"
-          vectorEffect="non-scaling-stroke"
-          className="ink-main"
         />
 
         {/* Vertical Grid Axis Lines across elevation */}
-        {gridAxes.map((axis) => (
-          <g key={`axis-${axis.id}`}>
+        {gridAxes.map((axis, idx) => (
+          <g key={`axis-${axis.id}`} className="bp-fade" style={bpStyle(0.50 + idx * 0.08, 0.6)}>
             <line
               x1={axis.x}
               y1={50}
@@ -239,7 +295,7 @@ export function StrategyZone({ variant }: { variant: "base" | "reveal" }) {
 
         {/* Level Datum Reference Lines */}
         {datumLevels.map((lvl, idx) => (
-          <g key={`datum-${idx}`}>
+          <g key={`datum-${idx}`} className="bp-fade" style={bpStyle(0.65 + idx * 0.06, 0.5)}>
             <line
               x1="20"
               y1={lvl.y}
@@ -271,17 +327,17 @@ export function StrategyZone({ variant }: { variant: "base" | "reveal" }) {
           </g>
         ))}
 
-        {/* Reveal-only Technical Annotations */}
+        {/* Reveal-only Technical Annotations (fade in at ~3.8s) */}
         {variant === "reveal" && (
-          <>
+          <g className="bp-fade" style={bpStyle(3.8, 0.6)}>
             <DimensionAnnotations />
             <ElevationAnnotations />
             <SheetMetaAnnotations />
-          </>
+          </g>
         )}
       </g>
 
-      {/* Zone label: callout line and text (REVEAL ONLY) */}
+      {/* Zone label: callout line and text (REVEAL ONLY, controlled by active-zone V3b) */}
       {variant === "reveal" && (
         <g className="zone-label">
           {/* Leader line pointing to ground / foundation */}

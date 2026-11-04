@@ -1,7 +1,10 @@
+import { bpStyle } from "./anim";
 import { INK, RIGHT_TOWER, VIEWBOX } from "./constants";
 
 export function RightTowerFacade() {
-  const elements: React.ReactNode[] = [];
+  const tier1Windows: React.ReactNode[] = [];
+  const tier2Windows: React.ReactNode[] = [];
+  const tier3Windows: React.ReactNode[] = [];
 
   // Floor levels
   const tier1Floors: number[] = [];
@@ -89,7 +92,7 @@ export function RightTowerFacade() {
     for (let bx = 0; bx < 10; bx++) {
       const bayX = RIGHT_TOWER.x + bx * bayW1;
       const isChamfer = (i + bx) % 3 === 1;
-      elements.push(
+      tier1Windows.push(
         renderWindow(
           `rt1-win-${i}-${bx}`,
           bayX + 3,
@@ -111,7 +114,7 @@ export function RightTowerFacade() {
     for (let bx = 0; bx < 9; bx++) {
       const bayX = RIGHT_TOWER.setback1LeftX + bx * bayW2;
       const isChamfer = (i + bx) % 4 === 2;
-      elements.push(
+      tier2Windows.push(
         renderWindow(
           `rt2-win-${i}-${bx}`,
           bayX + 3,
@@ -133,7 +136,7 @@ export function RightTowerFacade() {
     for (let bx = 0; bx < 8; bx++) {
       const bayX = RIGHT_TOWER.setback2LeftX + bx * bayW3;
       const isChamfer = (i + bx) % 3 === 0;
-      elements.push(
+      tier3Windows.push(
         renderWindow(
           `rt3-win-${i}-${bx}`,
           bayX + 3,
@@ -157,8 +160,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(1.70, 0.8)}
       />
 
       {/* Tier 2 Outline (x: 1150 to 1520, y: 260 to 416) */}
@@ -170,8 +174,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(2.05, 0.75)}
       />
       {/* Tier 1 Setback Terraces with Railings */}
       <line
@@ -181,7 +186,9 @@ export function RightTowerFacade() {
         y2={RIGHT_TOWER.setback1Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.12, 0.5)}
       />
       <rect
         x={RIGHT_TOWER.x + 2}
@@ -191,7 +198,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.15, 0.5)}
       />
       <line
         x1={RIGHT_TOWER.setback1RightX}
@@ -200,7 +209,9 @@ export function RightTowerFacade() {
         y2={RIGHT_TOWER.setback1Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.12, 0.5)}
       />
       <rect
         x={RIGHT_TOWER.setback1RightX + 2}
@@ -210,7 +221,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.15, 0.5)}
       />
 
       {/* Tier 3 Outline (x: 1180 to 1480, y: 154 to 260) */}
@@ -222,8 +235,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(2.25, 0.7)}
       />
       {/* Tier 2 Setback Terraces with Railings */}
       <line
@@ -233,7 +247,9 @@ export function RightTowerFacade() {
         y2={RIGHT_TOWER.setback2Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.32, 0.5)}
       />
       <rect
         x={RIGHT_TOWER.setback1LeftX + 2}
@@ -243,7 +259,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.35, 0.5)}
       />
       <line
         x1={RIGHT_TOWER.setback2RightX}
@@ -252,7 +270,9 @@ export function RightTowerFacade() {
         y2={RIGHT_TOWER.setback2Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.32, 0.5)}
       />
       <rect
         x={RIGHT_TOWER.setback2RightX + 2}
@@ -262,7 +282,9 @@ export function RightTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.35, 0.5)}
       />
 
       {/* Roof Parapet at y=150 */}
@@ -273,8 +295,9 @@ export function RightTowerFacade() {
         y2={RIGHT_TOWER.peakY}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(2.40, 0.6)}
       />
       <line
         x1={RIGHT_TOWER.setback2LeftX - 6}
@@ -283,11 +306,21 @@ export function RightTowerFacade() {
         y2={RIGHT_TOWER.peakY + 4}
         stroke={INK}
         strokeWidth="0.8"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(2.43, 0.6)}
       />
 
-      {/* Window panes */}
-      {elements}
+      {/* Window panes grouped into 3 quick fading waves */}
+      <g className="bp-fade" style={bpStyle(2.40, 0.5)}>
+        {tier1Windows}
+      </g>
+      <g className="bp-fade" style={bpStyle(2.65, 0.5)}>
+        {tier2Windows}
+      </g>
+      <g className="bp-fade" style={bpStyle(2.90, 0.5)}>
+        {tier3Windows}
+      </g>
     </g>
   );
 }
@@ -304,7 +337,7 @@ export function RightTowerStructure() {
 
   return (
     <g className="right-tower-structure">
-      {/* Floor slabs & ceiling plenums */}
+      {/* Floor slabs & ceiling plenums (drawn bottom to top sequentially) */}
       {Array.from({ length: 25 }).map((_, f) => {
         const fy = VIEWBOX.groundY - f * RIGHT_TOWER.floorHeight;
         if (fy < RIGHT_TOWER.peakY) return null;
@@ -327,10 +360,11 @@ export function RightTowerStructure() {
               y1={fy}
               x2={rightX}
               y2={fy}
+              pathLength={1}
+              className="bp-draw ink-main"
+              style={bpStyle(1.80 + f * 0.04, 0.55)}
               stroke={INK}
               strokeWidth="0.8"
-              vectorEffect="non-scaling-stroke"
-              className="ink-main"
             />
             <line
               x1={leftX + 2}
@@ -341,42 +375,47 @@ export function RightTowerStructure() {
               strokeWidth="0.6"
               strokeDasharray="4 2"
               vectorEffect="non-scaling-stroke"
-              className="ink-dash"
+              className="ink-dash bp-fade"
+              style={bpStyle(1.85 + f * 0.04, 0.45)}
             />
           </g>
         );
       })}
 
-      {/* Structural Columns */}
-      {columns.map((cx, idx) => (
-        <line
-          key={`rt-col-${idx}`}
-          x1={cx}
-          y1={RIGHT_TOWER.setback1Y}
-          x2={cx}
-          y2={VIEWBOX.groundY}
+      {/* Structural Columns (dashed) */}
+      <g className="bp-fade" style={bpStyle(2.50, 0.6)}>
+        {columns.map((cx, idx) => (
+          <line
+            key={`rt-col-${idx}`}
+            x1={cx}
+            y1={RIGHT_TOWER.setback1Y}
+            x2={cx}
+            y2={VIEWBOX.groundY}
+            stroke={INK}
+            strokeWidth="1.0"
+            strokeDasharray="16 4 4 4"
+            strokeOpacity="0.75"
+            vectorEffect="non-scaling-stroke"
+            className="ink-dash"
+          />
+        ))}
+      </g>
+
+      {/* Core shear walls (dashed) */}
+      <g className="bp-fade" style={bpStyle(2.70, 0.6)}>
+        <rect
+          x={1280}
+          y={RIGHT_TOWER.crownTopY}
+          width={90}
+          height={VIEWBOX.groundY - RIGHT_TOWER.crownTopY}
           stroke={INK}
-          strokeWidth="1.0"
-          strokeDasharray="16 4 4 4"
-          strokeOpacity="0.75"
+          strokeWidth="0.8"
+          strokeDasharray="8 4"
+          fill="none"
           vectorEffect="non-scaling-stroke"
           className="ink-dash"
         />
-      ))}
-
-      {/* Core shear walls (dashed) */}
-      <rect
-        x={1280}
-        y={RIGHT_TOWER.crownTopY}
-        width={90}
-        height={VIEWBOX.groundY - RIGHT_TOWER.crownTopY}
-        stroke={INK}
-        strokeWidth="0.8"
-        strokeDasharray="8 4"
-        fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-dash"
-      />
+      </g>
 
       {/* Rooftop Penthouse & Equipment (Makna: Rekayasa) */}
       {/* Central Penthouse Box */}
@@ -388,65 +427,70 @@ export function RightTowerStructure() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(2.70, 0.6)}
       />
       {/* Penthouse Louvers */}
-      {Array.from({ length: 5 }).map((_, l) => (
-        <line
-          key={`pent-louver-${l}`}
-          x1={1245}
-          y1={RIGHT_TOWER.crownTopY + 4 + l * 4}
-          x2={1405}
-          y2={RIGHT_TOWER.crownTopY + 4 + l * 4}
+      <g className="bp-fade" style={bpStyle(2.85, 0.4)}>
+        {Array.from({ length: 5 }).map((_, l) => (
+          <line
+            key={`pent-louver-${l}`}
+            x1={1245}
+            y1={RIGHT_TOWER.crownTopY + 4 + l * 4}
+            x2={1405}
+            y2={RIGHT_TOWER.crownTopY + 4 + l * 4}
+            stroke={INK}
+            strokeWidth="0.6"
+            vectorEffect="non-scaling-stroke"
+            className="ink-detail"
+          />
+        ))}
+      </g>
+
+      {/* HVAC Chiller Unit & BMU crane */}
+      <g className="bp-fade" style={bpStyle(2.95, 0.5)}>
+        <rect
+          x={1420}
+          y={130}
+          width={55}
+          height={20}
+          stroke={INK}
+          strokeWidth="0.8"
+          fill="none"
+          vectorEffect="non-scaling-stroke"
+        />
+        {/* Chiller fan shroud circles */}
+        <circle
+          cx={1435}
+          cy={140}
+          r={7}
           stroke={INK}
           strokeWidth="0.6"
+          fill="none"
           vectorEffect="non-scaling-stroke"
-          className="ink-detail"
         />
-      ))}
+        <circle
+          cx={1460}
+          cy={140}
+          r={7}
+          stroke={INK}
+          strokeWidth="0.6"
+          fill="none"
+          vectorEffect="non-scaling-stroke"
+        />
+        {/* Fan cross ticks */}
+        <line x1={1435} y1={133} x2={1435} y2={147} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+        <line x1={1428} y1={140} x2={1442} y2={140} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+        <line x1={1460} y1={133} x2={1460} y2={147} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+        <line x1={1453} y1={140} x2={1467} y2={140} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
 
-      {/* HVAC Chiller Unit on roof (x: 1420 to 1475, y: 130 to 150) */}
-      <rect
-        x={1420}
-        y={130}
-        width={55}
-        height={20}
-        stroke={INK}
-        strokeWidth="0.8"
-        fill="none"
-        vectorEffect="non-scaling-stroke"
-      />
-      {/* Chiller fan shroud circles */}
-      <circle
-        cx={1435}
-        cy={140}
-        r={7}
-        stroke={INK}
-        strokeWidth="0.6"
-        fill="none"
-        vectorEffect="non-scaling-stroke"
-      />
-      <circle
-        cx={1460}
-        cy={140}
-        r={7}
-        stroke={INK}
-        strokeWidth="0.6"
-        fill="none"
-        vectorEffect="non-scaling-stroke"
-      />
-      {/* Fan cross ticks */}
-      <line x1={1435} y1={133} x2={1435} y2={147} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-      <line x1={1428} y1={140} x2={1442} y2={140} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-      <line x1={1460} y1={133} x2={1460} y2={147} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-      <line x1={1453} y1={140} x2={1467} y2={140} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-
-      {/* Building Maintenance Unit (BMU Crane) at x: 1200 */}
-      <line x1={1205} y1={150} x2={1205} y2={132} stroke={INK} strokeWidth="1.0" vectorEffect="non-scaling-stroke" />
-      <line x1={1205} y1={132} x2={1235} y2={126} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
-      <line x1={1235} y1={126} x2={1235} y2={140} stroke={INK} strokeWidth="0.6" strokeDasharray="2 2" vectorEffect="non-scaling-stroke" />
-      <rect x={1230} y={140} width={10} height={6} stroke={INK} strokeWidth="0.6" fill="none" vectorEffect="non-scaling-stroke" />
+        {/* Building Maintenance Unit (BMU Crane) at x: 1200 */}
+        <line x1={1205} y1={150} x2={1205} y2={132} stroke={INK} strokeWidth="1.0" vectorEffect="non-scaling-stroke" />
+        <line x1={1205} y1={132} x2={1235} y2={126} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
+        <line x1={1235} y1={126} x2={1235} y2={140} stroke={INK} strokeWidth="0.6" strokeDasharray="2 2" vectorEffect="non-scaling-stroke" />
+        <rect x={1230} y={140} width={10} height={6} stroke={INK} strokeWidth="0.6" fill="none" vectorEffect="non-scaling-stroke" />
+      </g>
 
       {/* Telecommunication Antenna Mast (Base at 125, Pinnacle at 70) */}
       <g className="antenna-system">
@@ -458,25 +502,28 @@ export function RightTowerStructure() {
           y2={RIGHT_TOWER.antennaTopY}
           stroke={INK}
           strokeWidth="1.2"
-          vectorEffect="non-scaling-stroke"
-          className="ink-main"
+          pathLength={1}
+          className="bp-draw ink-main"
+          style={bpStyle(3.05, 0.6)}
         />
-        {/* Tapered lattice struts */}
-        <line x1={1322} y1={RIGHT_TOWER.crownTopY} x2={1322} y2={95} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-        <line x1={1328} y1={RIGHT_TOWER.crownTopY} x2={1328} y2={95} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-        {/* Guy wires / stays */}
-        <line x1={1325} y1={90} x2={1250} y2={RIGHT_TOWER.crownTopY} stroke={INK} strokeWidth="0.6" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" />
-        <line x1={1325} y1={90} x2={1400} y2={RIGHT_TOWER.crownTopY} stroke={INK} strokeWidth="0.6" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" />
-        {/* Cross arms / spreaders */}
-        <line x1={1312} y1={98} x2={1338} y2={98} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
-        <line x1={1316} y1={82} x2={1334} y2={82} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
-        {/* Microwave dish */}
-        <circle cx={1310} cy={98} r={5} stroke={INK} strokeWidth="0.8" fill="none" vectorEffect="non-scaling-stroke" />
-        <circle cx={1340} cy={98} r={5} stroke={INK} strokeWidth="0.8" fill="none" vectorEffect="non-scaling-stroke" />
-        {/* Pinnacle beacon dot */}
-        <circle cx={1325} cy={RIGHT_TOWER.antennaTopY} r={2} fill={INK} stroke="none" />
-        <line x1={1322} y1={RIGHT_TOWER.antennaTopY} x2={1328} y2={RIGHT_TOWER.antennaTopY} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
-        <line x1={1325} y1={RIGHT_TOWER.antennaTopY - 3} x2={1325} y2={RIGHT_TOWER.antennaTopY + 3} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+        {/* Tapered lattice struts & rigging */}
+        <g className="bp-fade" style={bpStyle(3.25, 0.5)}>
+          <line x1={1322} y1={RIGHT_TOWER.crownTopY} x2={1322} y2={95} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+          <line x1={1328} y1={RIGHT_TOWER.crownTopY} x2={1328} y2={95} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+          {/* Guy wires / stays */}
+          <line x1={1325} y1={90} x2={1250} y2={RIGHT_TOWER.crownTopY} stroke={INK} strokeWidth="0.6" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" />
+          <line x1={1325} y1={90} x2={1400} y2={RIGHT_TOWER.crownTopY} stroke={INK} strokeWidth="0.6" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" />
+          {/* Cross arms / spreaders */}
+          <line x1={1312} y1={98} x2={1338} y2={98} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
+          <line x1={1316} y1={82} x2={1334} y2={82} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
+          {/* Microwave dish */}
+          <circle cx={1310} cy={98} r={5} stroke={INK} strokeWidth="0.8" fill="none" vectorEffect="non-scaling-stroke" />
+          <circle cx={1340} cy={98} r={5} stroke={INK} strokeWidth="0.8" fill="none" vectorEffect="non-scaling-stroke" />
+          {/* Pinnacle beacon dot */}
+          <circle cx={1325} cy={RIGHT_TOWER.antennaTopY} r={2} fill={INK} stroke="none" />
+          <line x1={1322} y1={RIGHT_TOWER.antennaTopY} x2={1328} y2={RIGHT_TOWER.antennaTopY} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+          <line x1={1325} y1={RIGHT_TOWER.antennaTopY - 3} x2={1325} y2={RIGHT_TOWER.antennaTopY + 3} stroke={INK} strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+        </g>
       </g>
     </g>
   );

@@ -1,7 +1,10 @@
+import { bpStyle } from "./anim";
 import { INK, LEFT_TOWER, VIEWBOX } from "./constants";
 
 export function LeftTowerFacade() {
-  const elements: React.ReactNode[] = [];
+  const tier1Windows: React.ReactNode[] = [];
+  const tier2Windows: React.ReactNode[] = [];
+  const tier3Windows: React.ReactNode[] = [];
 
   // Tier 1: Ground to Setback 1 (y: 780 down to 442)
   const tier1FloorYs: number[] = [];
@@ -93,7 +96,7 @@ export function LeftTowerFacade() {
       for (let bx = 0; bx < 10; bx++) {
         const bayX = LEFT_TOWER.x + bx * LEFT_TOWER.mullionWidth;
         const isChamfer = (i + bx) % 3 === 0;
-        elements.push(
+        tier1Windows.push(
           renderWindow(
             `t1-win-${i}-${bx}`,
             bayX + 4,
@@ -114,7 +117,7 @@ export function LeftTowerFacade() {
     for (let bx = 0; bx < 8; bx++) {
       const bayX = LEFT_TOWER.x + bx * 42.5;
       const isChamfer = (i + bx) % 4 === 1;
-      elements.push(
+      tier2Windows.push(
         renderWindow(
           `t2-win-${i}-${bx}`,
           bayX + 4,
@@ -134,7 +137,7 @@ export function LeftTowerFacade() {
     for (let bx = 0; bx < 7; bx++) {
       const bayX = LEFT_TOWER.setback2LeftX + bx * 40;
       const isChamfer = (i + bx) % 3 === 2;
-      elements.push(
+      tier3Windows.push(
         renderWindow(
           `t3-win-${i}-${bx}`,
           bayX + 4,
@@ -158,23 +161,26 @@ export function LeftTowerFacade() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(0.70, 0.8)}
       />
       {/* Tier 1 Vertical Mullions */}
-      {Array.from({ length: 9 }).map((_, bx) => (
-        <line
-          key={`t1-mullion-${bx}`}
-          x1={LEFT_TOWER.x + (bx + 1) * LEFT_TOWER.mullionWidth}
-          y1={LEFT_TOWER.setback1Y}
-          x2={LEFT_TOWER.x + (bx + 1) * LEFT_TOWER.mullionWidth}
-          y2={VIEWBOX.groundY}
-          stroke={INK}
-          strokeWidth="0.8"
-          vectorEffect="non-scaling-stroke"
-          className="ink-detail"
-        />
-      ))}
+      <g className="bp-fade" style={bpStyle(0.85, 0.6)}>
+        {Array.from({ length: 9 }).map((_, bx) => (
+          <line
+            key={`t1-mullion-${bx}`}
+            x1={LEFT_TOWER.x + (bx + 1) * LEFT_TOWER.mullionWidth}
+            y1={LEFT_TOWER.setback1Y}
+            x2={LEFT_TOWER.x + (bx + 1) * LEFT_TOWER.mullionWidth}
+            y2={VIEWBOX.groundY}
+            stroke={INK}
+            strokeWidth="0.8"
+            vectorEffect="non-scaling-stroke"
+            className="ink-detail"
+          />
+        ))}
+      </g>
 
       {/* Tier 2 Facade Outline (x: 70 to 410, y: 442 down to 312) */}
       <rect
@@ -185,8 +191,9 @@ export function LeftTowerFacade() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(0.95, 0.75)}
       />
       {/* Setback 1 Terrace (x: 410 to 470 at y=442) */}
       <line
@@ -196,8 +203,9 @@ export function LeftTowerFacade() {
         y2={LEFT_TOWER.setback1Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(1.05, 0.6)}
       />
       {/* Setback 1 Glass Railing / Balustrade */}
       <rect
@@ -208,7 +216,9 @@ export function LeftTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.10, 0.55)}
       />
       <line
         x1={440}
@@ -217,7 +227,9 @@ export function LeftTowerFacade() {
         y2={LEFT_TOWER.setback1Y}
         stroke={INK}
         strokeWidth="0.6"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.15, 0.5)}
       />
 
       {/* Tier 3 Facade Outline (x: 90 to 370, y: 312 down to 234) */}
@@ -229,8 +241,9 @@ export function LeftTowerFacade() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(1.15, 0.7)}
       />
       {/* Setback 2 Terraces (left x: 70-90, right x: 370-410 at y=312) */}
       <line
@@ -240,7 +253,9 @@ export function LeftTowerFacade() {
         y2={LEFT_TOWER.setback2Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.22, 0.5)}
       />
       <rect
         x={72}
@@ -250,7 +265,9 @@ export function LeftTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.25, 0.5)}
       />
       <line
         x1={370}
@@ -259,7 +276,9 @@ export function LeftTowerFacade() {
         y2={LEFT_TOWER.setback2Y}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.22, 0.5)}
       />
       <rect
         x={372}
@@ -269,7 +288,9 @@ export function LeftTowerFacade() {
         stroke={INK}
         strokeWidth="0.8"
         fill="none"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.25, 0.5)}
       />
 
       {/* Roof Parapet & Glass Crown (y: 230 to 234) */}
@@ -280,8 +301,9 @@ export function LeftTowerFacade() {
         y2={LEFT_TOWER.peakY}
         stroke={INK}
         strokeWidth="1.2"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(1.30, 0.6)}
       />
       <line
         x1={LEFT_TOWER.setback2LeftX - 4}
@@ -290,11 +312,21 @@ export function LeftTowerFacade() {
         y2={LEFT_TOWER.peakY + 4}
         stroke={INK}
         strokeWidth="0.8"
-        vectorEffect="non-scaling-stroke"
+        pathLength={1}
+        className="bp-draw"
+        style={bpStyle(1.33, 0.6)}
       />
 
-      {/* Window panes */}
-      {elements}
+      {/* Window panes grouped into 3 quick fading waves */}
+      <g className="bp-fade" style={bpStyle(1.60, 0.5)}>
+        {tier1Windows}
+      </g>
+      <g className="bp-fade" style={bpStyle(1.85, 0.5)}>
+        {tier2Windows}
+      </g>
+      <g className="bp-fade" style={bpStyle(2.10, 0.5)}>
+        {tier3Windows}
+      </g>
 
       {/* External Fire Escape Stairs on left side (x: 52 to 70, y: 442 to 780) */}
       <g className="external-stair">
@@ -305,55 +337,59 @@ export function LeftTowerFacade() {
           y2={VIEWBOX.groundY}
           stroke={INK}
           strokeWidth="0.8"
-          vectorEffect="non-scaling-stroke"
+          pathLength={1}
+          className="bp-draw"
+          style={bpStyle(1.4, 0.7)}
         />
-        {Array.from({ length: 7 }).map((_, s) => {
-          const sy1 = LEFT_TOWER.setback1Y + s * 48;
-          const sy2 = sy1 + 24;
-          const sy3 = sy1 + 48;
-          return (
-            <g key={`stair-${s}`}>
-              {/* Landings */}
-              <line
-                x1={54}
-                y1={sy1}
-                x2={70}
-                y2={sy1}
-                stroke={INK}
-                strokeWidth="0.8"
-                vectorEffect="non-scaling-stroke"
-              />
-              <line
-                x1={54}
-                y1={sy2}
-                x2={70}
-                y2={sy2}
-                stroke={INK}
-                strokeWidth="0.8"
-                vectorEffect="non-scaling-stroke"
-              />
-              {/* Diagonal flights */}
-              <line
-                x1={56}
-                y1={sy1}
-                x2={68}
-                y2={sy2}
-                stroke={INK}
-                strokeWidth="0.6"
-                vectorEffect="non-scaling-stroke"
-              />
-              <line
-                x1={68}
-                y1={sy2}
-                x2={56}
-                y2={sy3}
-                stroke={INK}
-                strokeWidth="0.6"
-                vectorEffect="non-scaling-stroke"
-              />
-            </g>
-          );
-        })}
+        <g className="bp-fade" style={bpStyle(1.6, 0.5)}>
+          {Array.from({ length: 7 }).map((_, s) => {
+            const sy1 = LEFT_TOWER.setback1Y + s * 48;
+            const sy2 = sy1 + 24;
+            const sy3 = sy1 + 48;
+            return (
+              <g key={`stair-${s}`}>
+                {/* Landings */}
+                <line
+                  x1={54}
+                  y1={sy1}
+                  x2={70}
+                  y2={sy1}
+                  stroke={INK}
+                  strokeWidth="0.8"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <line
+                  x1={54}
+                  y1={sy2}
+                  x2={70}
+                  y2={sy2}
+                  stroke={INK}
+                  strokeWidth="0.8"
+                  vectorEffect="non-scaling-stroke"
+                />
+                {/* Diagonal flights */}
+                <line
+                  x1={56}
+                  y1={sy1}
+                  x2={68}
+                  y2={sy2}
+                  stroke={INK}
+                  strokeWidth="0.6"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <line
+                  x1={68}
+                  y1={sy2}
+                  x2={56}
+                  y2={sy3}
+                  stroke={INK}
+                  strokeWidth="0.6"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </g>
+            );
+          })}
+        </g>
       </g>
     </g>
   );
@@ -372,7 +408,7 @@ export function LeftTowerStructure() {
 
   return (
     <g className="left-tower-structure">
-      {/* Structural floor slab lines */}
+      {/* Structural floor slab lines (drawn bottom-to-top sequentially) */}
       {Array.from({ length: 22 }).map((_, f) => {
         const fy = VIEWBOX.groundY - f * LEFT_TOWER.floorHeight;
         if (fy < LEFT_TOWER.peakY) return null;
@@ -390,12 +426,13 @@ export function LeftTowerStructure() {
               y1={fy}
               x2={rightX}
               y2={fy}
+              pathLength={1}
+              className="bp-draw ink-main"
+              style={bpStyle(0.80 + f * 0.045, 0.55)}
               stroke={INK}
               strokeWidth="0.8"
-              vectorEffect="non-scaling-stroke"
-              className="ink-main"
             />
-            {/* Ceiling plenum line */}
+            {/* Ceiling plenum line (dashed, fades in alongside slab) */}
             <line
               x1={leftX + 2}
               y1={fy - 4}
@@ -405,53 +442,58 @@ export function LeftTowerStructure() {
               strokeWidth="0.6"
               strokeDasharray="4 2"
               vectorEffect="non-scaling-stroke"
-              className="ink-dash"
+              className="ink-dash bp-fade"
+              style={bpStyle(0.85 + f * 0.045, 0.45)}
             />
           </g>
         );
       })}
 
       {/* Primary Structural Columns */}
-      {columns.map((cx, idx) => (
-        <line
-          key={`t1-col-${idx}`}
-          x1={cx}
-          y1={LEFT_TOWER.setback1Y}
-          x2={cx}
-          y2={VIEWBOX.groundY}
+      <g className="bp-fade" style={bpStyle(1.4, 0.6)}>
+        {columns.map((cx, idx) => (
+          <line
+            key={`t1-col-${idx}`}
+            x1={cx}
+            y1={LEFT_TOWER.setback1Y}
+            x2={cx}
+            y2={VIEWBOX.groundY}
+            stroke={INK}
+            strokeWidth="1.0"
+            strokeDasharray="16 4 4 4"
+            strokeOpacity="0.75"
+            vectorEffect="non-scaling-stroke"
+            className="ink-dash"
+          />
+        ))}
+      </g>
+
+      {/* Internal Concrete Shear Core (dashed walls) */}
+      <g className="bp-fade" style={bpStyle(1.6, 0.6)}>
+        <rect
+          x={200}
+          y={LEFT_TOWER.peakY + 10}
+          width={80}
+          height={VIEWBOX.groundY - (LEFT_TOWER.peakY + 10)}
           stroke={INK}
-          strokeWidth="1.0"
-          strokeDasharray="16 4 4 4"
-          strokeOpacity="0.75"
+          strokeWidth="0.8"
+          strokeDasharray="8 4"
+          fill="none"
           vectorEffect="non-scaling-stroke"
           className="ink-dash"
         />
-      ))}
-
-      {/* Internal Concrete Shear Core (dashed walls) */}
-      <rect
-        x={200}
-        y={LEFT_TOWER.peakY + 10}
-        width={80}
-        height={VIEWBOX.groundY - (LEFT_TOWER.peakY + 10)}
-        stroke={INK}
-        strokeWidth="0.8"
-        strokeDasharray="8 4"
-        fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-dash"
-      />
-      <line
-        x1={240}
-        y1={LEFT_TOWER.peakY + 10}
-        x2={240}
-        y2={VIEWBOX.groundY}
-        stroke={INK}
-        strokeWidth="0.6"
-        strokeDasharray="4 4"
-        vectorEffect="non-scaling-stroke"
-        className="ink-dash"
-      />
+        <line
+          x1={240}
+          y1={LEFT_TOWER.peakY + 10}
+          x2={240}
+          y2={VIEWBOX.groundY}
+          stroke={INK}
+          strokeWidth="0.6"
+          strokeDasharray="4 4"
+          vectorEffect="non-scaling-stroke"
+          className="ink-dash"
+        />
+      </g>
 
       {/* Rooftop Elevator Machine Room / Plant Box (x: 180 to 280, y: 206 to 230) */}
       <rect
@@ -462,23 +504,26 @@ export function LeftTowerStructure() {
         stroke={INK}
         strokeWidth="1.2"
         fill="none"
-        vectorEffect="non-scaling-stroke"
-        className="ink-main"
+        pathLength={1}
+        className="bp-draw ink-main"
+        style={bpStyle(1.8, 0.6)}
       />
       {/* Rooftop louvers */}
-      {Array.from({ length: 5 }).map((_, l) => (
-        <line
-          key={`t1-louver-${l}`}
-          x1={186}
-          y1={210 + l * 4}
-          x2={274}
-          y2={210 + l * 4}
-          stroke={INK}
-          strokeWidth="0.6"
-          vectorEffect="non-scaling-stroke"
-          className="ink-detail"
-        />
-      ))}
+      <g className="bp-fade" style={bpStyle(1.9, 0.5)}>
+        {Array.from({ length: 5 }).map((_, l) => (
+          <line
+            key={`t1-louver-${l}`}
+            x1={186}
+            y1={210 + l * 4}
+            x2={274}
+            y2={210 + l * 4}
+            stroke={INK}
+            strokeWidth="0.6"
+            vectorEffect="non-scaling-stroke"
+            className="ink-detail"
+          />
+        ))}
+      </g>
     </g>
   );
 }
