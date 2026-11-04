@@ -10,7 +10,7 @@ export function ServicesSection() {
   return (
     <section
       id="layanan"
-      className="scroll-mt-24 py-20 md:py-32 border-b border-gray-200 bg-white"
+      className="scroll-mt-24 py-20 md:py-32 border-b border-gray-200 bg-[#F4F3F3]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header Section */}

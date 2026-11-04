@@ -5,7 +5,7 @@ export function WhyUsSection() {
   const { label, title, paragraph, items } = contentId.whyUs;
 
   return (
-    <section className="py-20 md:py-32 bg-[#F4F3F3] border-b border-gray-200">
+    <section className="py-20 md:py-32 bg-white border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <Reveal>
@@ -26,7 +26,7 @@ export function WhyUsSection() {
         <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {items.map((item, idx) => (
             <Reveal key={item.title} delay={idx * 100}>
-              <div className="h-full bg-white border border-gray-200/90 p-6 sm:p-8 flex flex-col justify-between">
+              <div className="h-full bg-[#F4F3F3] border border-gray-200/90 p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-mono text-[#191919]/40 mb-3">
                     <span>0{idx + 1}</span>
