@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import type { ZoneKey } from "@/components/blueprint/use-pointer-loop";
+import { useTranslations } from "next-intl";
 
 interface ServiceRowProps {
   num: string;
@@ -15,6 +16,7 @@ interface ServiceRowProps {
 let leaveTimer: number | undefined;
 
 export function ServiceRow({ num, label, href, zone }: ServiceRowProps) {
+  const t = useTranslations("infoPanel");
   const [isArtActive, setIsArtActive] = useState(false);
 
   useEffect(() => {
@@ -53,7 +55,7 @@ export function ServiceRow({ num, label, href, zone }: ServiceRowProps) {
   return (
     <a
       href={href}
-      aria-label={`Layanan ${num}: ${label}`}
+      aria-label={t("serviceRowAriaLabel", { num, label })}
       aria-current={isArtActive ? "true" : undefined}
       onPointerEnter={() => emitUiZone(zone)}
       onPointerLeave={() => emitUiZone(null)}
