@@ -1,11 +1,22 @@
 import { Compass, Layout, Cpu } from "lucide-react";
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
 const SERVICE_ICONS = [Compass, Layout, Cpu];
 
-export function ServicesSection() {
-  const { label, title, intro, items } = contentId.services;
+type ServiceItem = {
+  num: string;
+  title: string;
+  description: string;
+  points: string[];
+};
+
+export async function ServicesSection() {
+  const t = await getTranslations("services");
+  const label = t("label");
+  const title = t("title");
+  const intro = t("intro");
+  const items = t.raw("items") as ServiceItem[];
 
   return (
     <section

@@ -1,8 +1,26 @@
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
-export function ApproachSection() {
-  const { label, title, intro, steps, principles } = contentId.approach;
+type StepItem = {
+  num: string;
+  title: string;
+  description: string;
+  result: string;
+};
+
+type PrincipleItem = {
+  title: string;
+  description: string;
+};
+
+export async function ApproachSection() {
+  const t = await getTranslations("approach");
+  const label = t("label");
+  const title = t("title");
+  const intro = t("intro");
+  const resultLabel = t("resultLabel");
+  const steps = t.raw("steps") as StepItem[];
+  const principles = t.raw("principles") as PrincipleItem[];
 
   return (
     <section
@@ -62,7 +80,7 @@ export function ApproachSection() {
                   {/* Kotak Hasil (Blueprint Deliverable) */}
                   <div className="mt-4 pt-3 border-t border-dashed border-line">
                     <span className="text-[10px] uppercase tracking-wider font-mono text-ink/50 block">
-                      Hasil
+                      {resultLabel}
                     </span>
                     <span className="text-xs font-medium text-ink/80 mt-0.5 block leading-snug">
                       {step.result}
