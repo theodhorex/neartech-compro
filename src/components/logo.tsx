@@ -17,10 +17,10 @@ export function Logo({ className = "" }: { className?: string }) {
     <a
       href="#"
       aria-label="NearTech Beranda"
-      className={`inline-flex items-center gap-2.5 text-[#191919] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#191919] rounded-sm ${className}`.trim()}
+      className={`inline-flex items-center gap-2.5 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink rounded-sm ${className}`.trim()}
     >
-      <LogoIcon className="w-6 h-6 text-[#191919] shrink-0" />
-      <span className="font-semibold text-base tracking-tight text-[#191919]">
+      <LogoIcon className="w-6 h-6 text-ink shrink-0" />
+      <span className="font-semibold text-base tracking-tight text-ink">
         NearTech
       </span>
     </a>

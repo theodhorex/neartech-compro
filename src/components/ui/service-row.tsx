@@ -59,26 +59,26 @@ export function ServiceRow({ num, label, href, zone }: ServiceRowProps) {
       onPointerLeave={() => emitUiZone(null)}
       onFocus={() => emitUiZone(zone)}
       onBlur={() => emitUiZone(null)}
-      className={`group relative flex items-center justify-between transition-all duration-200 cursor-pointer px-4 sm:px-6 py-3.5 sm:py-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#191919] ${
-        isArtActive ? "bg-[#eaeaea]" : "bg-[#F4F3F3] hover:bg-[#eaeaea]"
+      className={`group relative flex items-center justify-between transition-all duration-200 cursor-pointer px-4 sm:px-6 py-3.5 sm:py-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${
+        isArtActive ? "bg-bg-soft-hover" : "bg-bg-soft hover:bg-bg-soft-hover"
       }`}
     >
       <div className="flex items-center text-sm sm:text-base">
-        <span className="text-[#191919]/40">{num}</span>
-        <span className="mx-2 text-[#191919]/30">/</span>
-        <span className="font-medium text-[#191919]">{label}</span>
+        <span className="text-ink/40">{num}</span>
+        <span className="mx-2 text-ink/30">/</span>
+        <span className="font-medium text-ink">{label}</span>
       </div>
       <ArrowRight
         className={`w-4 h-4 transition-all duration-200 shrink-0 ${
           isArtActive
-            ? "text-gray-700 translate-x-0.5"
-            : "text-gray-400 group-hover:text-gray-700 group-hover:translate-x-0.5"
+            ? "text-ink translate-x-0.5"
+            : "text-ink-faint group-hover:text-ink group-hover:translate-x-0.5"
         }`}
       />
       <span
         aria-hidden="true"
         style={isArtActive ? { transform: "scaleX(1)" } : undefined}
-        className="feature-underline absolute bottom-0 left-0 right-0 h-0.5 bg-[#191919] pointer-events-none"
+        className="feature-underline absolute bottom-0 left-0 right-0 h-0.5 bg-ink pointer-events-none"
       />
     </a>
   );
