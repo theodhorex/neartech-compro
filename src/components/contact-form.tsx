@@ -87,21 +87,21 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="p-8 sm:p-10 border border-gray-200 bg-white flex flex-col items-start gap-4"
+        className="p-8 sm:p-10 border border-line bg-bg flex flex-col items-start gap-4"
       >
         <div className="flex items-center gap-3 text-emerald-800">
           <CheckCircle2 className="w-6 h-6 text-emerald-700 shrink-0" aria-hidden="true" />
-          <h3 className="font-serif text-xl sm:text-2xl text-[#191919]">
+          <h3 className="font-serif text-xl sm:text-2xl text-ink">
             Pesan Terkirim
           </h3>
         </div>
-        <p className="text-sm sm:text-base text-[#191919]/70 leading-relaxed">
+        <p className="text-sm sm:text-base text-ink/70 leading-relaxed">
           {statusMessage}
         </p>
         <button
           type="button"
           onClick={handleReset}
-          className="mt-4 text-xs font-mono uppercase tracking-wider text-[#191919]/60 hover:text-[#191919] underline focus-visible:outline-2 focus-visible:outline-[#191919]"
+          className="mt-4 text-xs font-mono uppercase tracking-wider text-ink/60 hover:text-ink underline focus-visible:outline-2 focus-visible:outline-ink"
         >
           Kirim pesan lain
         </button>
@@ -114,7 +114,7 @@ export function ContactForm() {
       id="contact-form"
       onSubmit={handleSubmit}
       noValidate
-      className="p-6 sm:p-8 md:p-10 border border-gray-200 bg-white space-y-6"
+      className="p-6 sm:p-8 md:p-10 border border-line bg-bg space-y-6"
     >
       {/* Pesan status error jika ada */}
       {status === "error" && (
@@ -132,7 +132,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="contact-name"
-            className="block text-xs uppercase tracking-wider font-mono text-[#191919]/70 mb-2"
+            className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
           >
             {form.nameLabel} <span className="text-rose-600" aria-hidden="true">*</span>
           </label>
@@ -147,9 +147,9 @@ export function ContactForm() {
             placeholder={form.namePlaceholder}
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
-              errors.name ? "border-rose-400 focus:border-rose-600" : "border-gray-200 focus:border-[#191919]"
-            } rounded-sm text-[#191919] placeholder:text-[#191919]/40 focus-visible:outline-2 focus-visible:outline-[#191919] transition-colors`}
+            className={`w-full px-3.5 py-2.5 text-sm bg-bg border ${
+              errors.name ? "border-rose-400 focus:border-rose-600" : "border-line focus:border-ink"
+            } rounded-sm text-ink placeholder:text-ink/40 focus-visible:outline-2 focus-visible:outline-ink transition-colors`}
           />
           {errors.name && (
             <p id="name-error" className="mt-1.5 text-xs text-rose-600">
@@ -161,7 +161,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="contact-email"
-            className="block text-xs uppercase tracking-wider font-mono text-[#191919]/70 mb-2"
+            className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
           >
             {form.emailLabel} <span className="text-rose-600" aria-hidden="true">*</span>
           </label>
@@ -176,9 +176,9 @@ export function ContactForm() {
             placeholder={form.emailPlaceholder}
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
-              errors.email ? "border-rose-400 focus:border-rose-600" : "border-gray-200 focus:border-[#191919]"
-            } rounded-sm text-[#191919] placeholder:text-[#191919]/40 focus-visible:outline-2 focus-visible:outline-[#191919] transition-colors`}
+            className={`w-full px-3.5 py-2.5 text-sm bg-bg border ${
+              errors.email ? "border-rose-400 focus:border-rose-600" : "border-line focus:border-ink"
+            } rounded-sm text-ink placeholder:text-ink/40 focus-visible:outline-2 focus-visible:outline-ink transition-colors`}
           />
           {errors.email && (
             <p id="email-error" className="mt-1.5 text-xs text-rose-600">
@@ -192,10 +192,10 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="contact-company"
-          className="block text-xs uppercase tracking-wider font-mono text-[#191919]/70 mb-2"
+          className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
         >
           {form.companyLabel}{" "}
-          <span className="text-gray-400 font-normal lowercase">{form.companyOptional}</span>
+          <span className="text-ink/40 font-normal lowercase">{form.companyOptional}</span>
         </label>
         <input
           id="contact-company"
@@ -205,7 +205,7 @@ export function ContactForm() {
           value={company}
           onChange={(e) => setCompany(e.target.value)}
           placeholder={form.companyPlaceholder}
-          className="w-full px-3.5 py-2.5 text-sm bg-white border border-gray-200 rounded-sm text-[#191919] placeholder:text-[#191919]/40 focus-visible:outline-2 focus-visible:outline-[#191919] transition-colors"
+          className="w-full px-3.5 py-2.5 text-sm bg-bg border border-line rounded-sm text-ink placeholder:text-ink/40 focus-visible:outline-2 focus-visible:outline-ink transition-colors"
         />
       </div>
 
@@ -213,7 +213,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="contact-message"
-          className="block text-xs uppercase tracking-wider font-mono text-[#191919]/70 mb-2"
+          className="block text-xs uppercase tracking-wider font-mono text-ink/70 mb-2"
         >
           {form.messageLabel} <span className="text-rose-600" aria-hidden="true">*</span>
         </label>
@@ -228,9 +228,9 @@ export function ContactForm() {
           placeholder={form.messagePlaceholder}
           aria-invalid={errors.message ? "true" : "false"}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
-            errors.message ? "border-rose-400 focus:border-rose-600" : "border-gray-200 focus:border-[#191919]"
-          } rounded-sm text-[#191919] placeholder:text-[#191919]/40 focus-visible:outline-2 focus-visible:outline-[#191919] transition-colors leading-relaxed`}
+          className={`w-full px-3.5 py-2.5 text-sm bg-bg border ${
+            errors.message ? "border-rose-400 focus:border-rose-600" : "border-line focus:border-ink"
+          } rounded-sm text-ink placeholder:text-ink/40 focus-visible:outline-2 focus-visible:outline-ink transition-colors leading-relaxed`}
         />
         {errors.message && (
           <p id="message-error" className="mt-1.5 text-xs text-rose-600">
