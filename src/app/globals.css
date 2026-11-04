@@ -1,16 +1,12 @@
 @import "tailwindcss";
+@import "../styles/theme.css";
+@import "../styles/hero-theme.css";
 
 @theme inline {
   --font-sans: var(--font-inter), 'Inter', sans-serif;
   --font-serif: 'P22 Mackinac W01 Book', Georgia, serif;
-  --color-ink: #191919;
-  --color-surface: #F4F3F3;
 }
 
-:root {
-  --ink: #191919;
-  --surface: #F4F3F3;
-}
 
 /* Reset di @layer base agar KALAH dari utilitas Tailwind (mis. text-white pada
    tombol). Aturan tanpa layer mengalahkan semua utilitas. */
@@ -26,7 +22,7 @@
   }
 
   body {
-    background-color: #ffffff;
+    background-color: var(--bg);
     color: var(--ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -211,10 +207,3 @@
   }
 }
 
-.text-knockout {
-  text-shadow:
-    0 0 2px rgba(255, 255, 255, 0.95),
-    0 0 10px rgba(255, 255, 255, 0.95),
-    0 0 22px rgba(255, 255, 255, 0.9),
-    0 0 40px rgba(255, 255, 255, 0.75);
-}
