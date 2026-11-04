@@ -1,12 +1,16 @@
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
-export function TechStackSection() {
-  const { label, title, description, items } = contentId.techStack;
+export async function TechStackSection() {
+  const t = await getTranslations("techStack");
+  const label = t("label");
+  const title = t("title");
+  const description = t("description");
+  const items = t.raw("items") as string[];
 
   return (
     <section
-      aria-label="Fondasi Teknologi"
+      aria-label={t("ariaLabel")}
       className="py-16 sm:py-20 border-b border-line bg-bg-soft"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -31,7 +35,7 @@ export function TechStackSection() {
             <Reveal delay={100}>
               <div
                 role="list"
-                aria-label="Daftar teknologi yang digunakan"
+                aria-label={t("listAriaLabel")}
                 className="flex flex-wrap items-center gap-2.5 sm:gap-3"
               >
                 {items.map((tech) => (

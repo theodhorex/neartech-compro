@@ -1,9 +1,17 @@
 import { ChevronDown } from "lucide-react";
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
-export function FaqSection() {
-  const { label, title, items } = contentId.faq;
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export async function FaqSection() {
+  const t = await getTranslations("faq");
+  const label = t("label");
+  const title = t("title");
+  const items = t.raw("items") as FaqItem[];
 
   return (
     <section className="py-20 md:py-32 border-b border-line bg-bg">
