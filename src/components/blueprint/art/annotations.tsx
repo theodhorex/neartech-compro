@@ -484,7 +484,7 @@ export function SheetMetaAnnotations() {
           vectorEffect="non-scaling-stroke"
         />
         {/* Top callout circle */}
-        <circle cx={510} cy={140} r={14} stroke={INK} strokeWidth="1.2" fill="#FFFFFF" vectorEffect="non-scaling-stroke" />
+        <circle cx={510} cy={140} r={14} stroke={INK} strokeWidth="1.2" style={{ fill: "var(--bp-paper)" }} vectorEffect="non-scaling-stroke" />
         <line x1={496} y1={140} x2={524} y2={140} stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
         <text
           x={510}
@@ -555,21 +555,21 @@ export function SheetMetaAnnotations() {
         <g>
           <polyline points="440,432 460,400 480,400" fill="none" stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
           <circle cx="440" cy="432" r="2" fill={INK} />
-          <circle cx="494" cy="400" r="12" stroke={INK} strokeWidth="0.8" fill="#FFFFFF" vectorEffect="non-scaling-stroke" />
+          <circle cx="494" cy="400" r="12" stroke={INK} strokeWidth="0.8" style={{ fill: "var(--bp-paper)" }} vectorEffect="non-scaling-stroke" />
           <text x="494" y="403.5" textAnchor="middle" style={{ fontFamily: MONO_FONT, fontSize: 9.5, fill: INK, stroke: "none", fontWeight: 600 }}>01</text>
         </g>
         {/* Callout 02 at Canopy Tie-Rod */}
         <g>
           <polyline points="780,676 750,650 720,650" fill="none" stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
           <circle cx="780" cy="676" r="2" fill={INK} />
-          <circle cx="706" cy="650" r="12" stroke={INK} strokeWidth="0.8" fill="#FFFFFF" vectorEffect="non-scaling-stroke" />
+          <circle cx="706" cy="650" r="12" stroke={INK} strokeWidth="0.8" style={{ fill: "var(--bp-paper)" }} vectorEffect="non-scaling-stroke" />
           <text x="706" y="653.5" textAnchor="middle" style={{ fontFamily: MONO_FONT, fontSize: 9.5, fill: INK, stroke: "none", fontWeight: 600 }}>02</text>
         </g>
         {/* Callout 03 at Roof Equipment */}
         <g>
           <polyline points="1440,130 1460,110 1480,110" fill="none" stroke={INK} strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
           <circle cx="1440" cy="130" r="2" fill={INK} />
-          <circle cx="1494" cy="110" r="12" stroke={INK} strokeWidth="0.8" fill="#FFFFFF" vectorEffect="non-scaling-stroke" />
+          <circle cx="1494" cy="110" r="12" stroke={INK} strokeWidth="0.8" style={{ fill: "var(--bp-paper)" }} vectorEffect="non-scaling-stroke" />
           <text x="1494" y="113.5" textAnchor="middle" style={{ fontFamily: MONO_FONT, fontSize: 9.5, fill: INK, stroke: "none", fontWeight: 600 }}>03</text>
         </g>
       </g>

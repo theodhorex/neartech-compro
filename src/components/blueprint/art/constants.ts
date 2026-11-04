@@ -1,4 +1,4 @@
-export const INK = "#191919";
+export const INK = "currentColor";
 
 export const VIEWBOX = {
   width: 1600,

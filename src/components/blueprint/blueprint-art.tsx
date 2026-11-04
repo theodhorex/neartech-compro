@@ -9,6 +9,7 @@ export function BlueprintArt({ variant }: { variant: "base" | "reveal" }) {
       viewBox="0 0 1600 900"
       preserveAspectRatio="xMidYMax slice"
       className="h-full w-full"
+      style={{ color: "var(--bp-ink)" }}
       aria-hidden="true"
       data-variant={variant}
     >
@@ -25,11 +26,11 @@ export function BlueprintArt({ variant }: { variant: "base" | "reveal" }) {
             <polyline
               points="760,724 730,680 610,680"
               fill="none"
-              stroke="#191919"
+              stroke="currentColor"
               strokeWidth="0.8"
               vectorEffect="non-scaling-stroke"
             />
-            <circle cx="760" cy="724" r="2.5" fill="#191919" />
+            <circle cx="760" cy="724" r="2.5" fill="currentColor" />
             <text
               x="605"
               y="677"
@@ -37,7 +38,7 @@ export function BlueprintArt({ variant }: { variant: "base" | "reveal" }) {
               style={{
                 fontFamily: "ui-monospace, 'SF Mono', Menlo, monospace",
                 fontSize: 10,
-                fill: "#191919",
+                fill: "currentColor",
                 stroke: "none",
                 fontWeight: 600,
                 letterSpacing: "0.08em",
@@ -65,11 +66,11 @@ export function BlueprintArt({ variant }: { variant: "base" | "reveal" }) {
             <polyline
               points="1325,145 1360,175 1460,175"
               fill="none"
-              stroke="#191919"
+              stroke="currentColor"
               strokeWidth="0.8"
               vectorEffect="non-scaling-stroke"
             />
-            <circle cx="1325" cy="145" r="2.5" fill="#191919" />
+            <circle cx="1325" cy="145" r="2.5" fill="currentColor" />
             <text
               x="1465"
               y="172"
@@ -77,7 +78,7 @@ export function BlueprintArt({ variant }: { variant: "base" | "reveal" }) {
               style={{
                 fontFamily: "ui-monospace, 'SF Mono', Menlo, monospace",
                 fontSize: 10,
-                fill: "#191919",
+                fill: "currentColor",
                 stroke: "none",
                 fontWeight: 600,
                 letterSpacing: "0.08em",

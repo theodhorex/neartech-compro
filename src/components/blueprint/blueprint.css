@@ -1,12 +1,16 @@
 /* Blueprint Backdrop CSS */
 
+.blueprint-backdrop {
+  color: var(--bp-ink);
+}
+
 .blueprint-paper {
-  background-color: #ffffff;
+  background-color: var(--bp-paper);
   background-image:
-    linear-gradient(to right, rgba(25, 25, 25, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(25, 25, 25, 0.035) 1px, transparent 1px),
-    linear-gradient(to right, rgba(25, 25, 25, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(25, 25, 25, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(to right, var(--bp-grid-bold) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-grid-bold) 1px, transparent 1px);
   background-size:
     24px 24px,
     24px 24px,
@@ -16,7 +20,7 @@
 
 /* Base layer */
 .blueprint-layer-base {
-  opacity: 0.30;
+  opacity: var(--bp-base-opacity, 0.30);
 }
 
 /* Reveal layer with cursor radial mask (delayed intro until annotations ready) */
@@ -130,7 +134,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background-color: rgba(25, 25, 25, 0.25);
+  background-color: color-mix(in srgb, var(--bp-ink) 25%, transparent);
   pointer-events: none;
   transform: translateY(var(--py, -100px));
 }
@@ -140,7 +144,7 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  background-color: rgba(25, 25, 25, 0.25);
+  background-color: color-mix(in srgb, var(--bp-ink) 25%, transparent);
   pointer-events: none;
   transform: translateX(var(--px, -100px));
 }
@@ -153,7 +157,7 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 10px;
   letter-spacing: 0.05em;
-  color: rgba(25, 25, 25, 0.7);
+  color: var(--ink-muted);
   white-space: nowrap;
   user-select: none;
   transform: translate(calc(var(--px, -100px) + 8px), calc(var(--py, -100px) + 8px));

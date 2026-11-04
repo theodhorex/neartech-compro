@@ -36,7 +36,7 @@
 
 /* Gaya sorotan statis: tidak ikut berubah saat zona melepas/mengaktifkan */
 .blueprint-backdrop .blueprint-layer-highlight .zone-art * {
-  stroke: #191919;
+  stroke: var(--bp-ink);
   stroke-width: 2px;
   stroke-opacity: 1;
   transition: none;
