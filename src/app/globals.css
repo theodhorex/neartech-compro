@@ -165,8 +165,28 @@
     rgba(0, 0, 0, 0.96) 84%,
     #000 100%
   );
-  -webkit-mask-image: var(--m);
-  mask-image: var(--m);
+  /* Pita bawah (area panel layanan + tiga tab): garis tanah, hatch, pondasi,
+     dan rantai dimensi diredam kuat; baru penuh di atas panel. Tinggi pita
+     mengikuti tinggi panel (lebih tinggi di mobile saat tab menumpuk). */
+  --band: 400px;
+  --m2: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.08) 0,
+    rgba(0, 0, 0, 0.08) var(--band),
+    rgba(0, 0, 0, 0.35) calc(var(--band) + 60px),
+    rgba(0, 0, 0, 0.75) calc(var(--band) + 140px),
+    #000 calc(var(--band) + 240px)
+  );
+  -webkit-mask-image: var(--m), var(--m2);
+  mask-image: var(--m), var(--m2);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+@media (max-width: 639px) {
+  .hero-art-mask {
+    --band: 620px;
+  }
 }
 
 .text-knockout {

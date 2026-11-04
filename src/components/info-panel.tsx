@@ -15,7 +15,7 @@ const SERVICES: {
 export function InfoPanel() {
   return (
     <div data-hero-ui className="w-full max-w-5xl px-4 sm:px-6 z-10 animate-panel-up">
-      <div className="bg-white/90 backdrop-blur-sm border border-gray-200 border-b-0 pt-8 sm:pt-12 md:pt-16 px-5 sm:px-8 md:px-12 pb-0 shadow-sm">
+      <div className="bg-white/95 backdrop-blur-md border border-gray-200 border-b-0 pt-8 sm:pt-12 md:pt-16 px-5 sm:px-8 md:px-12 pb-0 shadow-sm">
         {/* Baris 1, 2 kolom */}
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 sm:gap-8 md:gap-16 items-end">
           <div>
