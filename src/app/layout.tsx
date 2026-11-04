@@ -10,9 +10,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NearTech — Teknologi yang dekat dengan bisnis Anda",
+  title: "NearTech | Teknologi yang dekat dengan bisnis Anda",
   description:
     "Mitra teknologi untuk bisnis yang sedang bertumbuh, dari strategi dan produk digital hingga rekayasa dan dukungan berkelanjutan.",
+  openGraph: {
+    title: "NearTech | Teknologi yang dekat dengan bisnis Anda",
+    description:
+      "Mitra teknologi untuk bisnis yang sedang bertumbuh, dari strategi dan produk digital hingga rekayasa dan dukungan berkelanjutan.",
+    type: "website",
+    locale: "id_ID",
+    siteName: "NearTech",
+  },
 };
 
 export const viewport: Viewport = {
@@ -30,7 +38,6 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://db.onlinewebfonts.com"
-          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
