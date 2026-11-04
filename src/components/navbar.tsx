@@ -1,19 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-const NAV_LINKS = [
-  { href: "#layanan", label: "Layanan" },
-  { href: "#pendekatan", label: "Pendekatan" },
-  { href: "#tentang", label: "Tentang" },
-  { href: "#kontak", label: "Kontak" },
-];
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 export function Navbar() {
+  const t = useTranslations("navbar");
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const navLinks = [
+    { href: "#layanan", label: t("services") },
+    { href: "#pendekatan", label: t("approach") },
+    { href: "#tentang", label: t("about") },
+    { href: "#kontak", label: t("contact") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +37,7 @@ export function Navbar() {
       }`}
     >
       <nav
-        aria-label="Navigasi Utama"
+        aria-label={t("ariaLabel")}
         className="w-full px-6 sm:px-10 md:px-14 py-4 sm:py-5 flex items-center justify-between"
       >
         <div className="flex items-center">
@@ -42,7 +45,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -54,9 +57,10 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
+          <LanguageSwitcher />
           <ThemeToggle />
-          <Button href="#kontak" size="sm" aria-label="Hubungi Kami">
-            Hubungi Kami
+          <Button href="#kontak" size="sm" aria-label={t("ctaAriaLabel")}>
+            {t("cta")}
           </Button>
         </div>
       </nav>
