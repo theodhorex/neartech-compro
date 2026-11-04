@@ -3,10 +3,12 @@
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Monitor } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const emptySubscribe = () => () => {};
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
+  const t = useTranslations("themeToggle");
   const mounted = useSyncExternalStore(
     emptySubscribe,
     () => true,
@@ -30,7 +32,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
         type="button"
         disabled
         aria-hidden="true"
-        aria-label="Ganti tema"
+        aria-label={t("changeTheme")}
         className={`w-9 h-9 inline-flex items-center justify-center rounded-md opacity-0 pointer-events-none ${className}`.trim()}
       >
         <span className="w-4 h-4" />
@@ -41,10 +43,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   const currentTheme = theme || "light";
   const labelText =
     currentTheme === "dark"
-      ? "Ganti tema (saat ini Gelap)"
+      ? t("currentDark")
       : currentTheme === "system"
-        ? "Ganti tema (saat ini Sistem)"
-        : "Ganti tema (saat ini Terang)";
+        ? t("currentSystem")
+        : t("currentLight");
 
   return (
     <button

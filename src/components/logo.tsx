@@ -1,3 +1,7 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export function LogoIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg
@@ -13,10 +17,12 @@ export function LogoIcon({ className = "w-6 h-6" }: { className?: string }) {
 }
 
 export function Logo({ className = "" }: { className?: string }) {
+  const t = useTranslations("common");
+
   return (
     <a
       href="#"
-      aria-label="NearTech Beranda"
+      aria-label={t("logoAriaLabel")}
       className={`inline-flex items-center gap-2.5 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink rounded-sm ${className}`.trim()}
     >
       <LogoIcon className="w-6 h-6 text-ink shrink-0" />
