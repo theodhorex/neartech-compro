@@ -1,0 +1,191 @@
+/* Blueprint Backdrop CSS */
+
+.blueprint-paper {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(to right, rgba(25, 25, 25, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(25, 25, 25, 0.035) 1px, transparent 1px),
+    linear-gradient(to right, rgba(25, 25, 25, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(25, 25, 25, 0.06) 1px, transparent 1px);
+  background-size:
+    24px 24px,
+    24px 24px,
+    120px 120px,
+    120px 120px;
+}
+
+/* Base layer */
+.blueprint-layer-base {
+  opacity: 0.30;
+}
+
+/* Reveal layer with cursor radial mask */
+.blueprint-layer-reveal {
+  opacity: 1;
+  mask-image: radial-gradient(
+    circle var(--r, 240px) at var(--mx, 50%) var(--my, 60%),
+    #000 0%,
+    rgba(0, 0, 0, 0.85) 40%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--r, 240px) at var(--mx, 50%) var(--my, 60%),
+    #000 0%,
+    rgba(0, 0, 0, 0.85) 40%,
+    transparent 100%
+  );
+}
+
+/* Touch screen fallback (no hover or fine pointer) */
+@media not ((hover: hover) and (pointer: fine)) {
+  .blueprint-layer-reveal {
+    --r: 200px;
+    --mx: 50%;
+    --my: 35%;
+  }
+}
+
+/* Zone hits should be interactive for hit testing if tested via SVG hit-tests */
+.blueprint-backdrop .zone-hit {
+  pointer-events: auto;
+}
+
+/* Zone transitions */
+.blueprint-backdrop [data-zone] {
+  transition: opacity 200ms ease;
+}
+
+.blueprint-backdrop .zone-art * {
+  transition: stroke-width 200ms ease, stroke-opacity 200ms ease, stroke 200ms ease;
+}
+
+.blueprint-backdrop .zone-label {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+/* When a zone is active, dim non-active zones in base and reveal layers */
+.blueprint-backdrop[data-zone-active="strategi"] .blueprint-layer-base [data-zone]:not([data-zone="strategi"]),
+.blueprint-backdrop[data-zone-active="strategi"] .blueprint-layer-reveal [data-zone]:not([data-zone="strategi"]),
+.blueprint-backdrop[data-zone-active="produk"] .blueprint-layer-base [data-zone]:not([data-zone="produk"]),
+.blueprint-backdrop[data-zone-active="produk"] .blueprint-layer-reveal [data-zone]:not([data-zone="produk"]),
+.blueprint-backdrop[data-zone-active="rekayasa"] .blueprint-layer-base [data-zone]:not([data-zone="rekayasa"]),
+.blueprint-backdrop[data-zone-active="rekayasa"] .blueprint-layer-reveal [data-zone]:not([data-zone="rekayasa"]) {
+  opacity: 0.35;
+}
+
+/* Active zone highlights */
+.blueprint-backdrop[data-zone-active="strategi"] [data-zone="strategi"] .zone-art *,
+.blueprint-backdrop[data-zone-active="produk"] [data-zone="produk"] .zone-art *,
+.blueprint-backdrop[data-zone-active="rekayasa"] [data-zone="rekayasa"] .zone-art * {
+  stroke-width: 2px;
+  stroke: #191919;
+  stroke-opacity: 1;
+}
+
+.blueprint-backdrop[data-zone-active="strategi"] [data-zone="strategi"] .zone-label,
+.blueprint-backdrop[data-zone-active="produk"] [data-zone="produk"] .zone-label,
+.blueprint-backdrop[data-zone-active="rekayasa"] [data-zone="rekayasa"] .zone-label {
+  opacity: 1;
+}
+
+/* Layer 4: Unmasked highlight layer */
+.blueprint-layer-highlight {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.blueprint-backdrop[data-zone-active] .blueprint-layer-highlight {
+  opacity: 1;
+}
+
+.blueprint-layer-highlight [data-zone] {
+  display: none;
+}
+
+.blueprint-backdrop[data-zone-active="strategi"] .blueprint-layer-highlight [data-zone="strategi"],
+.blueprint-backdrop[data-zone-active="produk"] .blueprint-layer-highlight [data-zone="produk"],
+.blueprint-backdrop[data-zone-active="rekayasa"] .blueprint-layer-highlight [data-zone="rekayasa"] {
+  display: block;
+}
+
+/* In highlight layer, hide everything except .zone-art and .zone-label */
+.blueprint-layer-highlight > svg > :not([data-zone]) {
+  display: none;
+}
+
+.blueprint-layer-highlight [data-zone] > *:not(.zone-art):not(.zone-label) {
+  display: none;
+}
+
+/* Layer 5: Reticle */
+.blueprint-reticle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 150ms ease;
+  z-index: 10;
+}
+
+.blueprint-reticle[data-hidden="true"] {
+  opacity: 0;
+}
+
+.blueprint-reticle-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(25, 25, 25, 0.25);
+  pointer-events: none;
+  transform: translateY(var(--py, -100px));
+}
+
+.blueprint-reticle-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(25, 25, 25, 0.25);
+  pointer-events: none;
+  transform: translateX(var(--px, -100px));
+}
+
+.blueprint-reticle-coords {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: rgba(25, 25, 25, 0.7);
+  white-space: nowrap;
+  user-select: none;
+  transform: translate(calc(var(--px, -100px) + 8px), calc(var(--py, -100px) + 8px));
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+  .blueprint-reticle {
+    display: none !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-backdrop [data-zone],
+  .blueprint-backdrop .zone-art *,
+  .blueprint-backdrop .zone-label,
+  .blueprint-reticle {
+    transition-duration: 0ms !important;
+  }
+}
+
+/* PM 5 Nov 2026: grid kertas halus berada di dalam zona "strategi" pada varian
+   reveal; di lapisan sorotan zona (tanpa topeng) ia menutupi seluruh layar dan
+   mengganggu keterbacaan. Sembunyikan di lapisan itu; grid tetap tampil lewat
+   lapisan reveal bertopeng kursor. */
+.blueprint-layer-highlight .paper-grid {
+  display: none;
+}
