@@ -228,3 +228,55 @@
   }
 }
 
+
+/* ---------- Tipografi CJK ----------
+   Tanpa memuat font CJK dari jaringan (berat): pakai font sistem per bahasa.
+   P22 Mackinac dan Inter tidak punya aksara Han/Hangul sehingga browser jatuh ke
+   font ini. Tailwind menyisipkan nilai font langsung ke kelas .font-sans/.font-serif,
+   jadi di sini ditimpa dengan aturan font-family langsung (tanpa layer, menang). */
+:lang(zh) body,
+:lang(zh) .font-sans {
+  font-family: var(--font-inter), "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+:lang(zh) .font-serif {
+  font-family: "P22 Mackinac W01 Book", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif;
+}
+
+:lang(zh-TW) body,
+:lang(zh-TW) .font-sans {
+  font-family: var(--font-inter), "PingFang TC", "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+}
+:lang(zh-TW) .font-serif {
+  font-family: "P22 Mackinac W01 Book", "Songti TC", "Noto Serif CJK TC", "Source Han Serif TC", "PMingLiU", serif;
+}
+
+:lang(ko) body,
+:lang(ko) .font-sans {
+  font-family: var(--font-inter), "Apple SD Gothic Neo", "Noto Sans CJK KR", "Malgun Gothic", sans-serif;
+}
+:lang(ko) .font-serif {
+  font-family: "P22 Mackinac W01 Book", "AppleMyungjo", "Noto Serif CJK KR", "Source Han Serif K", "Batang", serif;
+}
+
+:lang(zh) h1,
+:lang(zh) h2,
+:lang(zh) h3,
+:lang(zh-TW) h1,
+:lang(zh-TW) h2,
+:lang(zh-TW) h3,
+:lang(ko) h1,
+:lang(ko) h2,
+:lang(ko) h3 {
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+:lang(ko) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:lang(zh),
+:lang(zh-TW) {
+  line-break: strict;
+}
