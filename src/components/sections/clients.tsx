@@ -1,4 +1,4 @@
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 
 const WORDMARK_STYLES: Record<number, string> = {
   0: "font-sans font-bold tracking-wider uppercase text-xs sm:text-sm",
@@ -9,14 +9,16 @@ const WORDMARK_STYLES: Record<number, string> = {
   5: "font-sans font-medium tracking-tight text-sm sm:text-base",
 };
 
-export function ClientsSection() {
-  const { note, items } = contentId.clients;
+export async function ClientsSection() {
+  const t = await getTranslations("clients");
+  const note = t("note");
+  const items = t.raw("items") as string[];
   // Gandakan item untuk marquee berulang mulus tanpa jeda
   const marqueeItems = [...items, ...items];
 
   return (
     <section
-      aria-label="Klien dan Mitra"
+      aria-label={t("ariaLabel")}
       className="bg-bg border-b border-line py-10 sm:py-12 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
@@ -29,7 +31,7 @@ export function ClientsSection() {
       <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <div
           tabIndex={0}
-          aria-label="Daftar mitra kerja sama"
+          aria-label={t("marqueeAriaLabel")}
           className="animate-marquee flex items-center gap-10 sm:gap-16 py-2 px-4 focus-visible:outline-2 focus-visible:outline-ink"
         >
           {marqueeItems.map((name, idx) => {

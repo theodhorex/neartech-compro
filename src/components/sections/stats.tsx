@@ -1,12 +1,19 @@
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { StatCounter } from "@/components/stat-counter";
 
-export function StatsSection() {
-  const stats = contentId.stats;
+type StatItem = {
+  value: number;
+  suffix?: string;
+  label: string;
+};
+
+export async function StatsSection() {
+  const t = await getTranslations("stats");
+  const stats = t.raw("items") as StatItem[];
 
   return (
     <section
-      aria-label="Statistik Kinerja"
+      aria-label={t("ariaLabel")}
       className="bg-bg-soft border-b border-line py-12 sm:py-16"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
