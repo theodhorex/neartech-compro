@@ -1,5 +1,3 @@
-import "@/styles/theme.css";
-import "@/styles/hero-theme.css";
 import "@/components/blueprint/blueprint-smooth.css";
 import { BlueprintBackdrop } from "@/components/blueprint/blueprint-backdrop";
 import { InfoPanel } from "@/components/info-panel";
