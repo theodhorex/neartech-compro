@@ -1,28 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Newsreader } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  axes: ["opsz"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "NearTech — Teknologi yang dekat untuk bisnis yang tumbuh",
+  title: "NearTech — Teknologi yang dekat dengan bisnis Anda",
   description:
-    "NearTech membangun solusi digital yang terukur untuk membantu bisnis tumbuh.",
+    "Mitra teknologi untuk bisnis yang sedang bertumbuh, dari strategi dan produk digital hingga rekayasa dan dukungan berkelanjutan.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#151517",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -31,11 +25,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="id"
-      className={`${geist.variable} ${newsreader.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="id" className={`${inter.variable} antialiased`}>
+      <head>
+        <link
+          rel="preconnect"
+          href="https://db.onlinewebfonts.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://db.onlinewebfonts.com/c/9d4d074c9335825a23cce178ee03b498?family=P22+Mackinac+W01+Book"
+        />
+      </head>
+      <body className="min-h-screen bg-white text-[#191919] font-sans antialiased overflow-x-hidden selection:bg-[#191919] selection:text-white">
+        {children}
+      </body>
     </html>
   );
 }
