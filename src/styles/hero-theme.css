@@ -1,0 +1,8 @@
+/* Hero theme override for text knockout and background art readability in dark/light mode */
+.text-knockout {
+  text-shadow:
+    0 0 2px color-mix(in srgb, var(--bp-paper) 95%, transparent),
+    0 0 10px color-mix(in srgb, var(--bp-paper) 95%, transparent),
+    0 0 22px color-mix(in srgb, var(--bp-paper) 90%, transparent),
+    0 0 40px color-mix(in srgb, var(--bp-paper) 75%, transparent);
+}
