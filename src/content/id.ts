@@ -251,28 +251,28 @@ export const contentId: ContentId = {
         title: "Mengenal",
         description:
           "Kami mendengarkan masalah, tujuan, dan batasan Anda sebelum menawarkan solusi apa pun.",
-        result: "ringkasan masalah dan tujuan.",
+        result: "Ringkasan masalah dan tujuan.",
       },
       {
         num: "02",
         title: "Merancang",
         description:
           "Kami menyusun solusi, tampilan, dan rencana kerja, lalu menunjukkannya kepada Anda untuk disetujui.",
-        result: "rancangan dan prototipe.",
+        result: "Rancangan dan prototipe.",
       },
       {
         num: "03",
         title: "Membangun",
         description:
           "Pengerjaan berjalan dalam siklus pendek. Anda melihat kemajuan nyata secara berkala, bukan hanya laporan.",
-        result: "rilis bertahap.",
+        result: "Rilis bertahap.",
       },
       {
         num: "04",
         title: "Merawat",
         description:
           "Setelah produk berjalan, kami tetap mendampingi: memantau, memperbaiki, dan mengembangkannya.",
-        result: "produk yang terus membaik.",
+        result: "Produk yang terus membaik.",
       },
     ],
     principles: [
