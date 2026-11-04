@@ -1,0 +1,417 @@
+{
+  "metadata": {
+    "title": "NearTech | Technology close to your business",
+    "description": "Technology partner for growing businesses, from strategy and digital products to engineering and continuous support."
+  },
+  "navbar": {
+    "ariaLabel": "Main Navigation",
+    "services": "Services",
+    "approach": "Approach",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Contact Us",
+    "ctaAriaLabel": "Contact Us"
+  },
+  "themeToggle": {
+    "changeTheme": "Change theme",
+    "currentDark": "Change theme (currently Dark)",
+    "currentSystem": "Change theme (currently System)",
+    "currentLight": "Change theme (currently Light)"
+  },
+  "languageSwitcher": {
+    "label": "Select language"
+  },
+  "common": {
+    "logoAriaLabel": "NearTech Home"
+  },
+  "hero": {
+    "titleLine1": "Technology close",
+    "titleLine2": "to your business.",
+    "description": "Technology partner for growing businesses, from strategy and digital products to engineering and continuous support.",
+    "cta": "Contact Us",
+    "ctaAriaLabel": "Contact Us for project consultation"
+  },
+  "blueprint": {
+    "zoneStrategy": "01 STRATEGY — PLAN & FOUNDATION",
+    "zoneProduct": "02 PRODUCT — FAÇADE & EXPERIENCE",
+    "zoneEngineering": "03 ENGINEERING — STRUCTURE & SYSTEMS"
+  },
+  "infoPanel": {
+    "tag": "WHAT WE DO",
+    "title": "Technology that helps business move forward",
+    "description": "We design, build, and maintain digital products. Direct communication, clear processes, and measurable outcomes.",
+    "services": {
+      "strategy": "Strategy",
+      "product": "Product",
+      "engineering": "Engineering"
+    },
+    "serviceRowAriaLabel": "Service {num}: {label}"
+  },
+  "stats": {
+    "ariaLabel": "Performance Statistics",
+    "items": [
+      {
+        "value": 24,
+        "suffix": "+",
+        "label": "completed projects"
+      },
+      {
+        "value": 9,
+        "suffix": "",
+        "label": "industry sectors"
+      },
+      {
+        "value": 98,
+        "suffix": "%",
+        "label": "client retention"
+      },
+      {
+        "value": 4,
+        "suffix": " days",
+        "label": "average to first prototype"
+      }
+    ]
+  },
+  "clients": {
+    "ariaLabel": "Clients and Partners",
+    "marqueeAriaLabel": "List of partner collaborations",
+    "note": "Some of the names we have worked with",
+    "items": [
+      "Nusantara Logistik",
+      "Karya Mandiri Finansial",
+      "Samudera Data Solusi",
+      "Bumi Pangan Lestari",
+      "Artha Graha Digital",
+      "Ruang Edukasi Indonesia"
+    ]
+  },
+  "services": {
+    "label": "SERVICES",
+    "title": "From initial concept to running product",
+    "intro": "We handle the entire technology lifecycle, so you only need to work with one dedicated team from start to finish.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Strategy",
+        "description": "We help you decide what to build, and just as importantly, what not to build.",
+        "points": [
+          "Business process and requirement mapping",
+          "Scoping and priority definition",
+          "Architecture design and tech selection",
+          "Honest roadmaps and realistic estimates"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Product",
+        "description": "We craft intuitive user experiences and turn them into impactful real-world products.",
+        "points": [
+          "User research and interface design",
+          "Interactive prototypes tested before code",
+          "Web and mobile applications",
+          "Consistent, scalable design systems"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Engineering",
+        "description": "We build and maintain resilient, secure systems designed to scale alongside your business.",
+        "points": [
+          "System development and integration",
+          "Automated testing and continuous delivery",
+          "Security hardening and monitoring",
+          "Ongoing support and maintenance"
+        ]
+      }
+    ]
+  },
+  "approach": {
+    "label": "APPROACH",
+    "title": "A transparent process you can see and follow",
+    "intro": "No buzzwords, no surprises. Every stage delivers concrete, verifiable outcomes you can review.",
+    "resultLabel": "Deliverable",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Discover",
+        "description": "We listen to your challenges, goals, and constraints before proposing any solution.",
+        "result": "Problem and goal summary."
+      },
+      {
+        "num": "02",
+        "title": "Design",
+        "description": "We formulate solutions, interface designs, and roadmaps, presenting them for your approval.",
+        "result": "Blueprints and interactive prototypes."
+      },
+      {
+        "num": "03",
+        "title": "Build",
+        "description": "Development runs in short iterations. You see tangible progress regularly, not just status reports.",
+        "result": "Incremental releases."
+      },
+      {
+        "num": "04",
+        "title": "Maintain",
+        "description": "Once live, we stay by your side: monitoring, refining, and scaling the system.",
+        "result": "Continuously improving products."
+      }
+    ],
+    "principles": [
+      {
+        "title": "Direct communication",
+        "description": "You speak directly with the builders, never through middlemen."
+      },
+      {
+        "title": "Transparent process",
+        "description": "Plans, progress, and budgets are always open and accessible."
+      },
+      {
+        "title": "Measurable impact",
+        "description": "We align on clear success metrics right from day one."
+      }
+    ]
+  },
+  "caseStudies": {
+    "label": "CASE STUDIES",
+    "title": "Real work with measurable business impact",
+    "intro": "Three collaboration highlights showing how we solve genuine operational problems.",
+    "resultLabel": "Proven Result",
+    "items": [
+      {
+        "num": "01",
+        "title": "Fleet Logistics Modernization",
+        "industry": "Supply Chain & Distribution",
+        "challenge": "Fragmented fleet tracking caused coordination delays of several hours every single day.",
+        "result": "38% daily route operational efficiency",
+        "services": [
+          "Strategy",
+          "Engineering"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Financial Portfolio Management App",
+        "industry": "Financial Services",
+        "challenge": "Users struggled to understand asset overviews due to an overly complex, slow-loading analytics UI.",
+        "result": "2.4x active user retention increase",
+        "services": [
+          "Product",
+          "Engineering"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Unified B2B Procurement Platform",
+        "industry": "Manufacturing & Procurement",
+        "challenge": "Manual vendor compliance verification took up to two weeks per procurement cycle.",
+        "result": "70% reduction in document verification time",
+        "services": [
+          "Strategy",
+          "Product"
+        ]
+      }
+    ]
+  },
+  "whyUs": {
+    "label": "WHY NEARTECH",
+    "title": "Close, in every sense of the word",
+    "paragraph": "Our name is our commitment: close to your business, close to your users, and grounded in operational reality. We prefer solving the right problem over building unnecessary complexity.",
+    "items": [
+      {
+        "title": "Problem-first mindset",
+        "description": "We ask the tough questions before writing a single line of code."
+      },
+      {
+        "title": "Simple and durable",
+        "description": "Maintainable solutions outlast fleeting impressions."
+      },
+      {
+        "title": "Open collaboration",
+        "description": "You actively shape key decisions, rather than waiting on sidelines."
+      },
+      {
+        "title": "Uncompromising accountability",
+        "description": "We have the integrity to say no when an idea isn't right for you."
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "TESTIMONIALS",
+    "title": "What partners say about working with us",
+    "ariaLabel": "Client Testimonials",
+    "carouselAriaLabel": "Partner review carousel",
+    "prevAriaLabel": "Previous testimonial",
+    "nextAriaLabel": "Next testimonial",
+    "items": [
+      {
+        "quote": "NearTech immediately understood our core bottleneck without wasting time on superfluous features. Their communication is refreshingly honest and their software built to last.",
+        "author": "Hendro Wibowo",
+        "role": "Operations Director, Nusantara Logistik"
+      },
+      {
+        "quote": "Their turnaround from abstract concepts to testable prototypes gave our leadership team complete confidence from the very first week.",
+        "author": "Alina Kusuma",
+        "role": "Head of Product, Karya Mandiri Finansial"
+      },
+      {
+        "quote": "The platform they built is rock solid, well documented, and a breeze for our in-house engineering team to maintain. Truly exceptional collaboration.",
+        "author": "Bambang Sudiro",
+        "role": "VP of Engineering, Samudera Data Solusi"
+      }
+    ]
+  },
+  "about": {
+    "label": "ABOUT US",
+    "title": "Two founders, one goal: purposeful technology",
+    "paragraphs": [
+      "NearTech was founded on the belief that great technology simply makes everyday work easier. Starting as a focused boutique team, we approach every engagement with uncompromising care.",
+      "We are growing thoughtfully and welcoming visionary businesses ready to partner from the ground up. If you need a team that truly takes time to understand your world, let's talk."
+    ],
+    "valuesHeading": "Our Core Values",
+    "values": [
+      {
+        "num": "01",
+        "title": "Honesty",
+        "description": "Radical candor regarding technical constraints, realistic schedules, and pragmatic solutions."
+      },
+      {
+        "num": "02",
+        "title": "Precision",
+        "description": "Meticulous focus on code quality, resilient architecture, and intuitive user experiences."
+      },
+      {
+        "num": "03",
+        "title": "Shared Growth",
+        "description": "Long-term relationships centered around verifiable business success."
+      }
+    ],
+    "teamHeading": "Core Team",
+    "team": [
+      {
+        "name": "Arya Pratama",
+        "role": "Co-Founder, Strategy & Product",
+        "bio": "Over a decade steering product strategy and digital transformation across diverse industries.",
+        "initials": "AP"
+      },
+      {
+        "name": "Reza Mahendra",
+        "role": "Co-Founder, Engineering",
+        "bio": "Seasoned software engineer specializing in modular architectures, distributed reliability, and high performance.",
+        "initials": "RM"
+      },
+      {
+        "name": "Siti Rahmawati",
+        "role": "Senior UI/UX Designer",
+        "bio": "Crafting structured, purposeful design systems and elegant digital product experiences.",
+        "initials": "SR"
+      },
+      {
+        "name": "Dimas Nugroho",
+        "role": "Senior Software Engineer",
+        "bio": "Architecting high-throughput web applications and robust, tested data systems.",
+        "initials": "DN"
+      }
+    ]
+  },
+  "techStack": {
+    "label": "TECH STACK",
+    "title": "The technical foundations we build on",
+    "description": "Battle-tested tools and technologies chosen for their reliability, mature ecosystems, and long-term maintainability.",
+    "ariaLabel": "Technology Foundation",
+    "listAriaLabel": "List of technologies utilized",
+    "items": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Figma"
+    ]
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "What types of projects does NearTech take on?",
+        "answer": "We handle digital products from initial strategy through long-term maintenance: web and mobile applications, internal tools, system integrations, and modernization of existing products."
+      },
+      {
+        "question": "Do we need complete specifications before reaching out?",
+        "answer": "Not at all. Most projects begin with an ambiguous challenge. Our Strategy phase is explicitly designed to bring clarity."
+      },
+      {
+        "question": "How long does a project take and how much does it cost?",
+        "answer": "It depends on scope. Following an initial consultation, we provide a transparent written proposal detailing all assumptions so you can evaluate with full clarity."
+      },
+      {
+        "question": "Do you offer post-launch support and maintenance?",
+        "answer": "Yes. We offer continuous maintenance and iterative development on an ongoing, optional basis."
+      },
+      {
+        "question": "How do we get started?",
+        "answer": "Send us a message using the form below. We'll reply promptly and schedule an initial consultation at no charge."
+      }
+    ]
+  },
+  "contact": {
+    "cta": {
+      "label": "CONTACT US",
+      "title": "Have a challenge you'd like to solve?",
+      "subtitle": "Tell us about it. We'll get back to you promptly to schedule a conversation.",
+      "buttonText": "Contact Us"
+    },
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your name",
+      "nameRequired": "Name is required.",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "name@company.com",
+      "emailRequired": "Email address is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "companyLabel": "Company Name",
+      "companyPlaceholder": "Your company",
+      "companyOptional": "(optional)",
+      "messageLabel": "Tell us about your project",
+      "messagePlaceholder": "Describe your project context, challenges, or goals...",
+      "messageRequired": "Message is required.",
+      "messageMin": "Please describe your project in at least a few words.",
+      "submitButton": "Send Message",
+      "submittingButton": "Sending...",
+      "successTitle": "Message Sent",
+      "successMessage": "Message Sent. We will get in touch with you shortly.",
+      "errorMessage": "Please fill in all required fields correctly.",
+      "sendError": "An error occurred while sending. Please try again.",
+      "resetButton": "Send another message"
+    },
+    "direct": {
+      "title": "Direct Contact",
+      "channelTitle": "Communication Channels",
+      "emailLabel": "Email Address",
+      "email": "halo@neartech.example",
+      "phoneLabel": "Phone Number",
+      "phone": "+62 21 5555 0123",
+      "locationLabel": "Office Location",
+      "location": "Jl. Suryo No. 42, Senopati, South Jakarta, Indonesia",
+      "hoursLabel": "Working Hours",
+      "hours": "Monday to Friday, 09:00 to 17:00 WIB",
+      "responseCommitment": "We strive to respond within one business day."
+    }
+  },
+  "footer": {
+    "tagline": "Technology close to your business.",
+    "contactTitle": "Contact",
+    "menuTitle": "Menu",
+    "navAriaLabel": "Footer Navigation",
+    "nav": {
+      "services": "Services",
+      "approach": "Approach",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "copyright": "© 2026 NearTech. All rights reserved.",
+    "backToTop": "Back to top"
+  }
+}
