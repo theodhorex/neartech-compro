@@ -1,0 +1,71 @@
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-bg-soft-hover: var(--bg-soft-hover);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-surface-panel: var(--surface-panel);
+  --color-btn-bg: var(--btn-bg);
+  --color-btn-fg: var(--btn-fg);
+  --color-btn-bg-hover: var(--btn-bg-hover);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Core Palette Tokens */
+  --bg: #ffffff;
+  --bg-soft: #F4F3F3;
+  --bg-soft-hover: #eaeaea;
+  --ink: #191919;
+  --ink-muted: color-mix(in srgb, var(--ink) 70%, transparent);
+  --ink-faint: color-mix(in srgb, var(--ink) 50%, transparent);
+  --line: #e5e5e5;
+  --surface-panel: rgba(255, 255, 255, 0.95);
+
+  /* Button Tokens */
+  --btn-bg: var(--ink);
+  --btn-fg: var(--bg);
+  --btn-bg-hover: color-mix(in srgb, var(--btn-bg) 90%, transparent);
+
+  /* Blueprint Tokens */
+  --bp-ink: var(--ink);
+  --bp-paper: var(--bg);
+  --bp-grid: rgba(25, 25, 25, 0.035);
+  --bp-grid-bold: rgba(25, 25, 25, 0.06);
+  --bp-base-opacity: 0.30;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Core Palette Tokens */
+  --bg: #0e0e0e;
+  --bg-soft: #161616;
+  --bg-soft-hover: #222222;
+  --ink: #f2f2f0;
+  --ink-muted: color-mix(in srgb, var(--ink) 70%, transparent);
+  --ink-faint: color-mix(in srgb, var(--ink) 50%, transparent);
+  --line: #2a2a2a;
+  --surface-panel: rgba(18, 18, 18, 0.95);
+
+  /* Button Tokens */
+  --btn-bg: var(--ink);
+  --btn-fg: var(--bg);
+  --btn-bg-hover: color-mix(in srgb, var(--btn-bg) 90%, transparent);
+
+  /* Blueprint Tokens */
+  --bp-ink: var(--ink);
+  --bp-paper: var(--bg);
+  --bp-grid: rgba(255, 255, 255, 0.035);
+  --bp-grid-bold: rgba(255, 255, 255, 0.06);
+  --bp-base-opacity: 0.22;
+}
+
+@layer base {
+  body {
+    transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  }
+}
