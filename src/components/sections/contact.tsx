@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { contentId } from "@/content/id";
 import { Reveal } from "@/components/ui/reveal";
 import { ContactForm } from "@/components/contact-form";
@@ -9,7 +9,7 @@ export function ContactSection() {
   return (
     <section
       id="kontak"
-      className="scroll-mt-24 py-20 md:py-32 border-b border-gray-200 bg-white"
+      className="scroll-mt-24 py-20 md:py-32 border-b border-gray-200 bg-[#F4F3F3]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Blok Ajakan Besar (CTA Header) */}
@@ -39,7 +39,7 @@ export function ContactSection() {
           {/* Blok Kontak Langsung (Samping) */}
           <div className="lg:col-span-5">
             <Reveal delay={200}>
-              <div className="bg-[#F4F3F3] border border-gray-200 p-6 sm:p-8 space-y-8">
+              <div className="bg-white border border-gray-200 p-6 sm:p-8 space-y-8">
                 <div>
                   <span className="text-[11px] uppercase tracking-[0.2em] text-[#191919]/50 font-medium block">
                     {direct.title}
@@ -50,7 +50,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-6">
-                  {/* Surel Placeholder Jujur */}
+                  {/* Surel */}
                   <div className="flex items-start gap-3.5">
                     <Mail
                       className="w-5 h-5 text-[#191919]/50 shrink-0 mt-0.5"
@@ -60,13 +60,35 @@ export function ContactSection() {
                       <span className="text-[11px] uppercase tracking-wider font-mono text-[#191919]/50 block">
                         Alamat Surel
                       </span>
-                      <p className="text-sm font-mono text-[#191919]/60 mt-0.5">
-                        {direct.emailPlaceholder}
-                      </p>
+                      <a
+                        href={`mailto:${direct.email}`}
+                        className="text-sm font-mono text-[#191919] hover:underline focus-visible:outline-2 focus-visible:outline-[#191919] rounded-xs mt-0.5 inline-block"
+                      >
+                        {direct.email}
+                      </a>
                     </div>
                   </div>
 
-                  {/* Lokasi Placeholder Jujur */}
+                  {/* Telepon */}
+                  <div className="flex items-start gap-3.5">
+                    <Phone
+                      className="w-5 h-5 text-[#191919]/50 shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <span className="text-[11px] uppercase tracking-wider font-mono text-[#191919]/50 block">
+                        Nomor Telepon
+                      </span>
+                      <a
+                        href={`tel:${direct.phone.replace(/\s+/g, "")}`}
+                        className="text-sm font-mono text-[#191919] hover:underline focus-visible:outline-2 focus-visible:outline-[#191919] rounded-xs mt-0.5 inline-block"
+                      >
+                        {direct.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Lokasi */}
                   <div className="flex items-start gap-3.5">
                     <MapPin
                       className="w-5 h-5 text-[#191919]/50 shrink-0 mt-0.5"
@@ -74,25 +96,30 @@ export function ContactSection() {
                     />
                     <div>
                       <span className="text-[11px] uppercase tracking-wider font-mono text-[#191919]/50 block">
-                        Lokasi
+                        Lokasi Kantor
                       </span>
-                      <p className="text-sm font-mono text-[#191919]/60 mt-0.5">
-                        {direct.locationPlaceholder}
+                      <p className="text-sm text-[#191919]/80 mt-0.5 leading-relaxed">
+                        {direct.location}
                       </p>
                     </div>
                   </div>
 
-                  {/* Jam / Komitmen Balasan */}
+                  {/* Jam Kerja */}
                   <div className="flex items-start gap-3.5 pt-4 border-t border-gray-200">
                     <Clock
                       className="w-5 h-5 text-[#191919]/50 shrink-0 mt-0.5"
                       aria-hidden="true"
                     />
-                    <div>
-                      <span className="text-[11px] uppercase tracking-wider font-mono text-[#191919]/50 block">
-                        Waktu Tanggapan
-                      </span>
-                      <p className="text-sm text-[#191919]/80 mt-0.5 leading-relaxed">
+                    <div className="space-y-1">
+                      <div>
+                        <span className="text-[11px] uppercase tracking-wider font-mono text-[#191919]/50 block">
+                          Jam Kerja
+                        </span>
+                        <p className="text-sm text-[#191919]/80 mt-0.5">
+                          {direct.hours}
+                        </p>
+                      </div>
+                      <p className="text-xs text-[#191919]/60 leading-relaxed pt-1">
                         {direct.responseCommitment}
                       </p>
                     </div>
