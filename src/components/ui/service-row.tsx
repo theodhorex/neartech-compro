@@ -11,6 +11,9 @@ interface ServiceRowProps {
   zone: ZoneKey;
 }
 
+// Penghitung waktu bersama semua baris (hanya satu "keluar" tertunda pada satu waktu).
+let leaveTimer: number | undefined;
+
 export function ServiceRow({ num, label, href, zone }: ServiceRowProps) {
   const [isArtActive, setIsArtActive] = useState(false);
 
@@ -19,6 +22,9 @@ export function ServiceRow({ num, label, href, zone }: ServiceRowProps) {
       const customEvent = e as CustomEvent<{ zone: ZoneKey | null; source: "art" | "ui" }>;
       if (customEvent.detail?.source === "art") {
         setIsArtActive(customEvent.detail.zone === zone);
+      } else if (customEvent.detail?.zone && customEvent.detail.zone !== zone) {
+        // Baris lain sedang di-hover: lepas status "dari gambar" yang tertinggal.
+        setIsArtActive(false);
       }
     };
 
@@ -27,11 +33,21 @@ export function ServiceRow({ num, label, href, zone }: ServiceRowProps) {
   }, [zone]);
 
   const emitUiZone = (targetZone: ZoneKey | null) => {
-    window.dispatchEvent(
-      new CustomEvent("nt:zone", {
-        detail: { zone: targetZone, source: "ui" },
-      })
-    );
+    // Saat kursor berpindah antar baris, "keluar" dari baris lama terjadi sebelum
+    // "masuk" baris baru. Tunda sinyal keluar sebentar dan batalkan bila baris
+    // lain keburu aktif, supaya latar tidak berkedip memudar-lalu-muncul.
+    window.clearTimeout(leaveTimer);
+    const send = () =>
+      window.dispatchEvent(
+        new CustomEvent("nt:zone", {
+          detail: { zone: targetZone, source: "ui" },
+        })
+      );
+    if (targetZone === null) {
+      leaveTimer = window.setTimeout(send, 60);
+    } else {
+      send();
+    }
   };
 
   return (

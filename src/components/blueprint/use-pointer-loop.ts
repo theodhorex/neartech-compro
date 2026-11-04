@@ -226,6 +226,21 @@ export function usePointerLoop({
         reticleRef.current?.removeAttribute("data-hidden");
       }
 
+      // Kursor masuk panel/UI (bukan baris layanan, yang mengatur zonanya sendiri):
+      // hapus zona gambar yang tertinggal agar tab tidak menyala sendiri.
+      if (
+        isOverInteractive &&
+        pinnedZoneRef.current === null &&
+        currentArtZoneRef.current !== null &&
+        !(target instanceof Element && target.closest("a"))
+      ) {
+        currentArtZoneRef.current = null;
+        backdropRef.current?.removeAttribute("data-zone-active");
+        window.dispatchEvent(
+          new CustomEvent("nt:zone", { detail: { zone: null, source: "art" } })
+        );
+      }
+
       // Hit-test zone detection when not over interactive element and not pinned
       if (!isOverInteractive && pinnedZoneRef.current === null) {
         // Refresh cached elements if any missing

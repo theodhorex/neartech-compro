@@ -1,0 +1,74 @@
+/* Transisi zona yang mulus (Theo, 5 Nov 2026: "jangan patah-patah, sangat smooth").
+
+   Penyebab patah sebelumnya:
+   1) lapisan sorotan berganti zona lewat display:none/block (tak bisa dianimasikan);
+   2) transisi hanya 200ms;
+   3) stroke-width dianimasikan pada ribuan elemen SVG (berat dirender).
+   Perbaikan: ketiga zona di lapisan sorotan SELALU dirender dan berganti lewat
+   crossfade opacity (zona lama memudar sambil zona baru muncul), dengan kurva
+   easing panjang dan lembut. Gaya garis tebal di lapisan sorotan dibuat statis
+   (tanpa transisi) supaya zona yang sedang memudar tidak berubah bentuk.
+   Berkas ini diimpor setelah blueprint.css dan memakai spesifisitas lebih tinggi. */
+
+.blueprint-backdrop {
+  --bp-ease: cubic-bezier(0.33, 0, 0.2, 1);
+  --bp-dur: 420ms;
+}
+
+/* Lapisan sorotan: selalu tampil; zona saling crossfade */
+.blueprint-backdrop .blueprint-layer-highlight {
+  opacity: 1;
+  transition: none;
+}
+
+.blueprint-backdrop .blueprint-layer-highlight [data-zone] {
+  display: block;
+  opacity: 0;
+  transition: opacity var(--bp-dur) var(--bp-ease);
+  will-change: opacity;
+}
+
+.blueprint-backdrop[data-zone-active="strategi"] .blueprint-layer-highlight [data-zone="strategi"],
+.blueprint-backdrop[data-zone-active="produk"] .blueprint-layer-highlight [data-zone="produk"],
+.blueprint-backdrop[data-zone-active="rekayasa"] .blueprint-layer-highlight [data-zone="rekayasa"] {
+  opacity: 1;
+}
+
+/* Gaya sorotan statis: tidak ikut berubah saat zona melepas/mengaktifkan */
+.blueprint-backdrop .blueprint-layer-highlight .zone-art * {
+  stroke: #191919;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  transition: none;
+}
+
+.blueprint-backdrop .blueprint-layer-highlight .zone-label {
+  opacity: 1;
+  transition: none;
+}
+
+/* Peredupan zona non-aktif di lapisan dasar/reveal: lebih panjang dan lembut */
+.blueprint-backdrop .blueprint-layer-base [data-zone],
+.blueprint-backdrop .blueprint-layer-reveal [data-zone] {
+  transition: opacity var(--bp-dur) var(--bp-ease);
+}
+
+/* PERFORMA: latar punya ~7.000 elemen. Tidak boleh ada transisi stroke-width /
+   stroke / stroke-opacity pada elemen anak (memicu repaint ribuan elemen per
+   frame). Semua perubahan hanya lewat opacity pada 3 grup zona; grup dijadikan
+   lapisan sendiri (will-change) sehingga crossfade berjalan di compositor. */
+.blueprint-backdrop .zone-art *,
+.blueprint-backdrop [data-zone] * {
+  transition: none !important;
+}
+
+.blueprint-backdrop .blueprint-layer-base [data-zone],
+.blueprint-backdrop .blueprint-layer-reveal [data-zone] {
+  will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-backdrop {
+    --bp-dur: 0ms;
+  }
+}
