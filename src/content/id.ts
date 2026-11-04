@@ -28,10 +28,32 @@ export interface ValueItem {
   description: string;
 }
 
-export interface TeamPlaceholderItem {
+export interface TeamMemberItem {
+  name: string;
   role: string;
-  placeholderText: string;
+  bio: string;
   initials: string;
+}
+
+export interface StatItem {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
+export interface CaseStudyItem {
+  num: string;
+  title: string;
+  industry: string;
+  challenge: string;
+  result: string;
+  services: string[];
+}
+
+export interface TestimonialItem {
+  quote: string;
+  author: string;
+  role: string;
 }
 
 export interface FaqItem {
@@ -40,6 +62,11 @@ export interface FaqItem {
 }
 
 export interface ContentId {
+  stats: StatItem[];
+  clients: {
+    note: string;
+    items: string[];
+  };
   services: {
     label: string;
     title: string;
@@ -53,11 +80,22 @@ export interface ContentId {
     steps: StepItem[];
     principles: PrincipleItem[];
   };
+  caseStudies: {
+    label: string;
+    title: string;
+    intro: string;
+    items: CaseStudyItem[];
+  };
   whyUs: {
     label: string;
     title: string;
     paragraph: string;
     items: WhyItem[];
+  };
+  testimonials: {
+    label: string;
+    title: string;
+    items: TestimonialItem[];
   };
   about: {
     label: string;
@@ -65,7 +103,14 @@ export interface ContentId {
     paragraphs: string[];
     valuesHeading: string;
     values: ValueItem[];
-    team: TeamPlaceholderItem[];
+    teamHeading: string;
+    team: TeamMemberItem[];
+  };
+  techStack: {
+    label: string;
+    title: string;
+    description: string;
+    items: string[];
   };
   faq: {
     label: string;
@@ -95,8 +140,10 @@ export interface ContentId {
     };
     direct: {
       title: string;
-      emailPlaceholder: string;
-      locationPlaceholder: string;
+      email: string;
+      location: string;
+      phone: string;
+      hours: string;
       responseCommitment: string;
     };
   };
@@ -111,7 +158,43 @@ export interface ContentId {
   };
 }
 
+// DATA TIRUAN: ganti dengan data asli sebelum rilis
 export const contentId: ContentId = {
+  stats: [
+    {
+      value: 24,
+      suffix: "+",
+      label: "proyek selesai",
+    },
+    {
+      value: 9,
+      suffix: "",
+      label: "sektor industri",
+    },
+    {
+      value: 98,
+      suffix: "%",
+      label: "klien berlanjut",
+    },
+    {
+      value: 4,
+      suffix: " hari",
+      label: "rata-rata sampai prototipe pertama",
+    },
+  ],
+
+  clients: {
+    note: "Beberapa nama yang pernah bekerja bersama kami",
+    items: [
+      "Nusantara Logistik",
+      "Karya Mandiri Finansial",
+      "Samudera Data Solusi",
+      "Bumi Pangan Lestari",
+      "Artha Graha Digital",
+      "Ruang Edukasi Indonesia",
+    ],
+  },
+
   services: {
     label: "LAYANAN",
     title: "Dari gagasan sampai produk yang berjalan",
@@ -208,6 +291,42 @@ export const contentId: ContentId = {
     ],
   },
 
+  caseStudies: {
+    label: "STUDI KASUS",
+    title: "Karya nyata dengan dampak yang terukur",
+    intro:
+      "Tiga contoh kolaborasi yang menggambarkan cara kami menyelesaikan masalah nyata.",
+    items: [
+      {
+        num: "01",
+        title: "Modernisasi Sistem Logistik Armada",
+        industry: "Rantai Pasok & Distribusi",
+        challenge:
+          "Sistem pelacakan armada terfragmentasi sehingga koordinasi pengiriman terlambat hingga beberapa jam setiap hari.",
+        result: "38% efisiensi rute operasional harian",
+        services: ["Strategi", "Rekayasa"],
+      },
+      {
+        num: "02",
+        title: "Aplikasi Manajemen Portofolio Finansial",
+        industry: "Layanan Keuangan",
+        challenge:
+          "Pengguna kesulitan memahami ringkasan aset karena antarmuka analitik yang terlalu rumit dan lambat dimuat.",
+        result: "2.4x kenaikan retensi pengguna aktif",
+        services: ["Produk", "Rekayasa"],
+      },
+      {
+        num: "03",
+        title: "Platform Terpadu Pengadaan B2B",
+        industry: "Manufaktur & Pengadaan",
+        challenge:
+          "Proses verifikasi dokumen vendor manual memakan waktu hingga dua pekan untuk satu siklus pengadaan.",
+        result: "70% penurunan waktu verifikasi berkas",
+        services: ["Strategi", "Produk"],
+      },
+    ],
+  },
+
   whyUs: {
     label: "KENAPA NEARTECH",
     title: "Dekat, dalam arti yang sebenarnya",
@@ -231,6 +350,31 @@ export const contentId: ContentId = {
       {
         title: "Bertanggung jawab",
         description: "Kami berani mengatakan tidak bila sebuah gagasan belum tepat.",
+      },
+    ],
+  },
+
+  testimonials: {
+    label: "TESTIMONI",
+    title: "Kata mereka tentang kerja sama bersama kami",
+    items: [
+      {
+        quote:
+          "NearTech langsung memahami inti kendala kami tanpa membuang waktu pada fitur yang tidak diperlukan. Komunikasi mereka sangat jujur dan solusinya tahan lama.",
+        author: "Hendro Wibowo",
+        role: "Direktur Operasional, Nusantara Logistik",
+      },
+      {
+        quote:
+          "Kecepatan mereka mengubah rancangan abstrak menjadi prototipe yang bisa diuji membuat seluruh tim kami yakin sejak minggu pertama proyek berjalan.",
+        author: "Alina Kusuma",
+        role: "Kepala Produk, Karya Mandiri Finansial",
+      },
+      {
+        quote:
+          "Sistem yang mereka bangun stabil, dokumentasi rapi, dan mudah dirawat oleh tim internal kami. Kemitraan yang sangat profesional dan transparan.",
+        author: "Bambang Sudiro",
+        role: "VP Rekayasa, Samudera Data Solusi",
       },
     ],
   },
@@ -263,17 +407,49 @@ export const contentId: ContentId = {
           "Kemitraan jangka panjang yang mengutamakan keberhasilan nyata bagi bisnis Anda.",
       },
     ],
+    teamHeading: "Tim Inti",
     team: [
       {
-        role: "Pendiri",
-        placeholderText: "[Nama dan peran akan ditambahkan]",
-        initials: "P1",
+        name: "Arya Pratama",
+        role: "Pendiri, Strategi dan Produk",
+        bio: "Lebih dari satu dekade memimpin strategi produk dan transformasi digital di berbagai industri.",
+        initials: "AP",
       },
       {
-        role: "Pendiri",
-        placeholderText: "[Nama dan peran akan ditambahkan]",
-        initials: "P2",
+        name: "Reza Mahendra",
+        role: "Pendiri, Rekayasa",
+        bio: "Praktisi rekayasa perangkat lunak dengan fokus pada arsitektur modular, keandalan sistem, dan kinerja tinggi.",
+        initials: "RM",
       },
+      {
+        name: "Siti Rahmawati",
+        role: "Desainer Antarmuka Senior",
+        bio: "Merancang sistem desain dan interaksi digital yang jelas, terstruktur, dan nyaman digunakan.",
+        initials: "SR",
+      },
+      {
+        name: "Dimas Nugroho",
+        role: "Insinyur Perangkat Lunak Senior",
+        bio: "Mengembangkan aplikasi web dan sistem data yang cepat, aman, serta teruji secara menyeluruh.",
+        initials: "DN",
+      },
+    ],
+  },
+
+  techStack: {
+    label: "PERANGKAT & TEKNOLOGI",
+    title: "Fondasi teknologi yang kami gunakan",
+    description:
+      "Alat dan teknologi teruji yang kami pilih berdasarkan keandalan, ekosistem yang matang, dan kemudahan perawatan.",
+    items: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Figma",
     ],
   },
 
@@ -333,8 +509,10 @@ export const contentId: ContentId = {
     },
     direct: {
       title: "Kontak langsung",
-      emailPlaceholder: "[Alamat surel akan ditambahkan]",
-      locationPlaceholder: "[Lokasi akan ditambahkan]",
+      email: "halo@neartech.example",
+      location: "Jl. Suryo No. 42, Senopati, Jakarta Selatan, Indonesia",
+      phone: "+62 21 5555 0123",
+      hours: "Senin sampai Jumat, 09.00 sampai 17.00 WIB",
       responseCommitment: "Kami berusaha membalas dalam satu hari kerja.",
     },
   },
