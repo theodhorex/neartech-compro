@@ -1,0 +1,417 @@
+{
+  "metadata": {
+    "title": "NearTech | 비즈니스에 가장 가까운 기술 파트너",
+    "description": "성장하는 기업을 위한 기술 파트너. 디지털 전략 및 프로덕트부터 엔지니어링과 지속적인 운영 지원까지 함께합니다."
+  },
+  "navbar": {
+    "ariaLabel": "주요 내비게이션",
+    "services": "서비스",
+    "approach": "접근 방식",
+    "about": "소개",
+    "contact": "문의",
+    "cta": "문의하기",
+    "ctaAriaLabel": "문의하기"
+  },
+  "themeToggle": {
+    "changeTheme": "테마 변경",
+    "currentDark": "테마 변경 (현재 다크 모드)",
+    "currentSystem": "테마 변경 (현재 시스템 설정)",
+    "currentLight": "테마 변경 (현재 라이트 모드)"
+  },
+  "languageSwitcher": {
+    "label": "언어 선택"
+  },
+  "common": {
+    "logoAriaLabel": "NearTech 홈"
+  },
+  "hero": {
+    "titleLine1": "비즈니스에 가장 가까운",
+    "titleLine2": "기술을 만듭니다.",
+    "description": "성장하는 기업을 위한 기술 파트너. 디지털 전략 및 프로덕트부터 엔지니어링과 지속적인 운영 지원까지 함께합니다.",
+    "cta": "문의하기",
+    "ctaAriaLabel": "프로젝트 상담 문의하기"
+  },
+  "blueprint": {
+    "zoneStrategy": "01 전략 — 기획 및 기반",
+    "zoneProduct": "02 프로덕트 — 인터페이스 및 경험",
+    "zoneEngineering": "03 엔지니어링 — 구조 및 시스템"
+  },
+  "infoPanel": {
+    "tag": "우리가 하는 일",
+    "title": "비즈니스의 전진을 돕는 핵심 기술",
+    "description": "디지털 프로덕트를 설계하고 구축하며 유지 관리합니다. 직접적인 소통, 명확한 프로세스, 측정 가능한 결과를 약속합니다.",
+    "services": {
+      "strategy": "전략",
+      "product": "프로덕트",
+      "engineering": "엔지니어링"
+    },
+    "serviceRowAriaLabel": "서비스 {num}: {label}"
+  },
+  "stats": {
+    "ariaLabel": "주요 성과 지표",
+    "items": [
+      {
+        "value": 24,
+        "suffix": "+",
+        "label": "완료된 프로젝트"
+      },
+      {
+        "value": 9,
+        "suffix": "",
+        "label": "경험 산업 분야"
+      },
+      {
+        "value": 98,
+        "suffix": "%",
+        "label": "고객 재계약률"
+      },
+      {
+        "value": 4,
+        "suffix": "일",
+        "label": "첫 프로토타입 제작 평균 기간"
+      }
+    ]
+  },
+  "clients": {
+    "ariaLabel": "고객사 및 파트너",
+    "marqueeAriaLabel": "협력 파트너사 목록",
+    "note": "NearTech와 함께 혁신을 만들어온 파트너",
+    "items": [
+      "Nusantara Logistik",
+      "Karya Mandiri Finansial",
+      "Samudera Data Solusi",
+      "Bumi Pangan Lestari",
+      "Artha Graha Digital",
+      "Ruang Edukasi Indonesia"
+    ]
+  },
+  "services": {
+    "label": "서비스",
+    "title": "아이디어에서 실제 작동하는 제품까지",
+    "intro": "기술 개발의 전 과정을 책임지므로, 시작부터 끝까지 하나의 전담 팀과 소통하시면 됩니다.",
+    "items": [
+      {
+        "num": "01",
+        "title": "전략",
+        "description": "무엇을 구축해야 할지, 그리고 무엇을 구축하지 말아야 할지 함께 판단합니다.",
+        "points": [
+          "비즈니스 프로세스 및 요구사항 정의",
+          "우선순위 및 프로젝트 범위 설정",
+          "소프트웨어 아키텍처 설계 및 기술 스택 선정",
+          "정직한 로드맵과 현실적인 일정 산정"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "프로덕트",
+        "description": "직관적이고 편리한 사용자 경험을 설계하고, 이를 완성도 높은 제품으로 구현합니다.",
+        "points": [
+          "사용자 리서치 및 인터페이스 디자인",
+          "개발 전 검증 가능한 대화형 프로토타입",
+          "웹 및 모바일 애플리케이션 개발",
+          "일관되고 확장 가능한 디자인 시스템"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "엔지니어링",
+        "description": "비즈니스 성장에 발맞추어 안정적이고 안전하게 확장되는 시스템을 구축하고 운영합니다.",
+        "points": [
+          "시스템 개발 및 인프라 통합",
+          "자동화 테스트 및 지속적 배포(CI/CD)",
+          "보안 강화 및 실시간 모니터링",
+          "지속적인 유지보수 및 기술 지원"
+        ]
+      }
+    ]
+  },
+  "approach": {
+    "label": "접근 방식",
+    "title": "직접 보고 확인할 수 있는 투명한 프로세스",
+    "intro": "모호한 전문 용어나 예기치 않은 변수는 없습니다. 모든 단계마다 직접 검토할 수 있는 명확한 결과물을 제공합니다.",
+    "resultLabel": "단계별 산출물",
+    "steps": [
+      {
+        "num": "01",
+        "title": "탐색",
+        "description": "어떠한 솔루션을 제안하기에 앞서 고객의 문제와 목표, 제약 사항을 깊이 경청합니다.",
+        "result": "핵심 과제 및 목표 정의서."
+      },
+      {
+        "num": "02",
+        "title": "설계",
+        "description": "해결 방안과 화면 설계, 실행 계획을 수립하고 고객의 승인을 거칩니다.",
+        "result": "설계 청사진 및 프로토타입."
+      },
+      {
+        "num": "03",
+        "title": "구축",
+        "description": "짧은 스프린트 주기로 개발합니다. 단순 보고서가 아닌 실질적인 작동 제품을 정기적으로 확인하실 수 있습니다.",
+        "result": "점진적 릴리스."
+      },
+      {
+        "num": "04",
+        "title": "운영",
+        "description": "출시 후에도 곁을 지키며 모니터링, 개선, 시스템 고도화를 지속합니다.",
+        "result": "지속해서 개선되는 프로덕트."
+      }
+    ],
+    "principles": [
+      {
+        "title": "직접적인 소통",
+        "description": "중간 전달자 없이 실제 개발을 담당하는 팀원과 직접 대화합니다."
+      },
+      {
+        "title": "투명한 과정",
+        "description": "계획과 진행 상황, 비용 산정이 언제나 투명하게 공개됩니다."
+      },
+      {
+        "title": "측정 가능한 성과",
+        "description": "프로젝트 시작 첫날부터 명확한 성공 기준에 합의합니다."
+      }
+    ]
+  },
+  "caseStudies": {
+    "label": "사례 연구",
+    "title": "측정 가능한 성과를 이끌어낸 실제 프로젝트",
+    "intro": "실제 비즈니스 과제를 해결한 세 가지 대표 협업 사례를 소개합니다.",
+    "resultLabel": "검증된 성과",
+    "items": [
+      {
+        "num": "01",
+        "title": "차량 물류 관제 시스템 현대화",
+        "industry": "공급망 및 유통 물류",
+        "challenge": "차량 추적 시스템이 분산되어 있어 매일 수 시간씩 배차 조율 지연이 발생했습니다.",
+        "result": "일일 운송 경로 운영 효율 38% 개선",
+        "services": [
+          "전략",
+          "엔지니어링"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "금융 자산 포트폴리오 관리 앱",
+        "industry": "금융 서비스",
+        "challenge": "분석 화면이 지나치게 복잡하고 로딩이 느려 사용자가 자산 현황을 파악하기 어려웠습니다.",
+        "result": "활성 사용자 유지율 2.4배 향상",
+        "services": [
+          "프로덕트",
+          "엔지니어링"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "통합 B2B 구매 조달 플랫폼",
+        "industry": "제조 및 조달",
+        "challenge": "공급업체 서류 검증이 수작업으로 진행되어 단일 구매 주기에 최대 2주가 소요되었습니다.",
+        "result": "서류 검증 처리 소요 시간 70% 단축",
+        "services": [
+          "전략",
+          "프로덕트"
+        ]
+      }
+    ]
+  },
+  "whyUs": {
+    "label": "NEARTECH를 선택하는 이유",
+    "title": "이름 그대로, 언제나 가장 가까이에서",
+    "paragraph": "NearTech라는 이름은 고객과의 약속입니다. 귀사의 비즈니스에 가깝게, 고객의 사용자에 가깝게, 현장의 현실에 가깝게 다가갑니다. 우리는 겉만 화려하고 복잡한 기술보다 올바른 문제를 확실히 해결하는 길을 선택합니다.",
+    "items": [
+      {
+        "title": "본질적인 문제 중심",
+        "description": "코드를 작성하기 전에 본질적인 문제부터 철저히 묻습니다."
+      },
+      {
+        "title": "단순함과 지속성",
+        "description": "순간의 화려함보다 유지보수가 용이한 견고한 솔루션이 더 가치 있습니다."
+      },
+      {
+        "title": "열린 협업",
+        "description": "결과를 그저 기다리는 것이 아니라 중요한 의사결정에 함께 참여합니다."
+      },
+      {
+        "title": "책임감 있는 조언",
+        "description": "어떤 아이디어가 현재 시점에 적절하지 않다면 정직하게 '아니다'라고 말씀드립니다."
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "고객 후기",
+    "title": "함께 협업한 파트너사들의 생생한 평가",
+    "ariaLabel": "고객 추천사",
+    "carouselAriaLabel": "파트너 추천사 슬라이드",
+    "prevAriaLabel": "이전 추천사",
+    "nextAriaLabel": "다음 추천사",
+    "items": [
+      {
+        "quote": "NearTech는 불필요한 기능에 시간을 낭비하지 않고 우리 문제의 핵심을 즉각 파악했습니다. 커뮤니케이션이 매우 정직하며 구축된 소프트웨어의 완성도와 내구성이 뛰어납니다.",
+        "author": "Hendro Wibowo",
+        "role": "운영 총괄 이사, Nusantara Logistik"
+      },
+      {
+        "quote": "추상적인 아이디어를 테스트 가능한 프로토타입으로 빠르게 구현해 준 덕분에 프로젝트 첫 주부터 전사 경영진이 확신을 가질 수 있었습니다.",
+        "author": "Alina Kusuma",
+        "role": "프로덕트 헤드, Karya Mandiri Finansial"
+      },
+      {
+        "quote": "구축해 주신 시스템이 매우 안정적이고 문서화가 잘 되어 있어 내부 개발팀이 유지 관리하기가 정말 수월합니다. 대단히 전문적이고 투명한 파트너입니다.",
+        "author": "Bambang Sudiro",
+        "role": "엔지니어링 부사장, Samudera Data Solusi"
+      }
+    ]
+  },
+  "about": {
+    "label": "회사 소개",
+    "title": "두 창업자, 하나의 목표: 유용한 기술을 만듭니다",
+    "paragraphs": [
+      "NearTech는 최고의 기술이란 다른 사람의 일을 더 쉽고 편리하게 만들어 주는 기술이라는 믿음으로 출발했습니다. 소수 정예 팀으로 시작해 모든 프로젝트에 깊은 집중과 정성을 쏟고 있습니다.",
+      "우리는 단단하게 성장하고 있으며, 초기부터 함께 도약할 파트너사를 맞이할 준비가 되어 있습니다. 고객의 비즈니스 맥락을 진심으로 이해하는 파트너를 찾고 계신다면, 지금 편하게 대화를 나눠보세요."
+    ],
+    "valuesHeading": "핵심 가치",
+    "values": [
+      {
+        "num": "01",
+        "title": "정직함",
+        "description": "기술적 한계에 대한 투명한 공유, 현실적인 일정 산정, 가장 합리적인 해결책 제안."
+      },
+      {
+        "num": "02",
+        "title": "세심함",
+        "description": "코드 품질, 견고한 소프트웨어 아키텍처, 쾌적한 사용자 경험에 대한 철저한 관리."
+      },
+      {
+        "num": "03",
+        "title": "동반 성장",
+        "description": "고객 비즈니스의 실질적인 성공을 최우선으로 두는 장기적인 파트너십 구축."
+      }
+    ],
+    "teamHeading": "핵심 팀원",
+    "team": [
+      {
+        "name": "Arya Pratama",
+        "role": "공동 창업자, 프로덕트 및 전략",
+        "bio": "다양한 산업 분야에서 10년 이상 디지털 전환 및 프로덕트 전략을 총괄해 왔습니다.",
+        "initials": "AP"
+      },
+      {
+        "name": "Reza Mahendra",
+        "role": "공동 창업자, 엔지니어링",
+        "bio": "모듈식 아키텍처, 고가용성 시스템, 고성능 처리를 전문으로 하는 소프트웨어 엔지니어링 실무자입니다.",
+        "initials": "RM"
+      },
+      {
+        "name": "Siti Rahmawati",
+        "role": "수석 UI 디자이너",
+        "bio": "명확하고 구조화되어 누구나 쓰기 편한 디지털 디자인 시스템과 인터랙션을 설계합니다.",
+        "initials": "SR"
+      },
+      {
+        "name": "Dimas Nugroho",
+        "role": "수석 소프트웨어 엔지니어",
+        "bio": "빠르고 안전하며 철저히 검증된 고성능 웹 애플리케이션과 데이터 시스템을 개발합니다.",
+        "initials": "DN"
+      }
+    ]
+  },
+  "techStack": {
+    "label": "기술 스택",
+    "title": "우리가 신뢰하고 활용하는 기술 기반",
+    "description": "안정성, 검증된 생태계, 유지보수의 용이성을 바탕으로 신중하게 선정한 기술 도구입니다.",
+    "ariaLabel": "기술 스택",
+    "listAriaLabel": "활용 중인 기술 목록",
+    "items": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Figma"
+    ]
+  },
+  "faq": {
+    "label": "자주 묻는 질문",
+    "title": "궁금하신 점을 확인해 보세요",
+    "items": [
+      {
+        "question": "NearTech는 어떤 종류의 프로젝트를 수행하나요?",
+        "answer": "초기 전략 수립부터 유지보수까지 디지털 제품의 전 생애주기를 담당합니다: 웹 및 모바일 앱, 사내 업무 시스템, API 연동, 기존 프로덕트 고도화 등을 수행합니다."
+      },
+      {
+        "question": "문의하기 전에 구체적인 기획서가 완성되어 있어야 하나요?",
+        "answer": "전혀 그렇지 않습니다. 대다수 프로젝트는 아직 구체화되지 않은 문제의식에서 시작합니다. 전략 단계에서 함께 방향을 선명하게 다듬어 드립니다."
+      },
+      {
+        "question": "프로젝트 진행 기간과 예상 비용은 어떻게 되나요?",
+        "answer": "개발 범위에 따라 달라집니다. 초기 상담 후 전제 조건과 가정이 명시된 서면 견적서를 전달해 드리므로 투명하게 비교 검토하실 수 있습니다."
+      },
+      {
+        "question": "제품 출시 후에도 기술 지원과 유지보수를 받을 수 있나요?",
+        "answer": "네, 지속적인 유지보수와 고도화 서비스를 제공하며, 이는 고객의 필요에 따라 선택하실 수 있습니다."
+      },
+      {
+        "question": "프로젝트를 시작하려면 어떻게 해야 하나요?",
+        "answer": "아래 양식을 통해 메시지를 남겨주시면 빠르게 확인 후 무료 초기 상담 일정을 안내해 드립니다."
+      }
+    ]
+  },
+  "contact": {
+    "cta": {
+      "label": "문의하기",
+      "title": "해결하고 싶은 기술적 과제가 있으신가요?",
+      "subtitle": "프로젝트에 대해 간략히 들려주세요. 확인 후 신속하게 연락드리겠습니다.",
+      "buttonText": "문의하기"
+    },
+    "form": {
+      "nameLabel": "성함",
+      "namePlaceholder": "성함을 입력하세요",
+      "nameRequired": "성함을 입력해 주세요.",
+      "emailLabel": "이메일 주소",
+      "emailPlaceholder": "name@company.com",
+      "emailRequired": "이메일 주소를 입력해 주세요.",
+      "emailInvalid": "올바른 이메일 형식이 아닙니다.",
+      "companyLabel": "회사명",
+      "companyPlaceholder": "소속 회사명",
+      "companyOptional": "(선택 사항)",
+      "messageLabel": "프로젝트 내용",
+      "messagePlaceholder": "프로젝트 배경, 직면한 문제, 달성하고자 하는 목표 등을 자유롭게 설명해 주세요...",
+      "messageRequired": "프로젝트 내용을 입력해 주세요.",
+      "messageMin": "최소 몇 마디 이상의 내용을 작성해 주세요.",
+      "submitButton": "메시지 보내기",
+      "submittingButton": "전송 중...",
+      "successTitle": "메시지가 전송되었습니다",
+      "successMessage": "메시지가 성공적으로 전송되었습니다. 곧 연락드리겠습니다.",
+      "errorMessage": "필수 항목을 정확히 입력해 주세요.",
+      "sendError": "전송 중 문제가 발생했습니다. 다시 시도해 주세요."
+      ,"resetButton": "다른 메시지 보내기"
+    },
+    "direct": {
+      "title": "직접 연락",
+      "channelTitle": "소통 채널",
+      "emailLabel": "이메일",
+      "email": "halo@neartech.example",
+      "phoneLabel": "전화번호",
+      "phone": "+62 21 5555 0123",
+      "locationLabel": "사무실 위치",
+      "location": "Jl. Suryo No. 42, Senopati, Jakarta Selatan, Indonesia",
+      "hoursLabel": "운영 시간",
+      "hours": "월요일 - 금요일, 09:00 - 17:00 (WIB)",
+      "responseCommitment": "영업일 기준 1일 이내 답변을 목표로 합니다."
+    }
+  },
+  "footer": {
+    "tagline": "비즈니스에 가장 가까운 기술을 만듭니다.",
+    "contactTitle": "연락처",
+    "menuTitle": "바로가기",
+    "navAriaLabel": "하단 내비게이션",
+    "nav": {
+      "services": "서비스",
+      "approach": "접근 방식",
+      "about": "소개",
+      "contact": "문의"
+    },
+    "copyright": "© 2026 NearTech. All rights reserved.",
+    "backToTop": "맨 위로 이동"
+  }
+}
