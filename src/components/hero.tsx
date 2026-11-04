@@ -7,7 +7,11 @@ export function Hero() {
   return (
     <main className="relative flex flex-col items-center overflow-hidden h-screen min-h-svh w-full bg-white">
       {/* Latar blueprint gedung (statis) + interaksi */}
-      <BlueprintBackdrop />
+      {/* Zona bersih: gambar memudar di belakang blok teks utama agar judul,
+          subjudul, dan tombol selalu terbaca (lihat .hero-art-mask). */}
+      <div aria-hidden="true" className="hero-art-mask absolute inset-0 z-0">
+        <BlueprintBackdrop />
+      </div>
 
       {/* Navbar Tetap */}
       <Navbar />
@@ -15,7 +19,7 @@ export function Hero() {
       {/* Blok Teks Tengah (Hero Copy) */}
       <div
         data-hero-ui
-        className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 max-w-4xl"
+        className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 max-w-6xl"
       >
         <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tighter text-[#191919] font-normal">
           <span className="block overflow-hidden">

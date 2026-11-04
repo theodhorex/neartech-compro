@@ -145,3 +145,22 @@
     transform: scaleX(1) !important;
   }
 }
+
+/* ---------- Zona bersih di belakang teks hero (Theo, 5 Nov 2026) ----------
+   Seluruh lapisan gambar blueprint (garis sumbu, callout, grid sorotan, zona
+   aktif, retikel) memudar hampir hilang di area elips tengah tempat judul,
+   subjudul, dan tombol berada; di sisi kiri/kanan gambar tetap utuh. */
+.hero-art-mask {
+  -webkit-mask-image: radial-gradient(
+    ellipse min(44vw, 620px) 46% at 50% 36%,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.04) 62%,
+    #000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse min(44vw, 620px) 46% at 50% 36%,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.04) 62%,
+    #000 100%
+  );
+}
