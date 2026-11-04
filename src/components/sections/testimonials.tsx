@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
-import { contentId } from "@/content/id";
+import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/reveal";
 
+type TestimonialItem = {
+  quote: string;
+  author: string;
+  role: string;
+};
+
 export function TestimonialsSection() {
-  const { label, title, items } = contentId.testimonials;
+  const t = useTranslations("testimonials");
+  const label = t("label");
+  const title = t("title");
+  const items = t.raw("items") as TestimonialItem[];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prev = () => {
@@ -25,7 +34,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      aria-label="Testimoni Klien"
+      aria-label={t("ariaLabel")}
       className="py-20 md:py-32 border-b border-line bg-bg-soft"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -45,7 +54,7 @@ export function TestimonialsSection() {
         <div
           role="region"
           aria-roledescription="carousel"
-          aria-label="Ulasan mitra kerja"
+          aria-label={t("carouselAriaLabel")}
           className="bg-bg border border-line p-8 sm:p-12 md:p-16 relative"
         >
           {/* Ikon Kutipan Dekoratif Blueprint */}
@@ -82,7 +91,7 @@ export function TestimonialsSection() {
                   <button
                     type="button"
                     onClick={prev}
-                    aria-label="Kutipan sebelumnya"
+                    aria-label={t("prevAriaLabel")}
                     className="p-2.5 border border-line hover:border-ink hover:bg-bg-soft text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink rounded-xs cursor-pointer"
                   >
                     <ArrowLeft className="w-4 h-4" />
@@ -90,7 +99,7 @@ export function TestimonialsSection() {
                   <button
                     type="button"
                     onClick={next}
-                    aria-label="Kutipan berikutnya"
+                    aria-label={t("nextAriaLabel")}
                     className="p-2.5 border border-line hover:border-ink hover:bg-bg-soft text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink rounded-xs cursor-pointer"
                   >
                     <ArrowRight className="w-4 h-4" />

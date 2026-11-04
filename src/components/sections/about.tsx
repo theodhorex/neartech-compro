@@ -1,9 +1,28 @@
-import { contentId } from "@/content/id";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
 
-export function AboutSection() {
-  const { label, title, paragraphs, valuesHeading, values, teamHeading, team } =
-    contentId.about;
+type ValueItem = {
+  num: string;
+  title: string;
+  description: string;
+};
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  initials: string;
+};
+
+export async function AboutSection() {
+  const t = await getTranslations("about");
+  const label = t("label");
+  const title = t("title");
+  const paragraphs = t.raw("paragraphs") as string[];
+  const valuesHeading = t("valuesHeading");
+  const values = t.raw("values") as ValueItem[];
+  const teamHeading = t("teamHeading");
+  const team = t.raw("team") as TeamMember[];
 
   return (
     <section
