@@ -2,7 +2,7 @@ import { contentId } from "@/content/id";
 import { Reveal } from "@/components/ui/reveal";
 
 export function AboutSection() {
-  const { label, title, paragraphs, valuesHeading, values, team } =
+  const { label, title, paragraphs, valuesHeading, values, teamHeading, team } =
     contentId.about;
 
   return (
@@ -64,31 +64,36 @@ export function AboutSection() {
           aria-hidden="true"
         />
 
-        {/* Tim Pendiri: Kartu Placeholder Jujur (Tanpa Klaim Palsu) */}
+        {/* Tim Inti: 4 Kartu Tim (Tanpa Foto Palsu, Inisial Netral) */}
         <div>
           <Reveal>
             <span className="text-[11px] uppercase tracking-[0.2em] text-[#191919]/50 font-medium block mb-8">
-              TIM PENDIRI
+              {teamHeading}
             </span>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {team.map((member, idx) => (
-              <Reveal key={idx} delay={idx * 120}>
-                <div className="border border-gray-200 p-6 bg-white flex items-center gap-4">
+              <Reveal key={member.name} delay={idx * 100}>
+                <div className="border border-gray-200 p-6 bg-white flex flex-col sm:flex-row items-start gap-4 h-full">
                   {/* Kotak Inisial Netral (tanpa foto palsu) */}
                   <div
                     aria-hidden="true"
-                    className="w-14 h-14 rounded-xs bg-[#F4F3F3] border border-gray-200 flex items-center justify-center font-mono text-xs text-[#191919]/40 shrink-0"
+                    className="w-12 h-12 rounded-xs bg-[#F4F3F3] border border-gray-200 flex items-center justify-center font-mono text-xs font-medium text-[#191919]/60 shrink-0"
                   >
                     {member.initials}
                   </div>
-                  <div>
-                    <h3 className="font-medium text-base text-[#191919]">
+                  <div className="space-y-1">
+                    <div className="flex flex-wrap items-baseline gap-x-2">
+                      <h3 className="font-serif font-medium text-lg text-[#191919]">
+                        {member.name}
+                      </h3>
+                    </div>
+                    <p className="text-xs font-mono uppercase tracking-wider text-[#191919]/60">
                       {member.role}
-                    </h3>
-                    <p className="text-xs text-[#191919]/50 font-mono mt-0.5">
-                      {member.placeholderText}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#191919]/70 leading-relaxed pt-1">
+                      {member.bio}
                     </p>
                   </div>
                 </div>
