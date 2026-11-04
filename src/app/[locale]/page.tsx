@@ -1,3 +1,6 @@
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { hasLocale, routing } from "@/i18n/routing";
 import { Hero } from "@/components/hero";
 import { StatsSection } from "@/components/sections/stats";
 import { ClientsSection } from "@/components/sections/clients";
@@ -12,7 +15,22 @@ import { FaqSection } from "@/components/sections/faq";
 import { ContactSection } from "@/components/sections/contact";
 import { Footer } from "@/components/footer";
 
-export default function Home() {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
   return (
     <>
       <Hero />
