@@ -146,21 +146,33 @@
   }
 }
 
-/* ---------- Zona bersih di belakang teks hero (Theo, 5 Nov 2026) ----------
-   Seluruh lapisan gambar blueprint (garis sumbu, callout, grid sorotan, zona
-   aktif, retikel) memudar hampir hilang di area elips tengah tempat judul,
-   subjudul, dan tombol berada; di sisi kiri/kanan gambar tetap utuh. */
+/* ---------- Keterbacaan teks hero di atas gambar blueprint ----------
+   Revisi 5 Nov 2026 (Theo: "terlalu kentara bentuk zona bersihnya").
+   1) Topeng sangat landai (tanpa tepi yang terbaca): gambar berkurang
+      bertahap menuju tengah, tidak pernah hilang total, dengan banyak stop
+      mengikuti kurva halus (smoothstep) sehingga tidak ada kontur elips.
+   2) Cahaya putih tipis tepat di sekitar huruf (knockout): garis yang lewat di
+      belakang huruf menyingkir secara lokal tanpa membentuk blok. */
 .hero-art-mask {
-  -webkit-mask-image: radial-gradient(
-    ellipse min(44vw, 620px) 46% at 50% 36%,
-    rgba(0, 0, 0, 0.04) 0%,
-    rgba(0, 0, 0, 0.04) 62%,
+  --m: radial-gradient(
+    ellipse min(62vw, 880px) 78% at 50% 34%,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(0, 0, 0, 0.24) 14%,
+    rgba(0, 0, 0, 0.32) 28%,
+    rgba(0, 0, 0, 0.48) 42%,
+    rgba(0, 0, 0, 0.68) 56%,
+    rgba(0, 0, 0, 0.86) 70%,
+    rgba(0, 0, 0, 0.96) 84%,
     #000 100%
   );
-  mask-image: radial-gradient(
-    ellipse min(44vw, 620px) 46% at 50% 36%,
-    rgba(0, 0, 0, 0.04) 0%,
-    rgba(0, 0, 0, 0.04) 62%,
-    #000 100%
-  );
+  -webkit-mask-image: var(--m);
+  mask-image: var(--m);
+}
+
+.text-knockout {
+  text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.95),
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 22px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(255, 255, 255, 0.75);
 }
