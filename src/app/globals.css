@@ -288,12 +288,28 @@
   mix-blend-mode: normal;
 }
 
+@property --vt-r {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
 ::view-transition-old(root) {
   z-index: 1;
 }
 
 ::view-transition-new(root) {
   z-index: 2;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--vt-x, 50%) var(--vt-y, 0px),
+    #000 calc(var(--vt-r) - 120px),
+    transparent var(--vt-r)
+  );
+  mask-image: radial-gradient(
+    circle at var(--vt-x, 50%) var(--vt-y, 0px),
+    #000 calc(var(--vt-r) - 120px),
+    transparent var(--vt-r)
+  );
 }
 
 @media (prefers-reduced-motion: reduce) {

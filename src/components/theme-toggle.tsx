@@ -50,26 +50,27 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       Math.max(y, window.innerHeight - y)
     );
 
+    // Tepi lingkaran dibuat lembut (feather) lewat mask, bukan potongan keras.
+    const feather = 120;
+    const root = document.documentElement;
+    root.style.setProperty("--vt-x", `${x}px`);
+    root.style.setProperty("--vt-y", `${y}px`);
+
     const transition = document.startViewTransition(() => {
       // Atribut diatur langsung agar snapshot "baru" pasti sudah bertema baru,
       // lalu state next-themes disinkronkan.
-      document.documentElement.setAttribute("data-theme", nextResolved);
-      document.documentElement.style.colorScheme = nextResolved;
+      root.setAttribute("data-theme", nextResolved);
+      root.style.colorScheme = nextResolved;
       flushSync(() => setTheme(next));
     });
 
     transition.ready
       .then(() => {
-        document.documentElement.animate(
+        root.animate(
+          { "--vt-r": ["0px", `${radius + feather}px`] },
           {
-            clipPath: [
-              `circle(0px at ${x}px ${y}px)`,
-              `circle(${radius}px at ${x}px ${y}px)`,
-            ],
-          },
-          {
-            duration: 650,
-            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            duration: 900,
+            easing: "cubic-bezier(0.45, 0, 0.15, 1)",
             pseudoElement: "::view-transition-new(root)",
           }
         );
