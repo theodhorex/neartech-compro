@@ -36,7 +36,7 @@ export async function FaqSection() {
                 {items.map((item, idx) => (
                   <details
                     key={idx}
-                    className="group py-5 sm:py-6 focus-within:outline-none"
+                    className="faq-item group py-5 sm:py-6 focus-within:outline-none"
                   >
                     <summary className="flex items-start justify-between gap-4 cursor-pointer list-none select-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink rounded-xs">
                       <div className="flex items-baseline gap-3">
@@ -48,7 +48,7 @@ export async function FaqSection() {
                         </h3>
                       </div>
                       <span className="p-1 text-ink/40 group-hover:text-ink transition-colors shrink-0">
-                        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
+                        <ChevronDown className="w-4 h-4 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-180" />
                       </span>
                     </summary>
                     <div className="mt-3 pl-7 pr-4 sm:pr-8 text-sm sm:text-base text-ink/70 leading-relaxed">
