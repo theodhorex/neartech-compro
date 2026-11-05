@@ -1,5 +1,22 @@
 /* Blueprint Backdrop CSS */
 
+/* PERFORMA: posisi kursor untuk topeng reveal diubah tiap frame. Variabel CSS
+   biasa diwariskan ke semua keturunan (~2.400 elemen SVG di layer ini), sehingga
+   tiap perubahan memicu hitung ulang gaya 65 ms. Didaftarkan dengan
+   inherits:false agar hanya layer itu sendiri yang dihitung ulang (1,3 ms).
+   Terukur 5 Nov 2026. JANGAN dihapus. */
+@property --mx {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --my {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 60%;
+}
+
 .blueprint-backdrop {
   color: var(--bp-ink);
 }
