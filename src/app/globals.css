@@ -319,3 +319,56 @@
     animation: none !important;
   }
 }
+
+/* ---------- Garis waktu "connected dot" (section Pendekatan) ---------- */
+/* Total sapuan garis 1.8s; titik ke-i menyala saat garis tiba (i * 450ms). */
+.tl-line-fill {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.timeline.is-running .tl-line-fill {
+  transform: scaleX(1);
+  transition: transform 1800ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tl-dot {
+  background-color: var(--line);
+  transform: scale(0.7);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.timeline.is-running .tl-dot {
+  background-color: var(--ink);
+  transform: scale(1);
+  transition:
+    background-color 300ms ease calc(var(--tl-i) * 450ms),
+    transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--tl-i) * 450ms);
+  animation: tlPing 900ms ease-out calc(var(--tl-i) * 450ms) 1 both;
+}
+
+@keyframes tlPing {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 45%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-line-fill {
+    transform: scaleX(1);
+  }
+
+  .tl-dot {
+    background-color: var(--ink);
+    transform: none;
+  }
+
+  .timeline.is-running .tl-line-fill,
+  .timeline.is-running .tl-dot {
+    transition: none;
+    animation: none;
+  }
+}
