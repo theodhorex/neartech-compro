@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/reveal";
+import { TimelineReveal } from "@/components/ui/timeline-reveal";
 
 type StepItem = {
   num: string;
@@ -45,21 +46,23 @@ export async function ApproachSection() {
 
         {/* Garis Waktu 4 Langkah (Blueprint Timeline) */}
         <div className="mt-16 sm:mt-20">
-          {/* Garis penghubung mendatar di desktop */}
-          <div className="hidden lg:block relative mb-8">
+          <TimelineReveal className="relative">
+            {/* Garis penghubung mendatar di desktop: dasar + isian yang tersapu */}
             <div
-              className="absolute top-2.5 left-0 right-0 h-px bg-line"
+              className="hidden lg:block absolute top-[5px] left-0 right-0 h-px bg-line"
               aria-hidden="true"
-            />
-          </div>
+            >
+              <div className="tl-line-fill absolute inset-0 bg-ink/60" />
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8 relative">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8 relative">
             {steps.map((step, idx) => (
-              <Reveal key={step.num} delay={idx * 100}>
+              <Reveal key={step.num} delay={idx * 450}>
                 <div className="relative pl-6 lg:pl-0 border-l lg:border-l-0 border-line lg:border-none">
                   {/* Titik jangkar timeline (motif blueprint) */}
                   <div
-                    className="absolute -left-[5px] top-1 lg:static lg:mb-4 w-2.5 h-2.5 rounded-full border-2 border-bg bg-ink ring-2 ring-line"
+                    className="tl-dot absolute -left-[5px] top-1 lg:static lg:mb-4 w-2.5 h-2.5 rounded-full border-2 border-bg bg-ink ring-2 ring-line"
+                    style={{ "--tl-i": idx } as React.CSSProperties}
                     aria-hidden="true"
                   />
 
@@ -89,7 +92,8 @@ export async function ApproachSection() {
                 </div>
               </Reveal>
             ))}
-          </div>
+            </div>
+          </TimelineReveal>
         </div>
 
         {/* 3 Prinsip dalam baris kecil */}
