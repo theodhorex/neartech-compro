@@ -249,3 +249,21 @@
 .blueprint-layer-highlight .paper-grid {
   display: none;
 }
+
+/* PERFORMA: setelah intro selesai (flag dipasang oleh use-pointer-loop), animasi
+   masuk dilepas dan diganti keadaan akhir statis. Tampilan identik. */
+.blueprint-backdrop[data-intro-done] .bp-draw {
+  animation: none;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+
+.blueprint-backdrop[data-intro-done] .bp-fade {
+  animation: none;
+  opacity: 1;
+}
+
+.blueprint-backdrop[data-intro-done] .blueprint-layer-reveal {
+  animation: none;
+  opacity: 1;
+}

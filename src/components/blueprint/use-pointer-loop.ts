@@ -44,57 +44,57 @@ export function usePointerLoop({
 
     let cachedZoneHits = getZoneHitElements();
 
+    // PERFORMA: getScreenCTM()/getBBox() memaksa layout. Hasilnya di-cache dan
+    // dibuang hanya saat resize/scroll (satu-satunya yang menggeser matriks layar).
+    type HitGeom = { inv: DOMMatrix; bbox: DOMRect };
+    let hitGeomCache = new WeakMap<SVGGeometryElement, HitGeom | null>();
+    let svgInvCache: DOMMatrix | null | undefined;
+
+    const invalidateGeometry = () => {
+      hitGeomCache = new WeakMap();
+      svgInvCache = undefined;
+    };
+
+    const getHitGeom = (el: SVGGeometryElement): HitGeom | null => {
+      const cached = hitGeomCache.get(el);
+      if (cached !== undefined) return cached;
+      let geom: HitGeom | null = null;
+      try {
+        const ctm = el.getScreenCTM();
+        if (ctm) geom = { inv: ctm.inverse(), bbox: el.getBBox() };
+      } catch {
+        geom = null;
+      }
+      hitGeomCache.set(el, geom);
+      return geom;
+    };
+
     const isPointInZone = (
       el: SVGGeometryElement,
       clientX: number,
       clientY: number
     ): boolean => {
-      try {
-        const ctm = el.getScreenCTM();
-        if (!ctm) return false;
-        const inv = ctm.inverse();
-        const pt = new DOMPoint(clientX, clientY);
-        const localPt = pt.matrixTransform(inv);
+      const geom = getHitGeom(el);
+      if (!geom) return false;
+      const localPt = new DOMPoint(clientX, clientY).matrixTransform(geom.inv);
 
-        // 1. Primary test: SVGGeometryElement.isPointInFill
-        if (typeof el.isPointInFill === "function") {
-          try {
-            if (el.isPointInFill(localPt)) {
-              return true;
-            }
-          } catch {
-            // Fall through to bounding checks
-          }
+      // 1. SVGGeometryElement.isPointInFill (bila elemen mendukung)
+      if (typeof el.isPointInFill === "function") {
+        try {
+          if (el.isPointInFill(localPt)) return true;
+        } catch {
+          // lanjut ke pemeriksaan kotak
         }
-
-        // 2. Secondary fallback test: SVGRectElement geometry
-        if (el instanceof SVGRectElement) {
-          const x = el.x.baseVal.value;
-          const y = el.y.baseVal.value;
-          const w = el.width.baseVal.value;
-          const h = el.height.baseVal.value;
-          return (
-            localPt.x >= x &&
-            localPt.x <= x + w &&
-            localPt.y >= y &&
-            localPt.y <= y + h
-          );
-        }
-
-        // 3. Fallback for any SVG shape via getBBox
-        if (typeof el.getBBox === "function") {
-          const bbox = el.getBBox();
-          return (
-            localPt.x >= bbox.x &&
-            localPt.x <= bbox.x + bbox.width &&
-            localPt.y >= bbox.y &&
-            localPt.y <= bbox.y + bbox.height
-          );
-        }
-      } catch {
-        return false;
       }
-      return false;
+
+      // 2. Fallback: kotak pembatas (bbox) elemen
+      const b = geom.bbox;
+      return (
+        localPt.x >= b.x &&
+        localPt.x <= b.x + b.width &&
+        localPt.y >= b.y &&
+        localPt.y <= b.y + b.height
+      );
     };
 
     // Helper to format 4-digit coordinate string
@@ -118,34 +118,32 @@ export function usePointerLoop({
     reticleRef.current?.style.setProperty("--px", `${currX.toFixed(1)}px`);
     reticleRef.current?.style.setProperty("--py", `${currY.toFixed(1)}px`);
 
+    let lastCoordsText = "";
+    const writeCoords = (text: string) => {
+      if (text === lastCoordsText || !coordsRef.current) return;
+      lastCoordsText = text;
+      coordsRef.current.textContent = text;
+    };
+
     const updateCoordsText = (x: number, y: number) => {
       if (!coordsRef.current) return;
       const svg = baseLayerRef.current?.querySelector("svg");
       if (svg) {
-        try {
-          const ctm = svg.getScreenCTM();
-          if (ctm) {
-            const inv = ctm.inverse();
-            const pt = new DOMPoint(x, y);
-            const svgPt = pt.matrixTransform(inv);
-            const vx = Math.max(0, Math.min(1600, Math.round(svgPt.x)));
-            const vy = Math.max(0, Math.min(900, Math.round(svgPt.y)));
-            coordsRef.current.textContent = `X ${formatCoord(vx)} / Y ${formatCoord(vy)}`;
-            return;
+        if (svgInvCache === undefined) {
+          try {
+            const ctm = svg.getScreenCTM();
+            svgInvCache = ctm ? ctm.inverse() : null;
+          } catch {
+            svgInvCache = null;
           }
-        } catch {
-          // ignore matrix calculation error and fallback
         }
-      }
-
-      // Fallback relative to backdrop rect
-      const rect = backdropRef.current?.getBoundingClientRect();
-      if (rect && rect.width > 0 && rect.height > 0) {
-        const normX = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
-        const normY = Math.max(0, Math.min(1, (y - rect.top) / rect.height));
-        const vx = Math.round(normX * 1600);
-        const vy = Math.round(normY * 900);
-        coordsRef.current.textContent = `X ${formatCoord(vx)} / Y ${formatCoord(vy)}`;
+        if (svgInvCache) {
+          const svgPt = new DOMPoint(x, y).matrixTransform(svgInvCache);
+          const vx = Math.max(0, Math.min(1600, Math.round(svgPt.x)));
+          const vy = Math.max(0, Math.min(900, Math.round(svgPt.y)));
+          writeCoords(`X ${formatCoord(vx)} / Y ${formatCoord(vy)}`);
+          return;
+        }
       }
     };
 
@@ -362,6 +360,7 @@ export function usePointerLoop({
 
     const handleResize = () => {
       cachedZoneHits = getZoneHitElements();
+      invalidateGeometry();
     };
 
     const handleVisibilityChange = () => {
@@ -371,19 +370,34 @@ export function usePointerLoop({
       }
     };
 
+    // PERFORMA: setelah animasi masuk (gambar bertahap + fade) selesai, lepas
+    // ~600 animasi fill-forwards yang selesai tetapi masih membebani hitung gaya.
+    // CSS pada [data-intro-done] menggantinya dengan keadaan akhir statis.
+    const introFrame = requestAnimationFrame(() => {
+      const root = backdropRef.current;
+      if (!root) return;
+      const running = root.getAnimations({ subtree: true });
+      Promise.allSettled(running.map((a) => a.finished)).then(() => {
+        backdropRef.current?.setAttribute("data-intro-done", "true");
+      });
+    });
+
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     window.addEventListener("click", handleClick);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("scroll", invalidateGeometry, { passive: true });
     window.addEventListener("nt:zone", handleNtZone);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
+      cancelAnimationFrame(introFrame);
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("click", handleClick);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", invalidateGeometry);
       window.removeEventListener("nt:zone", handleNtZone);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
