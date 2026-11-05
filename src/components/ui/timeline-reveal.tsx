@@ -8,9 +8,9 @@ interface TimelineRevealProps {
 }
 
 /**
- * Pembungkus garis waktu: saat masuk viewport, kelas `is-running` dipasang
- * sehingga garis tersapu dari kiri ke kanan dan titik (.tl-dot) menyala
- * berurutan ketika garis mencapainya. Gerak diatur penuh lewat CSS.
+ * Pembungkus garis waktu: selama berada di viewport, kelas `is-running` dipasang
+ * sehingga garis tersapu dari kiri ke kanan dan titik (.tl-dot-N) menyala
+ * berurutan, bertahan, memudar, lalu berulang (looping). Gerak diatur penuh lewat CSS.
  */
 export function TimelineReveal({ children, className = "" }: TimelineRevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -22,10 +22,8 @@ export function TimelineReveal({ children, className = "" }: TimelineRevealProps
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setRunning(true);
-          observer.disconnect();
-        }
+        // Berjalan hanya saat terlihat; keluar-masuk viewport memulai ulang siklus.
+        setRunning(entry.isIntersecting);
       },
       { threshold: 0.35 }
     );

@@ -320,41 +320,88 @@
   }
 }
 
-/* ---------- Garis waktu "connected dot" (section Pendekatan) ---------- */
-/* Total sapuan garis 1.8s; titik ke-i menyala saat garis tiba (i * 450ms). */
+/* ---------- Garis waktu "connected dot" berulang (section Pendekatan) ---------- */
+/* Satu siklus 5.4s: garis tersapu (1.8s), titik menyala berurutan, semua
+   bertahan menyala, memudar bersama, lalu mengulang. Hanya berjalan saat
+   section terlihat (.is-running dipasang/dilepas oleh TimelineReveal). */
 .tl-line-fill {
   transform: scaleX(0);
   transform-origin: left center;
 }
 
-.timeline.is-running .tl-line-fill {
-  transform: scaleX(1);
-  transition: transform 1800ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .tl-dot {
   background-color: var(--line);
   transform: scale(0.7);
-  box-shadow: 0 0 0 0 transparent;
+}
+
+.timeline.is-running .tl-line-fill {
+  animation: tlFill 5400ms linear infinite;
 }
 
 .timeline.is-running .tl-dot {
-  background-color: var(--ink);
-  transform: scale(1);
-  transition:
-    background-color 300ms ease calc(var(--tl-i) * 450ms),
-    transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--tl-i) * 450ms);
-  animation: tlPing 900ms ease-out calc(var(--tl-i) * 450ms) 1 both;
+  animation-duration: 5400ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-@keyframes tlPing {
-  0% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 45%, transparent);
-  }
-  100% {
-    box-shadow: 0 0 0 12px transparent;
-  }
+@keyframes tlFill {
+  0%   { transform: scaleX(0); opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  33.333% { transform: scaleX(1); opacity: 1; }
+  85%  { transform: scaleX(1); opacity: 1; }
+  96%  { transform: scaleX(1); opacity: 0; }
+  100% { transform: scaleX(0); opacity: 0; }
 }
+
+@keyframes tlDot0 {
+  0% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  0.0% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 45%, transparent); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  6.481% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ink) 20%, transparent); }
+  18.519% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 12px transparent; }
+  85% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+  96% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  100% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+}
+
+.timeline.is-running .tl-dot-0 { animation-name: tlDot0; }
+
+@keyframes tlDot1 {
+  0% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  8.323% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  8.333% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 45%, transparent); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  14.815% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ink) 20%, transparent); }
+  26.852% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 12px transparent; }
+  85% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+  96% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  100% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+}
+
+.timeline.is-running .tl-dot-1 { animation-name: tlDot1; }
+
+@keyframes tlDot2 {
+  0% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  16.657% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  16.667% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 45%, transparent); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  23.148% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ink) 20%, transparent); }
+  35.185% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 12px transparent; }
+  85% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+  96% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  100% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+}
+
+.timeline.is-running .tl-dot-2 { animation-name: tlDot2; }
+
+@keyframes tlDot3 {
+  0% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  24.99% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  25.0% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 45%, transparent); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  31.481% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ink) 20%, transparent); }
+  43.519% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 12px transparent; }
+  85% { background-color: var(--ink); transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+  96% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+  100% { background-color: var(--line); transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+}
+
+.timeline.is-running .tl-dot-3 { animation-name: tlDot3; }
 
 @media (prefers-reduced-motion: reduce) {
   .tl-line-fill {
@@ -368,7 +415,6 @@
 
   .timeline.is-running .tl-line-fill,
   .timeline.is-running .tl-dot {
-    transition: none;
     animation: none;
   }
 }

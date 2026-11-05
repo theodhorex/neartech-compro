@@ -61,8 +61,7 @@ export async function ApproachSection() {
                 <div className="relative pl-6 lg:pl-0 border-l lg:border-l-0 border-line lg:border-none">
                   {/* Titik jangkar timeline (motif blueprint) */}
                   <div
-                    className="tl-dot absolute -left-[5px] top-1 lg:static lg:mb-4 w-2.5 h-2.5 rounded-full border-2 border-bg bg-ink ring-2 ring-line"
-                    style={{ "--tl-i": idx } as React.CSSProperties}
+                    className={`tl-dot tl-dot-${idx} absolute -left-[5px] top-1 lg:static lg:mb-4 w-2.5 h-2.5 rounded-full border-2 border-bg bg-ink ring-2 ring-line`}
                     aria-hidden="true"
                   />
 
