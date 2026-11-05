@@ -186,6 +186,44 @@
         "services": [
           "Strategi",
           "Rekayasa"
+        ],
+        "summary": "Kami menyatukan data pelacakan armada yang tersebar ke satu platform koordinasi, sehingga tim operasional bisa menentukan rute dan jadwal berdasarkan kondisi terkini.",
+        "client": "Perusahaan distribusi nasional (nama dirahasiakan)",
+        "duration": "5 bulan",
+        "challengeDetail": "Armada dilacak lewat tiga sistem berbeda yang tidak saling terhubung. Dispatcher menyalin data secara manual dan baru tahu ada keterlambatan setelah pelanggan mengeluh, sehingga koordinasi pengiriman molor beberapa jam setiap hari.",
+        "solution": [
+          {
+            "title": "Pemetaan alur operasional",
+            "description": "Kami mengikuti kerja dispatcher selama dua pekan dan memetakan titik tempat informasi terputus."
+          },
+          {
+            "title": "Satu platform pelacakan",
+            "description": "Data dari ketiga sistem digabung ke satu peta langsung dengan peringatan keterlambatan otomatis."
+          },
+          {
+            "title": "Optimasi rute bertahap",
+            "description": "Saran rute dirilis per wilayah, diukur setiap minggu, lalu disempurnakan sebelum diperluas."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "38%",
+            "label": "efisiensi rute operasional harian"
+          },
+          {
+            "value": "< 15 menit",
+            "label": "waktu koordinasi per pengiriman, sebelumnya beberapa jam"
+          },
+          {
+            "value": "3 → 1",
+            "label": "sistem pelacakan yang harus dipantau"
+          }
+        ],
+        "stack": [
+          "Next.js",
+          "Node.js",
+          "PostgreSQL",
+          "Mapbox"
         ]
       },
       {
@@ -197,6 +235,44 @@
         "services": [
           "Produk",
           "Rekayasa"
+        ],
+        "summary": "Kami mendesain ulang antarmuka analitik portofolio agar ringkasan aset terbaca dalam hitungan detik dan halaman termuat cepat.",
+        "client": "Perusahaan teknologi finansial tahap pertumbuhan (nama dirahasiakan)",
+        "duration": "4 bulan",
+        "challengeDetail": "Dasbor lama menampilkan puluhan grafik sekaligus dan butuh beberapa detik untuk termuat. Pengguna baru sulit menjawab pertanyaan paling dasar: berapa total aset saya dan bagaimana perkembangannya.",
+        "solution": [
+          {
+            "title": "Riset dan penyederhanaan",
+            "description": "Kami mewawancarai pengguna dan hanya menyisakan metrik yang benar-benar dipakai untuk mengambil keputusan."
+          },
+          {
+            "title": "Antarmuka berlapis",
+            "description": "Ringkasan tampil di halaman utama, rincian muncul saat diminta, dan prototipe diuji bersama pengguna."
+          },
+          {
+            "title": "Performa sebagai fitur",
+            "description": "Data dimuat bertahap dan dihitung di sisi server sehingga halaman terasa instan."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "2.4x",
+            "label": "kenaikan retensi pengguna aktif"
+          },
+          {
+            "value": "< 1 dtk",
+            "label": "waktu muat ringkasan portofolio"
+          },
+          {
+            "value": "-60%",
+            "label": "jumlah elemen di halaman utama"
+          }
+        ],
+        "stack": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Redis"
         ]
       },
       {
@@ -208,9 +284,63 @@
         "services": [
           "Strategi",
           "Produk"
+        ],
+        "summary": "Kami mengotomatiskan verifikasi dokumen vendor dalam satu platform pengadaan, sehingga siklus yang tadinya berpekan-pekan selesai dalam beberapa hari.",
+        "client": "Produsen komponen industri (nama dirahasiakan)",
+        "duration": "6 bulan",
+        "challengeDetail": "Dokumen kepatuhan vendor dikirim lewat surel dan diperiksa satu per satu oleh tim. Satu siklus pengadaan bisa memakan dua pekan, dan status tiap vendor hanya terlihat di lembar kerja yang sering tidak sinkron.",
+        "solution": [
+          {
+            "title": "Aturan verifikasi",
+            "description": "Kami menerjemahkan daftar periksa kepatuhan menjadi aturan yang bisa dijalankan sistem."
+          },
+          {
+            "title": "Alur verifikasi otomatis",
+            "description": "Dokumen diunggah, dibaca, dan dicocokkan otomatis; hanya pengecualian yang diteruskan ke manusia."
+          },
+          {
+            "title": "Papan status vendor",
+            "description": "Tim pengadaan melihat posisi tiap vendor secara langsung, lengkap dengan jejak audit."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "70%",
+            "label": "penurunan waktu verifikasi berkas"
+          },
+          {
+            "value": "2 pekan → 4 hari",
+            "label": "durasi satu siklus pengadaan"
+          },
+          {
+            "value": "100%",
+            "label": "keputusan memiliki jejak audit"
+          }
+        ],
+        "stack": [
+          "Next.js",
+          "Python",
+          "PostgreSQL",
+          "S3"
         ]
       }
-    ]
+    ],
+    "detail": {
+      "back": "Kembali ke studi kasus",
+      "openCase": "Lihat detail studi kasus",
+      "overview": "Ringkasan",
+      "client": "Klien",
+      "duration": "Durasi",
+      "services": "Layanan",
+      "challenge": "Tantangan",
+      "solution": "Solusi kami",
+      "results": "Hasil",
+      "stack": "Teknologi",
+      "next": "Studi kasus berikutnya",
+      "ctaTitle": "Punya tantangan serupa?",
+      "ctaText": "Ceritakan masalah Anda, kami bantu petakan langkah pertamanya.",
+      "ctaButton": "Hubungi kami"
+    }
   },
   "whyUs": {
     "label": "KENAPA NEARTECH",

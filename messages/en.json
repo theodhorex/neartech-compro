@@ -186,6 +186,44 @@
         "services": [
           "Strategy",
           "Engineering"
+        ],
+        "summary": "We unified scattered fleet-tracking data into a single coordination platform so operations can plan routes and schedules from live conditions.",
+        "client": "National distribution company (name withheld)",
+        "duration": "5 months",
+        "challengeDetail": "The fleet was tracked through three disconnected systems. Dispatchers copied data by hand and only learned about delays after customers complained, so delivery coordination slipped by several hours every day.",
+        "solution": [
+          {
+            "title": "Mapping the operation",
+            "description": "We shadowed dispatchers for two weeks and mapped where information broke down."
+          },
+          {
+            "title": "One tracking platform",
+            "description": "Data from all three systems was merged into a single live map with automatic delay alerts."
+          },
+          {
+            "title": "Incremental route optimization",
+            "description": "Route suggestions shipped region by region, measured weekly, and refined before expanding."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "38%",
+            "label": "daily route operational efficiency"
+          },
+          {
+            "value": "< 15 min",
+            "label": "coordination time per delivery, down from hours"
+          },
+          {
+            "value": "3 → 1",
+            "label": "tracking systems to monitor"
+          }
+        ],
+        "stack": [
+          "Next.js",
+          "Node.js",
+          "PostgreSQL",
+          "Mapbox"
         ]
       },
       {
@@ -197,6 +235,44 @@
         "services": [
           "Product",
           "Engineering"
+        ],
+        "summary": "We redesigned the portfolio analytics interface so asset summaries read in seconds and pages load fast.",
+        "client": "Growth-stage fintech company (name withheld)",
+        "duration": "4 months",
+        "challengeDetail": "The old dashboard showed dozens of charts at once and took several seconds to load. New users struggled to answer the most basic questions: what are my total assets and how are they doing.",
+        "solution": [
+          {
+            "title": "Research and simplification",
+            "description": "We interviewed users and kept only the metrics actually used to make decisions."
+          },
+          {
+            "title": "A layered interface",
+            "description": "A summary on the main page, details on demand, with prototypes tested alongside users."
+          },
+          {
+            "title": "Performance as a feature",
+            "description": "Data loads progressively and is computed on the server so pages feel instant."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "2.4x",
+            "label": "active user retention increase"
+          },
+          {
+            "value": "< 1 s",
+            "label": "portfolio summary load time"
+          },
+          {
+            "value": "-60%",
+            "label": "elements on the main page"
+          }
+        ],
+        "stack": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Redis"
         ]
       },
       {
@@ -208,9 +284,63 @@
         "services": [
           "Strategy",
           "Product"
+        ],
+        "summary": "We automated vendor document verification in a single procurement platform, turning a multi-week cycle into a matter of days.",
+        "client": "Industrial components manufacturer (name withheld)",
+        "duration": "6 months",
+        "challengeDetail": "Vendor compliance documents arrived by email and were checked one by one by the team. A single procurement cycle could take two weeks, and vendor status lived in spreadsheets that were often out of sync.",
+        "solution": [
+          {
+            "title": "Verification rules",
+            "description": "We turned the compliance checklist into rules the system can execute."
+          },
+          {
+            "title": "Automated verification flow",
+            "description": "Documents are uploaded, read, and matched automatically; only exceptions go to a person."
+          },
+          {
+            "title": "Vendor status board",
+            "description": "The procurement team sees every vendor's position live, with a full audit trail."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "70%",
+            "label": "reduction in document verification time"
+          },
+          {
+            "value": "2 weeks → 4 days",
+            "label": "length of one procurement cycle"
+          },
+          {
+            "value": "100%",
+            "label": "of decisions with an audit trail"
+          }
+        ],
+        "stack": [
+          "Next.js",
+          "Python",
+          "PostgreSQL",
+          "S3"
         ]
       }
-    ]
+    ],
+    "detail": {
+      "back": "Back to case studies",
+      "openCase": "View case study details",
+      "overview": "Overview",
+      "client": "Client",
+      "duration": "Duration",
+      "services": "Services",
+      "challenge": "The challenge",
+      "solution": "Our solution",
+      "results": "Results",
+      "stack": "Technology",
+      "next": "Next case study",
+      "ctaTitle": "Facing a similar challenge?",
+      "ctaText": "Tell us what is going wrong and we will help map the first step.",
+      "ctaButton": "Get in touch"
+    }
   },
   "whyUs": {
     "label": "WHY NEARTECH",
