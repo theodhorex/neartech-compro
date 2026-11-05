@@ -1,6 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useSyncExternalStore, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Monitor } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -16,14 +17,64 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   );
   const { theme, setTheme } = useTheme();
 
-  const cycleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else if (theme === "dark") {
-      setTheme("system");
-    } else {
-      setTheme("light");
+  const cycleTheme = (event: MouseEvent<HTMLButtonElement>) => {
+    const next =
+      theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const nextResolved = next === "system" ? (prefersDark ? "dark" : "light") : next;
+    const currentResolved =
+      document.documentElement.getAttribute("data-theme") ?? "light";
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Tanpa dukungan View Transitions, gerak dikurangi, atau tampilan tidak
+    // berubah (mis. system -> light saat OS sudah terang): ganti langsung.
+    if (
+      !document.startViewTransition ||
+      reduceMotion ||
+      nextResolved === currentResolved
+    ) {
+      setTheme(next);
+      return;
     }
+
+    // Lingkaran mengembang dari titik tombol sampai menutupi sudut terjauh.
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = document.startViewTransition(() => {
+      // Atribut diatur langsung agar snapshot "baru" pasti sudah bertema baru,
+      // lalu state next-themes disinkronkan.
+      document.documentElement.setAttribute("data-theme", nextResolved);
+      document.documentElement.style.colorScheme = nextResolved;
+      flushSync(() => setTheme(next));
+    });
+
+    transition.ready
+      .then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${radius}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration: 650,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            pseudoElement: "::view-transition-new(root)",
+          }
+        );
+      })
+      .catch(() => {});
   };
 
   if (!mounted) {
